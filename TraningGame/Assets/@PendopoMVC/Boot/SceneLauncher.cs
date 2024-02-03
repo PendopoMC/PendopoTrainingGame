@@ -1,0 +1,25 @@
+﻿using Agate.MVC.Core;
+using Agate.MVC.Base;
+
+namespace Pendopo.TraningGame.Boot
+{
+    public abstract class SceneLauncher<TLauncher, TView> : BaseLauncher<TLauncher, TView>
+  where TLauncher : SceneLauncher<TLauncher, TView>
+  where TView : BaseSceneView
+    {
+        protected override ILoad GetLoader()
+        {
+            return SceneLoader.Instance;
+        }
+
+        protected override IMain GetMain()
+        {
+            return GameMain.Instance;
+        }
+
+        protected override ISplash GetSplash()
+        {
+            return SplashScreen.Instance;
+        }
+    }
+}
