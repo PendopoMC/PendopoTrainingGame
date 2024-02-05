@@ -1,14 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using Agate.MVC.Core;
 using Agate.MVC.Base;
 using Pendopo.TraningGame.Utils.Data;
 using Pendopo.TraningGame.Message;
 namespace Pendopo.TraningGame.Module.QueueSystem
 {
-    public class QueueSystemController : ObjectController<QueueSystemController,QueueSystemModel,IQueueSystemModel,QueueSystemView>
+    public class QueueSystemController : ObjectController<QueueSystemController, QueueSystemModel, IQueueSystemModel, QueueSystemView>
     {
 
         public override IEnumerator Initialize()
@@ -18,76 +16,48 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         public override void SetView(QueueSystemView view)
         {
             base.SetView(view);
+            InitQueue();
         }
 
-        public void OnApprove(OnAprrove _message)
+        public void StartGame(StartPlayMessage _emssage)
+        {
+            _model.currentCase = _model.Dequeue();
+            SetupGameplay();
+        } 
+        
+        public void Gameover(GameOverMessage _emssage)
         {
 
         }
 
-        public void OnDenied(OnDenied _message)
+        private void InitQueue()
         {
+            for (int i = 0; i < _view.baseCases.Length; i++)
+            {
+                _model.Enqueue(_view.baseCases[i]);
+            }
+        }
+
+        public void OnApprove(ApproveMessage _message)
+        {
+            _model.currentCase = _model.Dequeue();
+            SetupGameplay();
+            if (!_model.currentCase.finalAssesment) Debug.Log("You Approve something Wrong");
 
         }
 
-
-
-    }
-
-    public class QueueSystemConnector : BaseConnector
-    {
-        private QueueSystemController _queueSystem;
-        protected override void Connect()
+        public void OnDenied(DeniedMessage _message)
         {
-            Subscribe<OnAprrove>(_queueSystem.OnApprove);
-            Subscribe<OnDenied>(_queueSystem.OnDenied);
+            _model.currentCase = _model.Dequeue();
+            SetupGameplay();
+            if (_model.currentCase.finalAssesment) Debug.Log("You Denied something Right");
         }
 
-        protected override void Disconnect()
+        public void SetupGameplay()
         {
-            Unsubscribe<OnAprrove>(_queueSystem.OnApprove);
-            Unsubscribe<OnDenied>(_queueSystem.OnDenied);
+            //Update the view
+            //Update the controller
+            //Publish event
         }
-    }
-    public class QueueSystemModel : BaseModel, IQueueSystemModel
-    {
-        [SerializeField] private GameObject prefabs;
-        private Queue<BaseCase> casePool = new Queue<BaseCase>();
-
-        public void Enqueue(BaseCase _item)
-        {
-            casePool.Enqueue(_item);
-        }
-
-        public BaseCase Dequeue()
-        {
-            return casePool.Dequeue();
-        }
-    }
-
-
-    public class QueueSystemView : ObjectView<IQueueSystemModel>
-    {
-        private UnityAction _onMovePosition;
-        private UnityAction _onDespawnObstacle;
-
-        protected override void InitRenderModel(IQueueSystemModel model)
-        {
-        }
-
-        protected override void UpdateRenderModel(IQueueSystemModel model)
-        {
-        }
-        public void SetCallbacks(UnityAction onMovePosition, UnityAction onDespawnObstacle)
-        {
-            _onMovePosition = onMovePosition;
-            _onDespawnObstacle = onDespawnObstacle;
-        }
-
-    }
-
-    public interface IQueueSystemModel : IBaseModel
-    {
-
     }
 }
