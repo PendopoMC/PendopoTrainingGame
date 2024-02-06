@@ -1,29 +1,33 @@
 ﻿using System.Collections.Generic;
 using Agate.MVC.Base;
+using Pendopo.TraningGame.Module.Object;
 using Pendopo.TraningGame.Utils.Data;
+using UnityEngine;
+
 namespace Pendopo.TraningGame.Module.QueueSystem
 {
     public class QueueSystemModel : BaseModel, IQueueSystemModel
     {
-        public BaseCase currentCase;
-        private Queue<BaseCase> casePool = new Queue<BaseCase>();
-
+        private Queue<Case> casePool = new Queue<Case>();
         public int stepChecked { get; private set; }
 
+        public GameObjectController currentObject { get; private set; }
 
+        public Case currentCase { get; set; }
 
-        public void AddStep()
+        public Transform anchorPos { get; private set; }
+
+        public void SetCurrentObject(GameObjectController _go)
         {
-            stepChecked++;
+            currentObject = _go;
         }
-
-        public void Enqueue(BaseCase _item)
+        public void Enqueue(Case _item)
         {
             casePool.Enqueue(_item);
             SetDataAsDirty();
         }
 
-        public BaseCase Dequeue()
+        public Case Dequeue()
         {
             return casePool.Dequeue();
         }

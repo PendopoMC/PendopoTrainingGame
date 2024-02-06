@@ -7,5 +7,15 @@ namespace Pendopo.TraningGame.Module.Object
 {
     public class GameObjectController : ObjectController<GameObjectController,GameObjectModel,IGameObjectModel,GameObjectView>
     {
+        public override void SetView(GameObjectView view)
+        {
+            base.SetView(view);
+
+        }
+        public void Init(GameObjectModel model, GameObjectView view)
+        {
+            _model = model;
+            SetView(view);
+        }
     }
 }
