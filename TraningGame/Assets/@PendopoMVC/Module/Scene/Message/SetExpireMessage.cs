@@ -10,7 +10,15 @@ namespace Pendopo.TraningGame.Message
             this.expireMessage = expireMessage;
         }
     }
+    public struct SetMassMessage
+    {
+        public string massMessage { get; private set; }
 
+        public SetMassMessage(string massMessage)
+        {
+            this.massMessage = massMessage;
+        }
+    }
     public struct SetPackageMessage
     {
         public bool isBroken { get; private set; }

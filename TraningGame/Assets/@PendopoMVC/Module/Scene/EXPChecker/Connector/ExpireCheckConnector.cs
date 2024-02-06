@@ -1,4 +1,6 @@
 ﻿using Agate.MVC.Base;
+using Pendopo.TraningGame.Message;
+using Pendopo.TraningGame.Utils.Data;
 namespace Pendopo.TraningGame.Module.ExpireCheck
 {
     public class ExpireCheckConnector : BaseConnector
@@ -6,12 +8,12 @@ namespace Pendopo.TraningGame.Module.ExpireCheck
         ExpireCheckController _controller;
         protected override void Connect()
         {
-            throw new System.NotImplementedException();
+            Subscribe<SetExpireMessage>(_controller.OnEXPMessage);
         }
 
         protected override void Disconnect()
         {
-            throw new System.NotImplementedException();
+            Unsubscribe<SetExpireMessage>(_controller.OnEXPMessage);
         }
     }
 

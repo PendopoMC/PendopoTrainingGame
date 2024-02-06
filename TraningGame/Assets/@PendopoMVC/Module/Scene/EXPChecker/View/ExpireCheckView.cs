@@ -1,16 +1,17 @@
 ﻿using Agate.MVC.Base;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 namespace Pendopo.TraningGame.Module.ExpireCheck
 {
-    public class ExpireCheckView : ObjectView<IExpireCheckModel>
+    public class ExpireCheckView : BaseView
     {
-        protected override void InitRenderModel(IExpireCheckModel model)
-        {
-            throw new System.NotImplementedException();
-        }
+        [SerializeField] private TextMeshProUGUI t_exp;
 
-        protected override void UpdateRenderModel(IExpireCheckModel model)
+
+        public void SetExp(string _xp)
         {
-            throw new System.NotImplementedException();
+            t_exp.text = _xp;
         }
     }
 
