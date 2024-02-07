@@ -42,6 +42,10 @@ namespace Pendopo.TraningGame.Scene.Gameplay
 
         protected override IEnumerator InitSceneObject()
         {
+            expireCheck.SetView(_view.expireCheck);
+            massCheck.SetView(_view.massCheck);
+            queueSystem.SetView(_view.queueSystem);
+            ingredientCheck.SetView(_view.ingredientCheck);
             yield return null;
         }
 

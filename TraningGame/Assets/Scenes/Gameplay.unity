@@ -496,6 +496,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847df74b833eb9b4aada5679f685c9a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expireCheck: {fileID: 1925568567}
+  ingredientCheck: {fileID: 1925568568}
+  massCheck: {fileID: 1925568569}
+  queueSystem: {fileID: 1379292976}
 --- !u!4 &273547652
 Transform:
   m_ObjectHideFlags: 0
@@ -802,7 +806,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -80, y: -43.2719}
+  m_AnchoredPosition: {x: -80, y: -43.27185}
   m_SizeDelta: {x: 160, y: 86.5437}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &545749120
