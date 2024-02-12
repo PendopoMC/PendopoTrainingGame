@@ -3,6 +3,7 @@ using Pendopo.TraningGame.Module.ExpireCheck;
 using Pendopo.TraningGame.Module.IngredientCheck;
 using Pendopo.TraningGame.Module.MassCheck;
 using Pendopo.TraningGame.Module.QueueSystem;
+using Pendopo.TraningGame.Module.ApproveDeny;
 
 namespace Pendopo.TraningGame.Scene.Gameplay
 {
@@ -12,5 +13,6 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         public IngredientCheckView ingredientCheck;
         public MassCheckView massCheck;
         public QueueSystemView queueSystem;
+        public ApproveDenyView approveDeny;
     }
 }

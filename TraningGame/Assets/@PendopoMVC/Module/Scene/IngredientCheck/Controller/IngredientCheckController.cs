@@ -22,7 +22,7 @@ namespace Pendopo.TraningGame.Module.IngredientCheck
 
         public void OnIngredientMessage(SetIngredientMessage _mseesage)
         {
-            _view.SetIngredient($"Ingredients : {_mseesage}");
+            _view.SetIngredient($"Ingredients : {_mseesage.ingredientMessage}");
         }
     }
 }

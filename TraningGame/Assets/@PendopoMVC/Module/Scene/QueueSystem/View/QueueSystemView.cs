@@ -3,16 +3,18 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 using Pendopo.TraningGame.Module.Object;
+using Agate.MVC.Core;
 using Agate.MVC.Base;
 using Pendopo.TraningGame.Utils.Data;
+using NaughtyAttributes;
 namespace Pendopo.TraningGame.Module.QueueSystem
 {
     public class QueueSystemView : ObjectView<IQueueSystemModel>
     {
+        public Transform anchor;
+        public SO_CaseColleciton cases;
         public Case currentCase;
-        public Case[] baseCases;
-        public List< PrefabReference> prefabReferences = new List<PrefabReference>();
-
+        private UnityAction onTry;
         protected override void InitRenderModel(IQueueSystemModel model)
         {
         }
@@ -22,16 +24,21 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         }
         public GameObjectView ObjectView(string _prefabName)
         {
-            GameObjectView _obj = Instantiate(prefabReferences.Find(x => x.prefabName == _prefabName).prefab,transform);
+            GameObjectView _obj = Instantiate(Resources.Load(_prefabName,typeof(GameObjectView)) as GameObjectView, transform);
             _obj.name = _prefabName;
             return _obj;
+        }
+
+        public void SetCallback(UnityAction _try)
+        {
+            onTry = _try;
+        }
+
+        public void RemovingPreviousObject(GameObject _go)
+        {
+            Destroy(_go);
         }
     }
 
 
-    public struct PrefabReference
-    {
-        public string prefabName;
-        public GameObjectView prefab;
-    }
 }

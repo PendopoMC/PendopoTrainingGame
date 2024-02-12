@@ -13,7 +13,7 @@ namespace Pendopo.TraningGame.Module.MassCheck
     {
         public void OnMassCheckMessage(SetMassMessage _message)
         {
-            _view.SetMass($"Mass : {_message}");
+            _view.SetMass($"Mass : {_message.massMessage}");
         }
     }
 }

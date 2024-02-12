@@ -1,11 +1,11 @@
 ﻿
 namespace Pendopo.TraningGame.Message
 {
-    public struct CheckExpireMessage 
+    public struct CheckMassMessage
     {
         private bool active;
 
-        public CheckExpireMessage(bool active)
+        public CheckMassMessage(bool active)
         {
             this.active = active;
         }

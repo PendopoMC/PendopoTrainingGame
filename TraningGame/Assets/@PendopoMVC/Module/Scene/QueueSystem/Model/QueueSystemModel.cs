@@ -17,9 +17,21 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 
         public Transform anchorPos { get; private set; }
 
-        public void SetCurrentObject(GameObjectController _go)
+        public GameObject currentGameObject { get; private set; }
+
+        public Queue<Case> CasePool { get => casePool; }
+
+        public void SetCurrentObject(GameObjectController _goC,GameObject _go)
         {
-            currentObject = _go;
+            
+            currentObject = _goC;
+            currentGameObject = _go;
+        }
+
+
+        public void SetAnchor(Transform _anchor)
+        {
+            anchorPos = _anchor;
         }
         public void Enqueue(Case _item)
         {
@@ -31,6 +43,5 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         {
             return casePool.Dequeue();
         }
-
     }
 }

@@ -22,7 +22,7 @@ namespace Pendopo.TraningGame.Module.ExpireCheck
 
         public void OnEXPMessage(SetExpireMessage _expMessage)
         {
-            _view.SetExp($"EXP {_expMessage}");
+            _view.SetExp($"EXP {_expMessage.expireMessage}");
         }
     }
 

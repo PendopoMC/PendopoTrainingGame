@@ -1,27 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Events;
 
 namespace Pendopo.TraningGame.Utils.Data
 {
+    [System.Serializable]
     public class Case
     {
         public CaseType type;
         public ObjectData objectData;
-        public CaseData caseData;
+        public ObjectData caseData;
         public bool finalAssesment;
     }
 
+    [System.Serializable]
     public struct ObjectData
-    {
-        public string prefabObject;
-        public string expire;
-        public string ingredients;
-        public string mass;
-        public bool damaged;
-    }
-    public struct CaseData
     {
         public string prefabObject;
         public string expire;

@@ -2,7 +2,8 @@
 using Pendopo.TraningGame.Module.Object;
 using Pendopo.TraningGame.Utils.Data;
 using UnityEngine;
-
+using System.Collections;
+using System.Collections.Generic;
 namespace Pendopo.TraningGame.Module.QueueSystem
 {
     public interface IQueueSystemModel : IBaseModel
@@ -11,5 +12,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         public Case currentCase { get; }
         public int stepChecked { get; }
         public Transform anchorPos { get; }
+        public Queue<Case> CasePool { get; }
+        public GameObject currentGameObject { get; }
     }
 }

@@ -8,6 +8,7 @@ using Pendopo.TraningGame.Module.ExpireCheck;
 using Pendopo.TraningGame.Module.IngredientCheck;
 using Pendopo.TraningGame.Module.MassCheck;
 using Pendopo.TraningGame.Module.QueueSystem;
+using Pendopo.TraningGame.Module.ApproveDeny;
 
 namespace Pendopo.TraningGame.Scene.Gameplay
 {
@@ -17,6 +18,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         MassCheckController massCheck;
         QueueSystemController queueSystem;
         IngredientCheckController ingredientCheck;
+        ApproveDenyController approveDeny;
         public override string SceneName { get { return GameScene.GamePlay; } }
 
         protected override IConnector[] GetSceneConnectors()
@@ -35,8 +37,9 @@ namespace Pendopo.TraningGame.Scene.Gameplay
             return new IController[] {
                     new ExpireCheckController(),
                 new MassCheckController(),
-                new QueueSystemController(),
-                new IngredientCheckController()
+                new IngredientCheckController(),
+                new ApproveDenyController(),
+                new QueueSystemController()
             };
         }
 
@@ -44,8 +47,9 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         {
             expireCheck.SetView(_view.expireCheck);
             massCheck.SetView(_view.massCheck);
-            queueSystem.SetView(_view.queueSystem);
             ingredientCheck.SetView(_view.ingredientCheck);
+            approveDeny.SetView(_view.approveDeny);
+            queueSystem.SetView(_view.queueSystem);
             yield return null;
         }
 

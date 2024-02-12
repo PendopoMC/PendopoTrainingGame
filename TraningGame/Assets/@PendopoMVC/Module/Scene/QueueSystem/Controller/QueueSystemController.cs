@@ -9,50 +9,54 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 {
     public class QueueSystemController : ObjectController<QueueSystemController, QueueSystemModel, IQueueSystemModel, QueueSystemView>
     {
-
-        public override IEnumerator Initialize()
+        public override IEnumerator Finalize()
         {
-            return base.Initialize();
+            return base.Finalize();
         }
         public override void SetView(QueueSystemView view)
         {
             base.SetView(view);
+            _model.SetAnchor(_view.anchor);
+            _view.SetCallback(delegate { Publish<StartPlayMessage>(new StartPlayMessage()); });
             InitQueue();
         }
 
         public void StartGame(StartPlayMessage _emssage)
         {
             SetupGameplay();
-        } 
-        
+        }
+
         public void Gameover(GameOverMessage _emssage)
         {
-
         }
 
         private void InitQueue()
         {
-            for (int i = 0; i < _view.baseCases.Length; i++)
+            for (int i = 0; i < _view.cases.cases.Length; i++)
             {
-                _model.Enqueue(_view.baseCases[i]);
+                Case _case = new Case { caseData = _view.cases.cases[i].caseData, finalAssesment = _view.cases.cases[i].finalAssesment, objectData = _view.cases.cases[i].objectData, type = _view.cases.cases[i].type };
+                _model.Enqueue(_case);
             }
+            SetupGameplay();
         }
 
         public void OnApprove(ApproveMessage _message)
         {
+            Debug.Log(!_model.currentCase.finalAssesment ? "You Approve something Wrong" : "You Approve right");
             SetupGameplay();
-            if (!_model.currentCase.finalAssesment) Debug.Log("You Approve something Wrong");
 
         }
 
         public void OnDenied(DeniedMessage _message)
         {
+            Debug.Log(_model.currentCase.finalAssesment ? "You Denied something Right" : "You Deny right");
             SetupGameplay();
-            if (_model.currentCase.finalAssesment) Debug.Log("You Denied something Right");
         }
 
         public void SetupGameplay()
         {
+            if (_model.currentGameObject) _view.RemovingPreviousObject(_model.currentGameObject);
+            if (_model.CasePool.Count < 1) return;
             //Update the Model
             _model.currentCase = _model.Dequeue();
             _view.currentCase = _model.currentCase;
@@ -68,7 +72,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             GameObjectController _goC = new GameObjectController();
             InjectDependencies(_goC);
             _goC.Init(_objModel, _objView);
-            _model.SetCurrentObject(_goC);
+            _model.SetCurrentObject(_goC, _objView.gameObject);
 
             //Publish event
             //Set Expire date to check
@@ -77,6 +81,8 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             Publish<SetPackageMessage>(new SetPackageMessage(_model.currentCase.caseData.damaged));
             //Set ingredient to check
             Publish<SetIngredientMessage>(new SetIngredientMessage(_model.currentCase.caseData.ingredients));
+            //Set Mass to check
+            Publish<SetMassMessage>(new SetMassMessage(_model.currentCase.caseData.mass));
         }
     }
 }
