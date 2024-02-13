@@ -14,19 +14,19 @@ namespace Pendopo.TraningGame.Scene.Gameplay
 {
     public class GameplayLauncher : SceneLauncher<GameplayLauncher, GameplayView>
     {
-        ExpireCheckController expireCheck;
-        MassCheckController massCheck;
+        GUI_ExpireCheckController expireCheck;
+        GUI_MassCheckController massCheck;
         QueueSystemController queueSystem;
-        IngredientCheckController ingredientCheck;
+        GUI_IngredientCheckController ingredientCheck;
         ApproveDenyController approveDeny;
         public override string SceneName { get { return GameScene.GamePlay; } }
 
         protected override IConnector[] GetSceneConnectors()
         {
             return new IConnector[] {
-                new ExpireCheckConnector(),
-                new IngredientCheckConnector(),
-                new MassCheckConnector(),
+                new GUI_ExpireCheckConnector(),
+                new GUI_IngredientCheckConnector(),
+                new GUI_MassCheckConnector(),
                 new QueueSystemConnector()
 
             };
@@ -35,9 +35,9 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         protected override IController[] GetSceneDependencies()
         {
             return new IController[] {
-                    new ExpireCheckController(),
-                new MassCheckController(),
-                new IngredientCheckController(),
+                    new GUI_ExpireCheckController(),
+                new GUI_MassCheckController(),
+                new GUI_IngredientCheckController(),
                 new ApproveDenyController(),
                 new QueueSystemController()
             };

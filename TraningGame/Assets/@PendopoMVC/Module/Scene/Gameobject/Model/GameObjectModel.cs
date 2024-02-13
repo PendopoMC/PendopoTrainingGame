@@ -23,9 +23,7 @@ namespace Pendopo.TraningGame.Module.Object
             prefabObject = _data.prefabObject;
             ingredients = _data.ingredients;
             mass = _data.mass;
-            damaged = _data.damaged;
         }
-
 
         public string expire { get; private set; }
 
@@ -38,5 +36,14 @@ namespace Pendopo.TraningGame.Module.Object
         public string mass { get; private set; }
 
         public bool damaged { get; private set; }
+
+        public string color { get; private set; }
+        public string productName { get; private set; }
+
+        public string productionCode { get; private set; }
+
+        public string barCode { get; private set; }
+
+        public string QRCode { get; private set; }
     }
 }

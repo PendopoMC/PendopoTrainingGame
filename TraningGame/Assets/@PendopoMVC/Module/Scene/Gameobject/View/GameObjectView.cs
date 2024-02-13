@@ -17,7 +17,7 @@ namespace Pendopo.TraningGame.Module.Object
             expire.text = model.expire;
             mass.text = model.mass;
             ingredient.text = model.ingredients;
-            isDamaged = model.damaged;
+            
         }
 
         protected override void UpdateRenderModel(IGameObjectModel model)
@@ -25,12 +25,12 @@ namespace Pendopo.TraningGame.Module.Object
             expire.text = model.expire;
             mass.text = model.mass;
             ingredient.text = model.ingredients;
-            isDamaged = model.damaged;
         }
 
         public void DestroyObject()
         {
             Destroy(gameObject);
         }
+
     }
 }

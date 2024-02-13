@@ -77,8 +77,6 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             //Publish event
             //Set Expire date to check
             Publish<SetExpireMessage>(new SetExpireMessage(_model.currentCase.caseData.expire));
-            //Set Damaged case to check
-            Publish<SetPackageMessage>(new SetPackageMessage(_model.currentCase.caseData.damaged));
             //Set ingredient to check
             Publish<SetIngredientMessage>(new SetIngredientMessage(_model.currentCase.caseData.ingredients));
             //Set Mass to check
