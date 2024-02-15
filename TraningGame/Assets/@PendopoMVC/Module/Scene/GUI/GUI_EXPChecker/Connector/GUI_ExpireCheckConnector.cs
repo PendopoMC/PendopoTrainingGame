@@ -9,11 +9,13 @@ namespace Pendopo.TraningGame.Module.ExpireCheck
         protected override void Connect()
         {
             Subscribe<SetExpireMessage>(_controller.OnEXPMessage);
+            Subscribe<PointClick_EXPMessage>(_controller.OnOpenEXP);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<SetExpireMessage>(_controller.OnEXPMessage);
+            Unsubscribe<PointClick_EXPMessage>(_controller.OnOpenEXP);
         }
     }
 

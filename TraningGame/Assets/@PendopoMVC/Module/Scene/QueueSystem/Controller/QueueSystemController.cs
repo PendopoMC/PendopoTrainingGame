@@ -67,7 +67,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 
             //Instantiate Queue
             GameObjectModel _objModel = new GameObjectModel(_model.currentCase.objectData);
-            GameObjectView _objView = _view.ObjectView(_objModel.prefabObject);
+            GameObjectView _objView = _view.ObjectView(_objModel.data.prefabObject);
             _objView.transform.position = _model.anchorPos.position;
             GameObjectController _goC = new GameObjectController();
             InjectDependencies(_goC);

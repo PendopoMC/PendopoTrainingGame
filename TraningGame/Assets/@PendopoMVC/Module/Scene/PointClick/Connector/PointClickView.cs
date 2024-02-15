@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine.Events;
 using Agate.MVC.Base;
 using Pendopo.TraningGame.Utils.Data;
@@ -7,23 +9,35 @@ namespace Pendopo.TraningGame.Module.PointClick
 {
     public class PointClickView : ObjectView<IPointClickModel>
     {
-        public CheckType checkType;
-        [SerializeField] private string data;
-        [SerializeField] private string dataToCheck;
-        private bool isPackage { get => checkType == CheckType.Package; }
-        [ShowIf("isPackage")] [SerializeField] private GameObject prefabPackage;
 
         private UnityAction onClicked;
-
-        public string Data { get => data; private set => data = value; }
-        public string DataToCheck { get => dataToCheck; private set => dataToCheck = value; }
-
+        public CheckType checkType;
+        private bool isSpriteType { get => checkType == CheckType.Bar_Code || checkType == CheckType.QR_Code; }
+        [SerializeField][ShowIf("isSpriteType")] internal Image imageCheck;
+        [SerializeField] [HideIf("isSpriteType")] internal TextMeshProUGUI textCheck;
+        
         protected override void InitRenderModel(IPointClickModel model)
         {
+            if (isSpriteType)
+            {
+                imageCheck.sprite = Resources.Load<Sprite>($"Sprite/{model.data}");
+            }
+            else
+            {
+                textCheck.text = model.data;
+            }
         }
 
         protected override void UpdateRenderModel(IPointClickModel model)
         {
+            if (isSpriteType)
+            {
+                imageCheck.sprite = Resources.Load<Sprite>($"Sprite/{model.data}");
+            }
+            else
+            {
+                textCheck.text = model.data;
+            }
         }
 
         public void SetCallback(UnityAction _clicked)

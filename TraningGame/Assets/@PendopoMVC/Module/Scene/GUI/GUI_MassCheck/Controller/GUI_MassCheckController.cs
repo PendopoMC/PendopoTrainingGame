@@ -15,5 +15,9 @@ namespace Pendopo.TraningGame.Module.MassCheck
         {
             _view.SetMass($"Mass : {_message.massMessage}");
         }
+        public void OnOpenGUI(PointClick_MassMessage _xp)
+        {
+            _view.SetActive();
+        }
     }
 }

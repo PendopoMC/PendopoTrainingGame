@@ -14,5 +14,10 @@ namespace Pendopo.TraningGame.Module.IngredientCheck
         {
             _view.SetIngredient($"Ingredients : {_mseesage.ingredientMessage}");
         }
+        public void OnOpenGUI(PointClick_IngredientMessage _xp)
+        {
+            UnityEngine.Debug.Log("Active");
+            _view.SetActive();
+        }
     }
 }

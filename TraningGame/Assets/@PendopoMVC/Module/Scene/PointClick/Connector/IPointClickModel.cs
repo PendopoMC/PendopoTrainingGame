@@ -15,5 +15,7 @@ namespace Pendopo.TraningGame.Module.PointClick
         public PointClick_ProductNameMessage pointClick_ProductNameMessage  { get; }
         public PointClick_ProductionCodeMessage pointClick_ProductionCodeMessage { get; }
         public PointClick_PackageMessage pointClick_PackageMessage { get; }
+        
+        public string data { get; }
     }
 }

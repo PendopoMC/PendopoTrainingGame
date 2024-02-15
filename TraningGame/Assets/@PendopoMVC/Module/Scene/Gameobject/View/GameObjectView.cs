@@ -3,28 +3,21 @@ using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Pendopo.TraningGame.Utils.Data;
+using Pendopo.TraningGame.Module.PointClick;
 namespace Pendopo.TraningGame.Module.Object
 {
     public class GameObjectView : ObjectView<IGameObjectModel>
     {
-        [SerializeField] private TextMeshProUGUI expire;
-        [SerializeField] private TextMeshProUGUI mass;
-        [SerializeField] private TextMeshProUGUI ingredient;
-        [SerializeField] private bool isDamaged;
-
+        public PointClickView[] pointClickViews;
+        public ObjectData data;
         protected override void InitRenderModel(IGameObjectModel model)
         {
-            expire.text = model.expire;
-            mass.text = model.mass;
-            ingredient.text = model.ingredients;
-            
+           
         }
 
         protected override void UpdateRenderModel(IGameObjectModel model)
-        {
-            expire.text = model.expire;
-            mass.text = model.mass;
-            ingredient.text = model.ingredients;
+        { 
         }
 
         public void DestroyObject()

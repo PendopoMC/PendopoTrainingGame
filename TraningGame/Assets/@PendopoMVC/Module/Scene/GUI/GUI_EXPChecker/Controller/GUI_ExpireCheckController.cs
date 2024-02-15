@@ -13,6 +13,11 @@ namespace Pendopo.TraningGame.Module.ExpireCheck
         {
             _view.SetExp($"EXP {_expMessage.expireMessage}");
         }
+
+        public void OnOpenEXP(PointClick_EXPMessage _xp)
+        {
+            _view.SetActive();
+        }
     }
 
 }

@@ -5,6 +5,11 @@ namespace Pendopo.TraningGame.Module.PointClick
 {
     public class PointClickModel : BaseModel, IPointClickModel
     {
+        public PointClickModel()
+        {
+            InitializeStructMessage();
+        }
+
         public CheckType checkType { get; private set; }
 
         public PointClick_EXPMessage pointClick_EXPMessage { get; private set; }
@@ -24,9 +29,16 @@ namespace Pendopo.TraningGame.Module.PointClick
 
         public PointClick_PackageMessage pointClick_PackageMessage { get; private set; }
 
+        public string data { get; private set; }
+
         public void SetCase(CheckType _case)
         {
             checkType = _case;
+        }
+
+        public void SetData(string _data)
+        {
+            data = _data;
         }
 
         public void InitializeStructMessage()
