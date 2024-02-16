@@ -8,6 +8,8 @@ namespace Pendopo.TraningGame.Module.ExpireCheck
     {
         [SerializeField] private TextMeshProUGUI t_exp;
         [SerializeField] private GameObject hud;
+        [SerializeField] private Vector2 onPosition;
+        [SerializeField] private Vector2 offPosition;
 
         public void SetExp(string _xp)
         {
@@ -16,6 +18,10 @@ namespace Pendopo.TraningGame.Module.ExpireCheck
         public void SetActive()
         {
             hud.SetActive(!hud.activeInHierarchy);
+        }
+        public void SetActive(bool _flag)
+        {
+            hud.SetActive(_flag);
         }
     }
 

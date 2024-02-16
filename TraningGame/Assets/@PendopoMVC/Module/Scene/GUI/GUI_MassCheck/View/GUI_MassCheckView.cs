@@ -8,6 +8,8 @@ namespace Pendopo.TraningGame.Module.MassCheck
     {
         [SerializeField] private TextMeshProUGUI t_mass;
         [SerializeField] private GameObject hud;
+        [SerializeField] private Vector2 onPosition;
+        [SerializeField] private Vector2 offPosition;
 
         public void SetMass(string _message)
         {
@@ -16,6 +18,10 @@ namespace Pendopo.TraningGame.Module.MassCheck
         public void SetActive()
         {
             hud.SetActive(!hud.activeInHierarchy);
+        }
+        public void SetActive(bool _flag)
+        {
+            hud.SetActive(_flag);
         }
     }
 }

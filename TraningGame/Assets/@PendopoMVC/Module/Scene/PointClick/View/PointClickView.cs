@@ -12,7 +12,7 @@ namespace Pendopo.TraningGame.Module.PointClick
 
         private UnityAction onClicked;
         public CheckType checkType;
-        private bool isSpriteType { get => checkType == CheckType.Bar_Code || checkType == CheckType.QR_Code; }
+        public bool isSpriteType { get => checkType == CheckType.Bar_Code || checkType == CheckType.QR_Code; }
         [SerializeField][ShowIf("isSpriteType")] internal Image imageCheck;
         [SerializeField] [HideIf("isSpriteType")] internal TextMeshProUGUI textCheck;
         

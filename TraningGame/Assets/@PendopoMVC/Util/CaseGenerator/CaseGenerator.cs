@@ -17,7 +17,7 @@ namespace Pendopo.TraningGame.Utils.CaseGenerator
         public bool checkBarCode;
         [ShowIf("checkBarCode")] [SerializeField] private Sprite barCode;
         [ShowIf("checkBarCode")] [SerializeField] private Sprite barCodeCheck;
-        
+
         public bool checkQRCode;
         [ShowIf("checkQRCode")] [SerializeField] private Sprite qrCode;
         [ShowIf("checkQRCode")] [SerializeField] private Sprite qrCodeCheck;
@@ -29,7 +29,7 @@ namespace Pendopo.TraningGame.Utils.CaseGenerator
         public bool checkMass;
         [ShowIf("checkMass")] [SerializeField] private string mass;
         [ShowIf("checkMass")] [SerializeField] private string massToCheck;
-  
+
         public bool checkIngredient;
         [ShowIf("checkIngredient")] [SerializeField] private string ingredient;
         [ShowIf("checkIngredient")] [SerializeField] private string ingredientToCheck;
@@ -41,14 +41,39 @@ namespace Pendopo.TraningGame.Utils.CaseGenerator
         public bool checkProductName;
         [ShowIf("checkProductName")] [SerializeField] private string productName;
         [ShowIf("checkProductName")] [SerializeField] private string productNameToCheck;
-  
+
 
         [Button("Generate Case")]
         private void GenerateCase()
         {
             Case _newCase = new Case();
-          
+            _newCase.objectData = new ObjectData
+            {
+                barCode = barCode.name,
+                color = "",
+                expire = exp,
+                ingredients = ingredient,
+                mass = mass,
+                prefabObject = prefabPackage.name,
+                productionCode = productionCode,
+                productName = productName,
+                QRCode = qrCode.name
+            };
+            _newCase.caseData = new ObjectData
+            {
+                barCode = barCodeCheck.name,
+                color = "",
+                expire = expToCheck,
+                ingredients = ingredientToCheck,
+                mass = massToCheck,
+                prefabObject = spriteCheck.name,
+                productionCode = productionCodeToCheck,
+                productName = productNameToCheck,
+                QRCode = qrCodeCheck.name
+            };
+            
             generatedCases.Add(_newCase);
         }
     }
+
 }

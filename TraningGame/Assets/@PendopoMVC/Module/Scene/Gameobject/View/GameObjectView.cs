@@ -10,7 +10,6 @@ namespace Pendopo.TraningGame.Module.Object
     public class GameObjectView : ObjectView<IGameObjectModel>
     {
         public PointClickView[] pointClickViews;
-        public ObjectData data;
         protected override void InitRenderModel(IGameObjectModel model)
         {
            

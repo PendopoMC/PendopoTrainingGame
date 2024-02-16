@@ -5,6 +5,7 @@ using Agate.MVC.Base;
 using Agate.MVC.Core;
 using Pendopo.TraningGame.Module.PointClick;
 using Pendopo.TraningGame.Utils.Data;
+using DG.Tweening;
 namespace Pendopo.TraningGame.Module.Object
 {
     public class GameObjectController : ObjectController<GameObjectController,GameObjectModel,IGameObjectModel,GameObjectView>
@@ -14,7 +15,6 @@ namespace Pendopo.TraningGame.Module.Object
             _model = model;
             ObjectData _data = _model.data;
             SetView(view);
-            view.data = _data;
             for (int i = 0; i < view.pointClickViews.Length; i++)
             {
                 PointClickController _pcC = new PointClickController();
@@ -54,5 +54,6 @@ namespace Pendopo.TraningGame.Module.Object
                 }
             }
         }
+
     }
 }

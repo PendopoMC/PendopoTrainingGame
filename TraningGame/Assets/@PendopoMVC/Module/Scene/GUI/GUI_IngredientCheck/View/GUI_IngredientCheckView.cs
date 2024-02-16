@@ -7,6 +7,8 @@ namespace Pendopo.TraningGame.Module.IngredientCheck
     {
         [SerializeField] private TextMeshProUGUI t_ingredient;
         [SerializeField] private GameObject hud;
+        [SerializeField] private Vector2 onPosition;
+        [SerializeField] private Vector2 offPosition;
         public void SetIngredient(string _ingredient)
         {
             t_ingredient.text = _ingredient;
@@ -15,6 +17,10 @@ namespace Pendopo.TraningGame.Module.IngredientCheck
         public void SetActive()
         {
             hud.SetActive(!hud.activeInHierarchy);
+        }  
+        public void SetActive(bool _flag)
+        {
+            hud.SetActive(_flag);
         }
     }
 }

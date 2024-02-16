@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using UnityEngine;
 
 namespace Pendopo.TraningGame.Utils.Data
 {
@@ -44,5 +46,16 @@ namespace Pendopo.TraningGame.Utils.Data
         Bar_Code,
         QR_Code,
         Product_Name
+    }
+
+
+    public struct CheckCaseNonText
+    {
+        public Sprite spriteToCheck;
+    }
+
+    public struct CheckCaseText
+    {
+        public string textToCheck;
     }
 }
