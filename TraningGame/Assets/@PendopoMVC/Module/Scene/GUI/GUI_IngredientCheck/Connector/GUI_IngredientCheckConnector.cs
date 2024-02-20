@@ -8,13 +8,13 @@ namespace Pendopo.TraningGame.Module.IngredientCheck
         protected override void Connect()
         {
             Subscribe<SetIngredientMessage>(_control.OnIngredientMessage);
-            Subscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
+            //Subscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<SetIngredientMessage>(_control.OnIngredientMessage);
-            Unsubscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
+            //Unsubscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
         }
     }
 }

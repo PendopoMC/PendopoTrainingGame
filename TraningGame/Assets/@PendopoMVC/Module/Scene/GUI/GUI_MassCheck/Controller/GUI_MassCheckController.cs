@@ -11,14 +11,25 @@ namespace Pendopo.TraningGame.Module.MassCheck
 
     public class GUI_MassCheckController : ObjectController<GUI_MassCheckController,GUI_MassCheckView>
     {
+        public override void SetView(GUI_MassCheckView view)
+        {
+            base.SetView(view);
+            SetCallBack();
+        }
+
         public void OnMassCheckMessage(SetMassMessage _message)
         {
-            _view.SetActive(false);
             _view.SetMass($"Mass : {_message.massMessage}");
         }
-        public void OnOpenGUI(PointClick_MassMessage _xp)
+        private void SetCallBack()
         {
-            _view.SetActive();
+            _view.publishMessage += PublishMessage;
+        }
+
+        private void PublishMessage()
+        {
+            CheckCaseText checkCaseText = new CheckCaseText { textToCheck = _view.t_mass.text };
+            Publish<CheckCaseText>(checkCaseText);
         }
     }
 }

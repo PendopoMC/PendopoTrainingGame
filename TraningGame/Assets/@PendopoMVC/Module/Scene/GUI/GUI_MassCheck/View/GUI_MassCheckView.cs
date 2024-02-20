@@ -1,27 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using Agate.MVC.Base;
+using NaughtyAttributes;
 
 namespace Pendopo.TraningGame.Module.MassCheck
 {
-    public class GUI_MassCheckView :BaseView
+    public class GUI_MassCheckView : GUI_BaseView
     {
-        [SerializeField] private TextMeshProUGUI t_mass;
-        [SerializeField] private GameObject hud;
-        [SerializeField] private Vector2 onPosition;
-        [SerializeField] private Vector2 offPosition;
+        public TextMeshProUGUI t_mass;
 
         public void SetMass(string _message)
         {
             t_mass.text = _message;
-        }
-        public void SetActive()
-        {
-            hud.SetActive(!hud.activeInHierarchy);
-        }
-        public void SetActive(bool _flag)
-        {
-            hud.SetActive(_flag);
         }
     }
 }

@@ -1,26 +1,21 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 using Agate.MVC.Base;
 using TMPro;
+using NaughtyAttributes;
 namespace Pendopo.TraningGame.Module.IngredientCheck
 {
-    public class GUI_IngredientCheckView : BaseView
+    public class GUI_IngredientCheckView : GUI_BaseView
     {
-        [SerializeField] private TextMeshProUGUI t_ingredient;
-        [SerializeField] private GameObject hud;
-        [SerializeField] private Vector2 onPosition;
-        [SerializeField] private Vector2 offPosition;
+        public TextMeshProUGUI t_ingredient;
+
+
         public void SetIngredient(string _ingredient)
         {
             t_ingredient.text = _ingredient;
         }
 
-        public void SetActive()
-        {
-            hud.SetActive(!hud.activeInHierarchy);
-        }  
-        public void SetActive(bool _flag)
-        {
-            hud.SetActive(_flag);
-        }
+      
     }
 }

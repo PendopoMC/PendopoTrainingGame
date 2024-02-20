@@ -9,48 +9,60 @@ namespace Pendopo.TraningGame.Module.PointClick
     public class PointClickController : ObjectController<PointClickController, PointClickModel, IPointClickModel, PointClickView>
     {
         private CheckType checkType;
+        FocusObjectMessage focusObjectMessage;
         /// <summary>
         /// Callback for click on view
         /// </summary>
         private void OnClickCheck()
         {
             checkType = Model.checkType;
+            focusObjectMessage.isContainer = false;
             switch (checkType)
             {
                 case CheckType.Expire:
                     UnityEngine.Debug.Log(checkType.ToString());
+                    Publish<FocusObjectMessage>(focusObjectMessage);
                     Publish<PointClick_EXPMessage>(Model.pointClick_EXPMessage);
                     break;
                 case CheckType.Mass:
                     UnityEngine.Debug.Log(checkType.ToString());
+                    Publish<FocusObjectMessage>(focusObjectMessage);
                     Publish<PointClick_MassMessage>(Model.pointClick_MassMessage);
                     break;
                 case CheckType.Ingredient:
                     UnityEngine.Debug.Log(checkType.ToString());
+                    Publish<FocusObjectMessage>(focusObjectMessage);
                     Publish<PointClick_IngredientMessage>(Model.pointClick_IngredientMessage);
                     break;
                 case CheckType.Color:
                     UnityEngine.Debug.Log(checkType.ToString());
+                    Publish<FocusObjectMessage>(focusObjectMessage);
                     Publish<PointClick_ColorMessage>(Model.pointClick_ColorMessage);
                     break;
                 case CheckType.Production_Code:
                     UnityEngine.Debug.Log(checkType.ToString());
+                    Publish<FocusObjectMessage>(focusObjectMessage);
                     Publish<PointClick_ProductionCodeMessage>(Model.pointClick_ProductionCodeMessage);
                     break;
                 case CheckType.Bar_Code:
                     UnityEngine.Debug.Log(checkType.ToString());
+                    Publish<FocusObjectMessage>(focusObjectMessage);
                     Publish<PointClick_BarCodeMessage>(Model.pointClick_BarCodeMessage);
                     break;
                 case CheckType.QR_Code:
                     UnityEngine.Debug.Log(checkType.ToString());
+                    Publish<FocusObjectMessage>(focusObjectMessage);
                     Publish<PointClick_QRCodeMessage>(Model.pointClick_QRCodeMessage);
                     break;
                 case CheckType.Product_Name:
                     UnityEngine.Debug.Log(checkType.ToString());
+                    Publish<FocusObjectMessage>(focusObjectMessage);
                     Publish<PointClick_ProductNameMessage>(Model.pointClick_ProductNameMessage);
                     break;
                 case CheckType.Package:
                     UnityEngine.Debug.Log(checkType.ToString());
+                    focusObjectMessage.isContainer = true;
+                    Publish<FocusObjectMessage>(focusObjectMessage);
                     Publish<PointClick_PackageMessage>(Model.pointClick_PackageMessage);
                     break;
                 default:
@@ -63,8 +75,9 @@ namespace Pendopo.TraningGame.Module.PointClick
             this._model = _model;
             _model.SetData(_data);
             _model.SetCase(_view.checkType);
-            _view.SetCallback(delegate { OnClickCheck(); });
+            _view.SetCallback( OnClickCheck);
             SetView(_view);
+            focusObjectMessage = new FocusObjectMessage { isContainer = false, objectToFocus = _view.gameObject };
         }
 
     }

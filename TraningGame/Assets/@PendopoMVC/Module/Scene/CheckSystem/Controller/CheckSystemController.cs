@@ -9,7 +9,10 @@ using Pendopo.TraningGame.Message;
 using TMPro;
 namespace Pendopo.TraningGame.Module.CheckSystem
 {
-    public class CheckSystemController :ObjectController<CheckSystemController,CheckSystemModel,ICheckSystemModel,CheckSystemView>
+    /// <summary>
+    /// TODO : Simplified check case
+    /// </summary>
+    public class CheckSystemController :DataController<CheckSystemController,CheckSystemModel>
     {
         public void OnMassCheckMessage(SetMassMessage _message)
         {
@@ -77,83 +80,6 @@ namespace Pendopo.TraningGame.Module.CheckSystem
             }
 
             _model.currentCheckCount = 0;
-        }
-    }
-
-    public class CheckSystemConnector : BaseConnector
-    {
-        CheckSystemController checkSystemController;
-        protected override void Connect()
-        {
-            Subscribe<CheckCaseText>(checkSystemController.OnCaseTextCheck);
-            Subscribe<CheckCaseNonText>(checkSystemController.OnCaseNonTextCheck);
-        }
-
-        protected override void Disconnect()
-        {
-            Unsubscribe<CheckCaseText>(checkSystemController.OnCaseTextCheck);
-            Unsubscribe<CheckCaseNonText>(checkSystemController.OnCaseNonTextCheck);
-        }
-    }
-
-    public class CheckSystemModel : BaseModel, ICheckSystemModel
-    {
-        public CheckCaseText firstCaseText { get; private set; }
-
-        public CheckCaseText secondCaseText { get; private set; }
-
-        public CheckCaseNonText firstCaseNonText { get; private set; }
-
-        public CheckCaseNonText secondCaseNonText { get; private set; }
-
-        public bool isFirstCaseText { get; set; }
-
-        public bool isSecondCaseText { get; set; }
-
-        public int currentCheckCount { get; set; }
-
-        public void SetFirstCaseText(CheckCaseText _case)
-        {
-            isFirstCaseText = true;
-            firstCaseText = _case;
-        }
-        public void SetFirstCaseNonText(CheckCaseNonText _case)
-        {
-            isFirstCaseText = false;
-            firstCaseNonText = _case;
-        }
-        
-        public void SetSecondCaseText(CheckCaseText _case)
-        {
-            isSecondCaseText = true;
-            secondCaseText = _case;
-        }
-        public void SetSecondCaseNonText(CheckCaseNonText _case)
-        {
-            isSecondCaseText = false;
-            secondCaseNonText = _case;
-        }
-    }
-
-    public interface ICheckSystemModel : IBaseModel
-    {
-        public CheckCaseText firstCaseText { get; }
-        public CheckCaseText secondCaseText { get; }
-        public CheckCaseNonText firstCaseNonText { get; }
-        public CheckCaseNonText secondCaseNonText { get; }
-        public bool isFirstCaseText { get; }
-        public bool isSecondCaseText { get; }
-        public int currentCheckCount { get; }
-    }
-
-    public class CheckSystemView : ObjectView<ICheckSystemModel>
-    {
-        protected override void InitRenderModel(ICheckSystemModel model)
-        {
-        }
-
-        protected override void UpdateRenderModel(ICheckSystemModel model)
-        {
         }
     }
 }

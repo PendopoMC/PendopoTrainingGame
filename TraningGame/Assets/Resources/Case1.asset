@@ -18,11 +18,19 @@ MonoBehaviour:
     expire: 24/03/2024
     ingredients: Water
     mass: 1 lt
-    damaged: 0
+    color: 
+    productName: 
+    productionCode: 
+    barCode: 
+    QRCode: 
   caseData:
     prefabObject: Wo'ah
     expire: 24/03/2024
     ingredients: Water
     mass: 1 lt
-    damaged: 0
+    color: 
+    productName: 
+    productionCode: 
+    barCode: 
+    QRCode: 
   finalAssesment: 1

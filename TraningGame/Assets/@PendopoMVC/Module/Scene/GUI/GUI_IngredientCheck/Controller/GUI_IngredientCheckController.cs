@@ -10,15 +10,25 @@ namespace Pendopo.TraningGame.Module.IngredientCheck
     public class GUI_IngredientCheckController : ObjectController<GUI_IngredientCheckController,GUI_IngredientCheckView>
     {
 
+        public override void SetView(GUI_IngredientCheckView view)
+        {
+            base.SetView(view);
+            SetCallBack();
+        }
+
         public void OnIngredientMessage(SetIngredientMessage _mseesage)
         {
-            _view.SetActive(false);
             _view.SetIngredient($"Ingredients : {_mseesage.ingredientMessage}");
         }
-        public void OnOpenGUI(PointClick_IngredientMessage _xp)
+        private void SetCallBack()
         {
-            UnityEngine.Debug.Log("Active");
-            _view.SetActive();
+            _view.publishMessage += PublishMessage;
+        }
+
+        private void PublishMessage()
+        {
+            CheckCaseText checkCaseText = new CheckCaseText { textToCheck = _view.t_ingredient.text };
+            Publish<CheckCaseText>(checkCaseText);
         }
     }
 }

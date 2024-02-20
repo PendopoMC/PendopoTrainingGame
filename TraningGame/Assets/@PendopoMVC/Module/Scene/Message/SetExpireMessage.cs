@@ -1,5 +1,4 @@
-﻿
-namespace Pendopo.TraningGame.Message
+﻿namespace Pendopo.TraningGame.Message
 {
     public struct SetExpireMessage
     {
