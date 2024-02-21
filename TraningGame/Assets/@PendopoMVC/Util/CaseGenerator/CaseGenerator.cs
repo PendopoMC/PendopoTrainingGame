@@ -50,7 +50,7 @@ namespace Pendopo.TraningGame.Utils.CaseGenerator
             _newCase.objectData = new ObjectData
             {
                 barCode = barCode,
-                color = "",
+                halal = "",
                 expire = exp,
                 ingredients = ingredient,
                 mass = mass,
@@ -62,7 +62,7 @@ namespace Pendopo.TraningGame.Utils.CaseGenerator
             _newCase.caseData = new ObjectData
             {
                 barCode = barCodeCheck,
-                color = "",
+                halal = "",
                 expire = expToCheck,
                 ingredients = ingredientToCheck,
                 mass = massToCheck,

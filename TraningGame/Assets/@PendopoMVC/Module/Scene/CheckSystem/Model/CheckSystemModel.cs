@@ -4,41 +4,24 @@ namespace Pendopo.TraningGame.Module.CheckSystem
 {
     public class CheckSystemModel : BaseModel, ICheckSystemModel
     {
-        public CheckCaseText firstCaseText { get; private set; }
+        public CompareCheck firstCase { get; private set; }
 
-        public CheckCaseText secondCaseText { get; private set; }
+        public CompareCheck secondCase { get; private set; }
+        public CheckType firstCaseType { get; set; }
 
-        public CheckCaseNonText firstCaseNonText { get; private set; }
-
-        public CheckCaseNonText secondCaseNonText { get; private set; }
-
-        public bool isFirstCaseText { get; set; }
-
-        public bool isSecondCaseText { get; set; }
+        public CheckType secondCaseType { get; set; }
 
         public int currentCheckCount { get; set; }
 
-        public void SetFirstCaseText(CheckCaseText _case)
+        public void SetFirstCase(CompareCheck _case)
         {
-            isFirstCaseText = true;
-            firstCaseText = _case;
+            firstCaseType = _case.type;
+            firstCase = _case;
         }
-        public void SetFirstCaseNonText(CheckCaseNonText _case)
+        public void SetSecondCase(CompareCheck _case)
         {
-            isFirstCaseText = false;
-            firstCaseNonText = _case;
-        }
-        
-        public void SetSecondCaseText(CheckCaseText _case)
-        {
-            isSecondCaseText = true;
-            secondCaseText = _case;
-        }
-        public void SetSecondCaseNonText(CheckCaseNonText _case)
-        {
-            isSecondCaseText = false;
-            secondCaseNonText = _case;
-
+            secondCaseType = _case.type;
+            secondCase = _case;
         }
     }
 }

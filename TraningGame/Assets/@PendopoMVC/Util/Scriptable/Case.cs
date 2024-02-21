@@ -22,11 +22,13 @@ namespace Pendopo.TraningGame.Utils.Data
         public string expire;
         public string ingredients;
         public string mass;
-        public string color;
+        public string halal;
         public string productName;
         public string productionCode;
         public string barCode;
         public string QRCode;
+        public string tagLine;
+        public string straw;
     }
 
     public enum CaseType
@@ -41,21 +43,19 @@ namespace Pendopo.TraningGame.Utils.Data
         Expire,
         Mass,
         Ingredient,
-        Color,
-        Production_Code,
-        Bar_Code,
-        QR_Code,
-        Product_Name
+        Halal,
+        NutritionFact,
+        ProductionCode,
+        BarCode,
+        QRCode,
+        ProductName,
+        TagLine,
+        Straw
     }
 
-
-    public struct CheckCaseNonText
+    public struct CompareCheck
     {
-        public Sprite spriteToCheck;
-    }
-
-    public struct CheckCaseText
-    {
-        public string textToCheck;
+        public CheckType type;
+        public string data;
     }
 }

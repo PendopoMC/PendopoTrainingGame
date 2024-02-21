@@ -5,7 +5,7 @@ namespace Pendopo.TraningGame.Module.ExpireCheck
 {
     public class GUI_ExpireCheckConnector : BaseConnector
     {
-        GUI_ExpireCheckController _controller;
+        GUI_DataCheckController _controller;
         protected override void Connect()
         {
             Subscribe<SetExpireMessage>(_controller.OnEXPMessage);

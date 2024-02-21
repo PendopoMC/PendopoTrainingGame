@@ -16,7 +16,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
 {
     public class GameplayLauncher : SceneLauncher<GameplayLauncher, GameplayView>
     {
-        GUI_ExpireCheckController expireCheck;
+        GUI_DataCheckController expireCheck;
         GUI_MassCheckController massCheck;
         QueueSystemController queueSystem;
         GUI_IngredientCheckController ingredientCheck;
@@ -41,7 +41,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         protected override IController[] GetSceneDependencies()
         {
             return new IController[] {
-                    new GUI_ExpireCheckController(),
+                    new GUI_DataCheckController(),
                 new GUI_MassCheckController(),
                 new GUI_IngredientCheckController(),
                 new ApproveDenyController(),

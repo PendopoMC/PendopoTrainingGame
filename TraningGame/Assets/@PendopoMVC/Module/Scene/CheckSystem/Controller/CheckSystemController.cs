@@ -14,69 +14,40 @@ namespace Pendopo.TraningGame.Module.CheckSystem
     /// </summary>
     public class CheckSystemController :DataController<CheckSystemController,CheckSystemModel>
     {
-        public void OnMassCheckMessage(SetMassMessage _message)
+        public CheckSystemController()
         {
-        }
-        public void OnEXPMessage(SetExpireMessage _expMessage)
-        {
-        }
-        public void OnIngredientMessage(SetIngredientMessage _mseesage)
-        {
+            _model.currentCheckCount = 0;
         }
 
-
-        public void OnCaseTextCheck(CheckCaseText _data)
+        public void Compare(CompareCheck _data)
         {
             if(_model.currentCheckCount<1)
             {
-                _model.isFirstCaseText = true;
                 _model.currentCheckCount++;
-                _model.SetFirstCaseText(_data);
+                _model.SetFirstCase(_data);
             }
             else
             {
-                _model.isSecondCaseText = true;
-                _model.SetSecondCaseText(_data);
+                _model.SetSecondCase(_data);
                 Check();
             }
         }   
         
-        public void OnCaseNonTextCheck(CheckCaseNonText _data)
-        {
-            if (_model.currentCheckCount < 1)
-            {
-                _model.isFirstCaseText = false;
-                _model.currentCheckCount++;
-                _model.SetFirstCaseNonText(_data);
-            }
-            else
-            {
-
-                _model.isSecondCaseText = false;
-                _model.SetSecondCaseNonText(_data);
-                Check();
-            }
-        }
-
         private void Check()
         {
-            if (_model.isFirstCaseText !=_model.isSecondCaseText)
+            if (_model.firstCaseType !=_model.secondCaseType)
             {
-                Debug.Log("Not Match");
+                Debug.Log("Not Match,No Corelation");
                 return;
             }
 
-            if (_model.isFirstCaseText && _model.firstCaseText.textToCheck == _model.secondCaseText.textToCheck)
+            if (_model.firstCase.data == _model.secondCase.data)
             {
-                Debug.Log("Match");
-            }  
-            else if (!_model.isFirstCaseText && _model.firstCaseNonText.spriteToCheck == _model.firstCaseNonText.spriteToCheck)
-            {
-                Debug.Log("Match");
+                Debug.Log("Data Matched");
             }
             else
             {
-                Debug.Log("Not Match");
+                Debug.Log("Data doesnt match");
             }
 
             _model.currentCheckCount = 0;

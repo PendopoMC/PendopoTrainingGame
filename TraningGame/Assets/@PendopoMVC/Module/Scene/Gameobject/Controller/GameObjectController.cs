@@ -34,19 +34,19 @@ namespace Pendopo.TraningGame.Module.Object
                     case CheckType.Ingredient:
                         _pcC.init(_pcModel, view.pointClickViews[i], _data.ingredients);
                         break;
-                    case CheckType.Color:
-                        _pcC.init(_pcModel, view.pointClickViews[i], _data.color);
+                    case CheckType.Halal:
+                        _pcC.init(_pcModel, view.pointClickViews[i], _data.halal);
                         break;
-                    case CheckType.Production_Code:
+                    case CheckType.ProductionCode:
                         _pcC.init(_pcModel, view.pointClickViews[i], _data.productionCode);
                         break;
-                    case CheckType.Bar_Code:
+                    case CheckType.BarCode:
                         _pcC.init(_pcModel, view.pointClickViews[i], _data.barCode);
                         break;
-                    case CheckType.QR_Code:
+                    case CheckType.QRCode:
                         _pcC.init(_pcModel, view.pointClickViews[i], _data.QRCode);
                         break;
-                    case CheckType.Product_Name:
+                    case CheckType.ProductName:
                         _pcC.init(_pcModel, view.pointClickViews[i], _data.productName);
                         break;
                     default:

@@ -8,9 +8,9 @@ using Pendopo.TraningGame.Utils.Data;
 namespace Pendopo.TraningGame.Module.ExpireCheck
 {
 
-    public class GUI_ExpireCheckController : ObjectController<GUI_ExpireCheckController, GUI_ExpireCheckView>
+    public class GUI_DataCheckController : ObjectController<GUI_DataCheckController, GUI_DataCheckView>
     {
-        public override void SetView(GUI_ExpireCheckView view)
+        public override void SetView(GUI_DataCheckView view)
         {
             base.SetView(view);
             SetCallBack();
@@ -18,7 +18,7 @@ namespace Pendopo.TraningGame.Module.ExpireCheck
 
         public void OnEXPMessage(SetExpireMessage _expMessage)
         {
-            _view.SetExp($"EXP {_expMessage.expireMessage}");
+            _view.SetData($"EXP {_expMessage.expireMessage}");
         }
 
 
@@ -29,8 +29,8 @@ namespace Pendopo.TraningGame.Module.ExpireCheck
 
         private void PublishMessage()
         {
-            CheckCaseText checkCaseText = new CheckCaseText { textToCheck = _view.t_exp.text };
-            Publish<CheckCaseText>(checkCaseText);
+            CompareCheck checkCaseText = new CompareCheck { data = _view.t_data.text };
+            Publish<CompareCheck>(checkCaseText);
         }
     }
 

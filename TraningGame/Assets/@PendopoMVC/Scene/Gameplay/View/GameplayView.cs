@@ -10,7 +10,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
 {
     public class GameplayView : BaseSceneView
     {
-        public  GUI_ExpireCheckView expireCheck;
+        public  GUI_DataCheckView expireCheck;
         public GUI_IngredientCheckView ingredientCheck;
         public GUI_MassCheckView massCheck;
         public QueueSystemView queueSystem;

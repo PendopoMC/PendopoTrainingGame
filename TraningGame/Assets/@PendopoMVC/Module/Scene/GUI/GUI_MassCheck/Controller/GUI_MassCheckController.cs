@@ -23,13 +23,13 @@ namespace Pendopo.TraningGame.Module.MassCheck
         }
         private void SetCallBack()
         {
-            _view.publishMessage += PublishMessage;
+            //_view.publishMessage += PublishMessage;
         }
 
         private void PublishMessage()
         {
-            CheckCaseText checkCaseText = new CheckCaseText { textToCheck = _view.t_mass.text };
-            Publish<CheckCaseText>(checkCaseText);
+            CompareCheck checkCaseText = new CompareCheck { data = _view.t_mass.text };
+            Publish<CompareCheck>(checkCaseText);
         }
     }
 }
