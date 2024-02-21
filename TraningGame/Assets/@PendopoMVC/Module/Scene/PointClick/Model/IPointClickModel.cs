@@ -1,6 +1,7 @@
 ﻿using Agate.MVC.Base;
 using Pendopo.TraningGame.Message;
 using Pendopo.TraningGame.Utils.Data;
+using UnityEngine;
 namespace Pendopo.TraningGame.Module.PointClick
 {
     public interface IPointClickModel : IBaseModel
@@ -16,6 +17,7 @@ namespace Pendopo.TraningGame.Module.PointClick
         public PointClick_ProductionCodeMessage pointClick_ProductionCodeMessage { get; }
         public PointClick_PackageMessage pointClick_PackageMessage { get; }
         
+        public Texture texture { get; }
         public string data { get; }
     }
 }

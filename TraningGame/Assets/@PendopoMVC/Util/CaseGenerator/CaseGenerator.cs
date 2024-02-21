@@ -11,16 +11,16 @@ namespace Pendopo.TraningGame.Utils.CaseGenerator
         public List<Case> generatedCases = new List<Case>();
 
         public bool checkPackage;
-        [ShowIf("checkPackage")] [SerializeField] private GameObject prefabPackage;
-        [ShowIf("checkPackage")] [SerializeField] private Sprite spriteCheck;
+        [ShowIf("checkPackage")] [SerializeField] private string prefabPackage;
+        [ShowIf("checkPackage")] [SerializeField] private string spriteCheck;
 
         public bool checkBarCode;
-        [ShowIf("checkBarCode")] [SerializeField] private Sprite barCode;
-        [ShowIf("checkBarCode")] [SerializeField] private Sprite barCodeCheck;
+        [ShowIf("checkBarCode")] [SerializeField] private string barCode;
+        [ShowIf("checkBarCode")] [SerializeField] private string barCodeCheck;
 
         public bool checkQRCode;
-        [ShowIf("checkQRCode")] [SerializeField] private Sprite qrCode;
-        [ShowIf("checkQRCode")] [SerializeField] private Sprite qrCodeCheck;
+        [ShowIf("checkQRCode")] [SerializeField] private string qrCode;
+        [ShowIf("checkQRCode")] [SerializeField] private string qrCodeCheck;
 
         public bool checkEXP;
         [ShowIf("checkEXP")] [SerializeField] private string exp;
@@ -49,27 +49,27 @@ namespace Pendopo.TraningGame.Utils.CaseGenerator
             Case _newCase = new Case();
             _newCase.objectData = new ObjectData
             {
-                barCode = barCode.name,
+                barCode = barCode,
                 color = "",
                 expire = exp,
                 ingredients = ingredient,
                 mass = mass,
-                prefabObject = prefabPackage.name,
+                prefabObject = prefabPackage,
                 productionCode = productionCode,
                 productName = productName,
-                QRCode = qrCode.name
+                QRCode = qrCode
             };
             _newCase.caseData = new ObjectData
             {
-                barCode = barCodeCheck.name,
+                barCode = barCodeCheck,
                 color = "",
                 expire = expToCheck,
                 ingredients = ingredientToCheck,
                 mass = massToCheck,
-                prefabObject = spriteCheck.name,
+                prefabObject = spriteCheck,
                 productionCode = productionCodeToCheck,
                 productName = productNameToCheck,
-                QRCode = qrCodeCheck.name
+                QRCode = qrCodeCheck
             };
             
             generatedCases.Add(_newCase);

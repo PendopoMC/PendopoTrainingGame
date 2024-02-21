@@ -1,6 +1,8 @@
 ﻿using Agate.MVC.Base;
 using Pendopo.TraningGame.Message;
 using Pendopo.TraningGame.Utils.Data;
+using UnityEngine;
+
 namespace Pendopo.TraningGame.Module.PointClick
 {
     public class PointClickModel : BaseModel, IPointClickModel
@@ -31,6 +33,8 @@ namespace Pendopo.TraningGame.Module.PointClick
 
         public string data { get; private set; }
 
+        public Texture texture { get; private set; }
+
         public void SetCase(CheckType _case)
         {
             checkType = _case;
@@ -39,6 +43,7 @@ namespace Pendopo.TraningGame.Module.PointClick
         public void SetData(string _data)
         {
             data = _data;
+            texture = Resources.Load<Texture>($"Texture/{data}");
         }
 
         public void InitializeStructMessage()
