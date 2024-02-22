@@ -1,13 +1,13 @@
 ﻿
 namespace Pendopo.TraningGame.Message
 {
-    public struct SetMassMessage : ISetMessage
+    public struct SetStrawMessage : ISetMessage
     {
-        public SetMassMessage(string data)
+        public SetStrawMessage(string data)
         {
             this.data = data;
         }
 
         public string data { get; private set; }
-    }
+    }   
 }

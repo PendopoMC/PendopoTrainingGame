@@ -1,9 +1,9 @@
 ﻿
 namespace Pendopo.TraningGame.Message
 {
-    public struct SetMassMessage : ISetMessage
+    public struct SetChoiceLogoMessage : ISetMessage
     {
-        public SetMassMessage(string data)
+        public SetChoiceLogoMessage(string data)
         {
             this.data = data;
         }

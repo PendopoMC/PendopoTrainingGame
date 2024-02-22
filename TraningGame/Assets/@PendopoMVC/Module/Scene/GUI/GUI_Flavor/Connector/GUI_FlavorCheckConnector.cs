@@ -8,13 +8,13 @@ namespace Pendopo.TraningGame.Module.FlavorCheck
         GUI_FlavorCheckController _controller;
         protected override void Connect()
         {
-            Subscribe<SetTasteMessage>(_controller.SetMessage);
+            Subscribe<SetFlavorMessage>(_controller.SetMessage);
             //Subscribe<PointClick_MassMessage>(_controller.OnOpenGUI);
         }
 
         protected override void Disconnect()
         {
-            Unsubscribe<SetTasteMessage>(_controller.SetMessage);
+            Unsubscribe<SetFlavorMessage>(_controller.SetMessage);
             //Unsubscribe<PointClick_MassMessage>(_controller.OnOpenGUI);
         }
     }
