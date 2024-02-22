@@ -4,7 +4,7 @@ using UnityEngine;
 using Agate.MVC.Base;
 using Agate.MVC.Core;
 using Pendopo.TraningGame.Boot;
-using Pendopo.TraningGame.Module.ExpireCheck;
+using Pendopo.TraningGame.Module.GUIDataCheck;
 using Pendopo.TraningGame.Module.IngredientCheck;
 using Pendopo.TraningGame.Module.MassCheck;
 using Pendopo.TraningGame.Module.QueueSystem;
@@ -16,7 +16,6 @@ namespace Pendopo.TraningGame.Scene.Gameplay
 {
     public class GameplayLauncher : SceneLauncher<GameplayLauncher, GameplayView>
     {
-        GUI_DataCheckController expireCheck;
         GUI_MassCheckController massCheck;
         QueueSystemController queueSystem;
         GUI_IngredientCheckController ingredientCheck;
@@ -28,11 +27,10 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         protected override IConnector[] GetSceneConnectors()
         {
             return new IConnector[] {
-                new GUI_ExpireCheckConnector(),
                 new GUI_IngredientCheckConnector(),
                 new GUI_MassCheckConnector(),
-                new CameraHandlerConnector(),
                 new CheckSystemConnector(),
+                new CameraHandlerConnector(),
                 new QueueSystemConnector()
 
             };
@@ -41,9 +39,8 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         protected override IController[] GetSceneDependencies()
         {
             return new IController[] {
-                    new GUI_DataCheckController(),
-                new GUI_MassCheckController(),
                 new GUI_IngredientCheckController(),
+               new GUI_MassCheckController(),
                 new ApproveDenyController(),
                 new CheckSystemController(),
                 new CameraHandlerController(),
@@ -53,9 +50,8 @@ namespace Pendopo.TraningGame.Scene.Gameplay
 
         protected override IEnumerator InitSceneObject()
         {
-            expireCheck.SetView(_view.expireCheck);
-            massCheck.SetView(_view.massCheck);
             ingredientCheck.SetView(_view.ingredientCheck);
+            massCheck.SetView(_view.massCheck);
             approveDeny.SetView(_view.approveDeny);
             queueSystem.SetView(_view.queueSystem);
             cameraHandler.SetView(_view.cameraHandler);

@@ -5,30 +5,30 @@ using Agate.MVC.Base;
 using Agate.MVC.Core;
 using Pendopo.TraningGame.Utils.Data;
 using Pendopo.TraningGame.Message;
+using Pendopo.TraningGame.Module.GUIDataCheck;
 namespace Pendopo.TraningGame.Module.IngredientCheck
 {
-    public class GUI_IngredientCheckController : ObjectController<GUI_IngredientCheckController,GUI_IngredientCheckView>
+    public class GUI_IngredientCheckController : GUI_DataCheckController<GUI_IngredientCheckController,GUI_IngredientCheckView>
     {
-
         public override void SetView(GUI_IngredientCheckView view)
         {
             base.SetView(view);
             SetCallBack();
         }
 
-        public void OnIngredientMessage(SetIngredientMessage _mseesage)
+        public override void SetMessage<T>(T _expMessage)
         {
-            _view.SetIngredient($"Ingredients : {_mseesage.ingredientMessage}");
+            _view.SetData($"Ingredients : {_expMessage.data}");
         }
-        private void SetCallBack()
+        protected override void PublishMessage()
         {
-            //_view.publishMessage += PublishMessage;
+            CompareCheck checkCaseText = new CompareCheck { data = _view.t_data.text };
+            Publish<CompareCheck>(checkCaseText);
         }
 
-        private void PublishMessage()
+        public string Data()
         {
-            CompareCheck checkCaseText = new CompareCheck { data = _view.t_ingredient.text };
-            Publish<CompareCheck>(checkCaseText);
+            return "Hey";
         }
     }
 }

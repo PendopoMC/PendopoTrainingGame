@@ -21,12 +21,12 @@ namespace Pendopo.TraningGame.Module.PointClick
 
         protected override void InitRenderModel(IPointClickModel model)
         {
-            Mesh.sharedMaterials[MatID].SetTexture("_MainTex", model.texture);
+          //  Mesh.sharedMaterials[MatID].SetTexture("_MainTex", model.texture);
         }
 
         protected override void UpdateRenderModel(IPointClickModel model)
         {
-            Mesh.sharedMaterials[MatID].SetTexture("_MainTex", model.texture);
+          //  Mesh.sharedMaterials[MatID].SetTexture("_MainTex", model.texture);
         }
         public void SetCallback(UnityAction _clicked)
         {

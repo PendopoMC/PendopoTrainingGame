@@ -1,5 +1,5 @@
 ﻿using Agate.MVC.Base;
-using Pendopo.TraningGame.Module.ExpireCheck;
+using Pendopo.TraningGame.Module.GUIDataCheck;
 using Pendopo.TraningGame.Module.IngredientCheck;
 using Pendopo.TraningGame.Module.MassCheck;
 using Pendopo.TraningGame.Module.QueueSystem;

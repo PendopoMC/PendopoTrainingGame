@@ -22,7 +22,7 @@ namespace Pendopo.TraningGame.Module.PointClick
             _model.SetData(_view.checkType,_data, new FocusObjectMessage { isContainer = _view.checkType== CheckType.Package, objectToFocus = _view.gameObject }, new CompareCheck { data = _data, type = _view.checkType });
 
             _view.SetCallback( OnClickCheck);
-            _view.MatID = GetMaterial(_view.checkType);
+           // _view.MatID = GetMaterial(_view.checkType);
 
             SetView(_view);
         }

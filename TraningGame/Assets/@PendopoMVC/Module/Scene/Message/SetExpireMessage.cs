@@ -1,12 +1,14 @@
 ﻿namespace Pendopo.TraningGame.Message
 {
-    public struct SetExpireMessage
+    public struct SetExpireMessage: ISetMessage
     {
-        public string expireMessage { get; private set; }
-
-        public SetExpireMessage(string expireMessage)
+        public SetExpireMessage(string data)
         {
-            this.expireMessage = expireMessage;
+            this.data = data;
         }
+
+        public string data { get; private set; }
+
+      
     }
 }

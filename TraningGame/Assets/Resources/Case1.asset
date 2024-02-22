@@ -14,23 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   objectData:
-    prefabObject: Wo'ah
+    pacakge: Wo'ah
     expire: 24/03/2024
     ingredients: Water
     mass: 1 lt
-    color: 
+    halal: 
     productName: 
     productionCode: 
     barCode: 
     QRCode: 
+    tagLine: 
+    straw: 
   caseData:
-    prefabObject: Wo'ah
+    pacakge: Wo'ah
     expire: 24/03/2024
     ingredients: Water
     mass: 1 lt
-    color: 
+    halal: 
     productName: 
     productionCode: 
     barCode: 
     QRCode: 
+    tagLine: 
+    straw: 
   finalAssesment: 1

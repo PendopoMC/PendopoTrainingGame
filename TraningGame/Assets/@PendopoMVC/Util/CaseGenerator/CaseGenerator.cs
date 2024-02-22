@@ -54,7 +54,7 @@ namespace Pendopo.TraningGame.Utils.CaseGenerator
                 expire = exp,
                 ingredients = ingredient,
                 mass = mass,
-                prefabObject = prefabPackage,
+                pacakge = prefabPackage,
                 productionCode = productionCode,
                 productName = productName,
                 QRCode = qrCode
@@ -66,7 +66,7 @@ namespace Pendopo.TraningGame.Utils.CaseGenerator
                 expire = expToCheck,
                 ingredients = ingredientToCheck,
                 mass = massToCheck,
-                prefabObject = spriteCheck,
+                pacakge = spriteCheck,
                 productionCode = productionCodeToCheck,
                 productName = productNameToCheck,
                 QRCode = qrCodeCheck

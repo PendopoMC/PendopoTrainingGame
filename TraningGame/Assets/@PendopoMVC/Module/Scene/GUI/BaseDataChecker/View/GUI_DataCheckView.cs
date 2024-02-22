@@ -5,7 +5,7 @@ using TMPro;
 using NaughtyAttributes;
 using Agate.MVC.Base;
 
-namespace Pendopo.TraningGame.Module.ExpireCheck
+namespace Pendopo.TraningGame.Module.GUIDataCheck
 {
     public class  GUI_DataCheckView : BaseView
     {
@@ -28,11 +28,15 @@ namespace Pendopo.TraningGame.Module.ExpireCheck
             publishMessage?.Invoke();
         }
 
-        public void SetData(string _xp)
+        public virtual void SetData(string _data)
         {
-            t_data.text = _xp;
+            t_data.text = _data;
         }
 
+        public virtual void SetData(Sprite _sprite)
+        {
+            i_data.sprite = _sprite;
+        }
 
         [Button("On Pos")]
         private void AddOnPos()

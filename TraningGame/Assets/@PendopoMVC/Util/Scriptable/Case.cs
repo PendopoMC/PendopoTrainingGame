@@ -18,7 +18,7 @@ namespace Pendopo.TraningGame.Utils.Data
     [System.Serializable]
     public struct ObjectData
     {
-        public string prefabObject;
+        public string pacakge;
         public string expire;
         public string ingredients;
         public string mass;
@@ -57,5 +57,11 @@ namespace Pendopo.TraningGame.Utils.Data
     {
         public CheckType type;
         public string data;
+
+    }
+
+    public interface ICompareCheck
+    {
+        public string dat { get; }
     }
 }

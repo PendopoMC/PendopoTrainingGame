@@ -7,12 +7,12 @@ using Pendopo.TraningGame.Utils.Data;
 using Pendopo.TraningGame.Message;
 using Pendopo.TraningGame.Module.GUIDataCheck;
 
-namespace Pendopo.TraningGame.Module.MassCheck
+namespace Pendopo.TraningGame.Module.FlavorCheck
 {
 
-    public class GUI_MassCheckController : GUI_DataCheckController<GUI_MassCheckController, GUI_MassCheckView>
+    public class GUI_FlavorCheckController : GUI_DataCheckController<GUI_FlavorCheckController,GUI_FlavorCheckView>
     {
-        public override void SetView(GUI_MassCheckView view)
+        public override void SetView(GUI_FlavorCheckView view)
         {
             base.SetView(view);
             SetCallBack();
@@ -24,7 +24,7 @@ namespace Pendopo.TraningGame.Module.MassCheck
        
         protected override void PublishMessage()
         {
-            CompareCheck checkCaseText = new CompareCheck { data = _view.t_data.text };
+            CompareCheck checkCaseText = new CompareCheck { data = _view.t_mass.text };
             Publish<CompareCheck>(checkCaseText);
         }
     }

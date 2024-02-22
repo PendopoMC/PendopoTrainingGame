@@ -23,7 +23,7 @@ namespace Pendopo.TraningGame.Module.Object
                 switch (view.pointClickViews[i].checkType)
                 {
                     case CheckType.Package:
-                        _pcC.init(_pcModel, view.pointClickViews[i],_data.prefabObject );
+                        _pcC.init(_pcModel, view.pointClickViews[i],_data.pacakge );
                         break;
                     case CheckType.Expire:
                         _pcC.init(_pcModel, view.pointClickViews[i], _data.expire);

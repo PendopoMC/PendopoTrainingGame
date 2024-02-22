@@ -1,20 +1,18 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
-using Agate.MVC.Base;
 using TMPro;
+using Agate.MVC.Base;
 using NaughtyAttributes;
 using Pendopo.TraningGame.Module.GUIDataCheck;
-namespace Pendopo.TraningGame.Module.IngredientCheck
-{
-    public class GUI_IngredientCheckView : GUI_DataCheckView
-    {
 
+namespace Pendopo.TraningGame.Module.StrawCheck
+{
+    public class GUI_StrawCheckView : GUI_DataCheckView
+    {
+        public TextMeshProUGUI t_mass;
         public override void SetData(string _xp)
         {
-            t_data.text = _xp;
+            t_mass.text = _xp;
         }
-
-      
     }
 }

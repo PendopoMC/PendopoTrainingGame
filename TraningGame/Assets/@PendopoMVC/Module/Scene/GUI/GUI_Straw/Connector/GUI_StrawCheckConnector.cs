@@ -1,11 +1,11 @@
 ﻿using Agate.MVC.Base;
 using Pendopo.TraningGame.Message;
 
-namespace Pendopo.TraningGame.Module.MassCheck
+namespace Pendopo.TraningGame.Module.StrawCheck
 {
-    public class GUI_MassCheckConnector : BaseConnector
+    public class GUI_StrawCheckConnector : BaseConnector
     {
-        GUI_MassCheckController _controller;
+        GUI_StrawCheckController _controller;
         protected override void Connect()
         {
             Subscribe<SetMassMessage>(_controller.SetMessage);

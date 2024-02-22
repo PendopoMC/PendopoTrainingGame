@@ -1,20 +1,20 @@
 ﻿using Agate.MVC.Base;
 using Pendopo.TraningGame.Message;
 
-namespace Pendopo.TraningGame.Module.MassCheck
+namespace Pendopo.TraningGame.Module.FlavorCheck
 {
-    public class GUI_MassCheckConnector : BaseConnector
+    public class GUI_FlavorCheckConnector : BaseConnector
     {
-        GUI_MassCheckController _controller;
+        GUI_FlavorCheckController _controller;
         protected override void Connect()
         {
-            Subscribe<SetMassMessage>(_controller.SetMessage);
+            Subscribe<SetTasteMessage>(_controller.SetMessage);
             //Subscribe<PointClick_MassMessage>(_controller.OnOpenGUI);
         }
 
         protected override void Disconnect()
         {
-            Unsubscribe<SetMassMessage>(_controller.SetMessage);
+            Unsubscribe<SetTasteMessage>(_controller.SetMessage);
             //Unsubscribe<PointClick_MassMessage>(_controller.OnOpenGUI);
         }
     }

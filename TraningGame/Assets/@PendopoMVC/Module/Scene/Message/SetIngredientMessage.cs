@@ -1,12 +1,13 @@
 ﻿
 namespace Pendopo.TraningGame.Message
 {
-    public struct SetIngredientMessage
+    public struct SetIngredientMessage : ISetMessage
     {
-        public string ingredientMessage { get; private set; }
-        public SetIngredientMessage(string ingredientMessage)
+        public SetIngredientMessage(string data)
         {
-            this.ingredientMessage = ingredientMessage;
+            this.data = data;
         }
+
+        public string data { get; private set; }
     }
 }
