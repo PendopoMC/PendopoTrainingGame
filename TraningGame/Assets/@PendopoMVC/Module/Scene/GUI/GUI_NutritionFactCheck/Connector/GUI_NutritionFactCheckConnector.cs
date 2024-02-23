@@ -8,13 +8,15 @@ namespace Pendopo.TraningGame.Module.NutritionFactCheck
         GUI_NutritionFactCheckController _control;
         protected override void Connect()
         {
-            Subscribe<SetIngredientMessage>(_control.SetMessage);
+            Subscribe<SetNutritionFactMessage>(_control.SetMessage);
+            Subscribe<SetActivetNutritionFactMessage>(_control.SetActive);
             //Subscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
         }
 
         protected override void Disconnect()
         {
-            Unsubscribe<SetIngredientMessage>(_control.SetMessage);
+            Unsubscribe<SetNutritionFactMessage>(_control.SetMessage);
+            Unsubscribe<SetActivetNutritionFactMessage>(_control.SetActive);
             //Unsubscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
         }
     }

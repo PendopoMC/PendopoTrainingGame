@@ -24,6 +24,11 @@ namespace Pendopo.TraningGame.Module.GUIDataCheck
             _view.SetData($"EXP {_data.data}");
         }
 
+        public virtual void SetActive<T>(T _data) where T : ISetActiveMessage
+        {
+            _view.SetActive(_data.active);
+        }
+
         protected virtual void SetCallBack()
         {
         }

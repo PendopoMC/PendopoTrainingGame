@@ -9,5 +9,14 @@ namespace Pendopo.TraningGame.Message
         }
 
         public string data { get; private set; }
-    } 
+    }
+    public struct SetActivetNutritionFactMessage : ISetActiveMessage
+    {
+        public bool active { get; private set; }
+
+        public SetActivetNutritionFactMessage(bool active)
+        {
+            this.active = active;
+        }
+    }
 }

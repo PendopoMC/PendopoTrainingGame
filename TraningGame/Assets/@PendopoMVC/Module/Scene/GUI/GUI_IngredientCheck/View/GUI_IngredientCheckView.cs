@@ -9,12 +9,9 @@ namespace Pendopo.TraningGame.Module.IngredientCheck
 {
     public class GUI_IngredientCheckView : GUI_DataCheckView
     {
-
         public override void SetData(string _xp)
         {
             t_data.text = _xp;
-        }
-
-      
+        }      
     }
 }

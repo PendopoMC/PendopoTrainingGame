@@ -9,12 +9,14 @@ namespace Pendopo.TraningGame.Module.FlavorLogoCheck
         protected override void Connect()
         {
             Subscribe<SetIngredientMessage>(_control.SetMessage);
+            Subscribe<SetActivetFlavorLogoMessage>(_control.SetActive);
             //Subscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<SetIngredientMessage>(_control.SetMessage);
+            Unsubscribe<SetActivetFlavorLogoMessage>(_control.SetActive);
             //Unsubscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
         }
     }

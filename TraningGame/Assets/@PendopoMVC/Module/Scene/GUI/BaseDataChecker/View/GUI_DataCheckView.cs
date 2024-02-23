@@ -13,15 +13,14 @@ namespace Pendopo.TraningGame.Module.GUIDataCheck
         public TextMeshProUGUI t_data;
 
         [SerializeField] private RectTransform hud;
-        [SerializeField] private Vector2 onPosition;
-        [SerializeField] private Vector2 offPosition;
-        private bool isOpen = false;
+        //[SerializeField] private Vector2 onPosition;
+        //[SerializeField] private Vector2 offPosition;
+        //private bool isOpen = false;
         internal UnityAction publishMessage;
 
-        public void SetActive()
+        public void SetActive(bool _flag)
         {
-            isOpen = !isOpen;
-            hud.anchoredPosition = isOpen ? onPosition : offPosition;
+            hud.gameObject.SetActive(_flag);
         }
         public void CheckSegment()
         {
@@ -38,17 +37,17 @@ namespace Pendopo.TraningGame.Module.GUIDataCheck
             i_data.sprite = _sprite;
         }
 
-        [Button("On Pos")]
-        private void AddOnPos()
-        {
-            onPosition = hud.anchoredPosition;
-        }
+        //[Button("On Pos")]
+        //private void AddOnPos()
+        //{
+        //    onPosition = hud.anchoredPosition;
+        //}
 
-        [Button("Off Pos")]
-        private void AddOffPos()
-        {
-            offPosition = hud.anchoredPosition;
-        }
+        //[Button("Off Pos")]
+        //private void AddOffPos()
+        //{
+        //    offPosition = hud.anchoredPosition;
+        //}
       
     }
 

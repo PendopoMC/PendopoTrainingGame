@@ -10,4 +10,13 @@ namespace Pendopo.TraningGame.Message
             this.isBroken = isBroken;
         }
     }
+    public struct SetActivetPackageMessage : ISetActiveMessage
+    {
+        public bool active { get; private set; }
+
+        public SetActivetPackageMessage(bool active)
+        {
+            this.active = active;
+        }
+    }
 }

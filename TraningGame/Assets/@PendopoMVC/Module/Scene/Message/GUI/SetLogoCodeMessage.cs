@@ -10,4 +10,13 @@ namespace Pendopo.TraningGame.Message
 
         public string data { get; private set; }
     }
+    public struct SetActivetLogoCodeMessage : ISetActiveMessage
+    {
+        public bool active { get; private set; }
+
+        public SetActivetLogoCodeMessage(bool active)
+        {
+            this.active = active;
+        }
+    }
 }

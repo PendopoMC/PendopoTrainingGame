@@ -8,13 +8,15 @@ namespace Pendopo.TraningGame.Module.LogoCodeCheck
         GUI_LogoCodeCheckController _control;
         protected override void Connect()
         {
-            Subscribe<SetIngredientMessage>(_control.SetMessage);
+            Subscribe<SetLogoCodeMessage>(_control.SetMessage);
+            Subscribe<SetActivetLogoCodeMessage>(_control.SetActive);
             //Subscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
         }
 
         protected override void Disconnect()
         {
-            Unsubscribe<SetIngredientMessage>(_control.SetMessage);
+            Unsubscribe<SetLogoCodeMessage>(_control.SetMessage);
+            Unsubscribe<SetActivetLogoCodeMessage>(_control.SetActive);
             //Unsubscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
         }
     }

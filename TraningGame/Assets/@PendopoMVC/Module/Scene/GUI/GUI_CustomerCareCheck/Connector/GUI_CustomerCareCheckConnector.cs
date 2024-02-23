@@ -9,12 +9,14 @@ namespace Pendopo.TraningGame.Module.CustomerCareCheck
         protected override void Connect()
         {
             Subscribe<SetIngredientMessage>(_control.SetMessage);
+            Subscribe<SetActiveCustomerCareMessage>(_control.SetActive);
             //Subscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<SetIngredientMessage>(_control.SetMessage);
+            Unsubscribe<SetActiveCustomerCareMessage>(_control.SetActive);
             //Unsubscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
         }
     }

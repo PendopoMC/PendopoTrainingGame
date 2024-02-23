@@ -8,13 +8,15 @@ namespace Pendopo.TraningGame.Module.ChoiceCheck
         GUI_ChoiceCheckController _controller;
         protected override void Connect()
         {
-            Subscribe<SetFlavorMessage>(_controller.SetMessage);
+            Subscribe<SetChoiceLogoMessage>(_controller.SetMessage);
+            Subscribe<SetActiveChoiceLogoMessage>(_controller.SetActive);
             //Subscribe<PointClick_MassMessage>(_controller.OnOpenGUI);
         }
 
         protected override void Disconnect()
         {
-            Unsubscribe<SetFlavorMessage>(_controller.SetMessage);
+            Unsubscribe<SetChoiceLogoMessage>(_controller.SetMessage);
+            Unsubscribe<SetActiveChoiceLogoMessage>(_controller.SetActive);
             //Unsubscribe<PointClick_MassMessage>(_controller.OnOpenGUI);
         }
     }

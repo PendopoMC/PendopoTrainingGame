@@ -9,5 +9,14 @@ namespace Pendopo.TraningGame.Message
         }
 
         public string data { get; private set; }
-    }  
+    }
+    public struct SetActivetSealPackMessage : ISetActiveMessage
+    {
+        public bool active { get; private set; }
+
+        public SetActivetSealPackMessage(bool active)
+        {
+            this.active = active;
+        }
+    }
 }

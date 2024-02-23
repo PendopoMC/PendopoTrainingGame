@@ -1,13 +1,13 @@
 ﻿
 namespace Pendopo.TraningGame.Message
 {
-    public struct SetIngredientEngMessage : ISetMessage
+    public struct SetQRCodeMessage : ISetMessage
     {
-        public SetIngredientEngMessage(string data)
+        public SetQRCodeMessage(string data)
         {
             this.data = data;
         }
 
         public string data { get; private set; }
-    }  
+    } 
 }
