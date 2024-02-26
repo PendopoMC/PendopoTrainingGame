@@ -18,3 +18,277 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b1901ba1547467b4bbc6728616775dfa, type: 2}
   - {fileID: 11400000, guid: 4cc78441d8861ac469c0c72f8b3168eb, type: 2}
   - {fileID: 11400000, guid: 4cc78441d8861ac469c0c72f8b3168eb, type: 2}
+  csv_cases:
+  - objectData:
+      package: Good
+      EXP: 09/09/1999
+      komposisiInd: qwe
+      komposisiEng: qwe
+      berat: qwe
+      logoHalal: qwe
+      contact: qwe
+      kodeProduksi: qwe
+      barCode: 
+      QRCode: 
+      seal: 
+      sedotan: 
+      logoRecycle: 
+      rasa: 
+      rasaGambar: 
+      logoPilihan: 
+      peringatan: 
+      nutritionFact: 
+    caseData:
+      package: Fiar
+      EXP: 09/09/1999
+      komposisiInd: qwe
+      komposisiEng: qwe
+      berat: qwe
+      logoHalal: qwe
+      contact: ad
+      kodeProduksi: asd
+      barCode: asd
+      QRCode: 
+      seal: 
+      sedotan: 
+      logoRecycle: 
+      rasa: 
+      rasaGambar: 
+      logoPilihan: 
+      peringatan: 
+      nutritionFact: 
+    finalAssesment: 0
+  - objectData:
+      package: Good
+      EXP: 09/09/1999
+      komposisiInd: qwe
+      komposisiEng: qwe
+      berat: qwe
+      logoHalal: qwe
+      contact: qwe
+      kodeProduksi: qwe
+      barCode: 
+      QRCode: 
+      seal: 
+      sedotan: 
+      logoRecycle: 
+      rasa: 
+      rasaGambar: 
+      logoPilihan: 
+      peringatan: 
+      nutritionFact: 
+    caseData:
+      package: Fiar
+      EXP: 09/09/1999
+      komposisiInd: qwe
+      komposisiEng: qwe
+      berat: qwe
+      logoHalal: qwe
+      contact: ad
+      kodeProduksi: asd
+      barCode: asd
+      QRCode: 
+      seal: 
+      sedotan: 
+      logoRecycle: 
+      rasa: 
+      rasaGambar: 
+      logoPilihan: 
+      peringatan: 
+      nutritionFact: 
+    finalAssesment: 0
+  - objectData:
+      package: Good
+      EXP: 09/09/1999
+      komposisiInd: qwe
+      komposisiEng: qwe
+      berat: qwe
+      logoHalal: qwe
+      contact: qwe
+      kodeProduksi: qwe
+      barCode: 
+      QRCode: 
+      seal: 
+      sedotan: 
+      logoRecycle: 
+      rasa: 
+      rasaGambar: 
+      logoPilihan: 
+      peringatan: 
+      nutritionFact: 
+    caseData:
+      package: Fiar
+      EXP: 09/09/1999
+      komposisiInd: qwe
+      komposisiEng: qwe
+      berat: qwe
+      logoHalal: qwe
+      contact: ad
+      kodeProduksi: asd
+      barCode: asd
+      QRCode: 
+      seal: 
+      sedotan: 
+      logoRecycle: 
+      rasa: 
+      rasaGambar: 
+      logoPilihan: 
+      peringatan: 
+      nutritionFact: 
+    finalAssesment: 0
+  - objectData:
+      package: Good
+      EXP: 09/09/1999
+      komposisiInd: qwe
+      komposisiEng: qwe
+      berat: qwe
+      logoHalal: qwe
+      contact: qwe
+      kodeProduksi: qwe
+      barCode: 
+      QRCode: 
+      seal: 
+      sedotan: 
+      logoRecycle: 
+      rasa: 
+      rasaGambar: 
+      logoPilihan: 
+      peringatan: 
+      nutritionFact: 
+    caseData:
+      package: Fiar
+      EXP: 09/09/1999
+      komposisiInd: qwe
+      komposisiEng: qwe
+      berat: qwe
+      logoHalal: qwe
+      contact: ad
+      kodeProduksi: asd
+      barCode: asd
+      QRCode: 
+      seal: 
+      sedotan: 
+      logoRecycle: 
+      rasa: 
+      rasaGambar: 
+      logoPilihan: 
+      peringatan: 
+      nutritionFact: 
+    finalAssesment: 0
+  - objectData:
+      package: Good
+      EXP: 09/09/1999
+      komposisiInd: qwe
+      komposisiEng: qwe
+      berat: qwe
+      logoHalal: qwe
+      contact: qwe
+      kodeProduksi: qwe
+      barCode: 
+      QRCode: 
+      seal: 
+      sedotan: 
+      logoRecycle: 
+      rasa: 
+      rasaGambar: 
+      logoPilihan: 
+      peringatan: 
+      nutritionFact: 
+    caseData:
+      package: Fiar
+      EXP: 09/09/1999
+      komposisiInd: qwe
+      komposisiEng: qwe
+      berat: qwe
+      logoHalal: qwe
+      contact: ad
+      kodeProduksi: asd
+      barCode: asd
+      QRCode: 
+      seal: 
+      sedotan: 
+      logoRecycle: 
+      rasa: 
+      rasaGambar: 
+      logoPilihan: 
+      peringatan: 
+      nutritionFact: 
+    finalAssesment: 0
+  - objectData:
+      package: Good
+      EXP: 09/09/1999
+      komposisiInd: qwe
+      komposisiEng: qwe
+      berat: qwe
+      logoHalal: qwe
+      contact: qwe
+      kodeProduksi: qwe
+      barCode: 
+      QRCode: 
+      seal: 
+      sedotan: 
+      logoRecycle: 
+      rasa: 
+      rasaGambar: 
+      logoPilihan: 
+      peringatan: 
+      nutritionFact: 
+    caseData:
+      package: Fiar
+      EXP: 09/09/1999
+      komposisiInd: qwe
+      komposisiEng: qwe
+      berat: qwe
+      logoHalal: qwe
+      contact: ad
+      kodeProduksi: asd
+      barCode: asd
+      QRCode: 
+      seal: 
+      sedotan: 
+      logoRecycle: 
+      rasa: 
+      rasaGambar: 
+      logoPilihan: 
+      peringatan: 
+      nutritionFact: 
+    finalAssesment: 0
+  - objectData:
+      package: Good
+      EXP: 09/09/1999
+      komposisiInd: qwe
+      komposisiEng: qwe
+      berat: qwe
+      logoHalal: qwe
+      contact: qwe
+      kodeProduksi: qwe
+      barCode: 
+      QRCode: 
+      seal: 
+      sedotan: 
+      logoRecycle: 
+      rasa: 
+      rasaGambar: 
+      logoPilihan: 
+      peringatan: 
+      nutritionFact: 
+    caseData:
+      package: Fiar
+      EXP: 09/09/1999
+      komposisiInd: qwe
+      komposisiEng: qwe
+      berat: qwe
+      logoHalal: qwe
+      contact: ad
+      kodeProduksi: asd
+      barCode: asd
+      QRCode: 
+      seal: 
+      sedotan: 
+      logoRecycle: 
+      rasa: 
+      rasaGambar: 
+      logoPilihan: 
+      peringatan: 
+      nutritionFact: 
+    finalAssesment: 0

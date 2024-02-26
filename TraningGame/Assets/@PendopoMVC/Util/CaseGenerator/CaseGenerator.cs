@@ -43,37 +43,7 @@ namespace Pendopo.TraningGame.Utils.CaseGenerator
         [ShowIf("checkProductName")] [SerializeField] private string productNameToCheck;
 
 
-        [Button("Generate Case")]
-        private void GenerateCase()
-        {
-            Case _newCase = new Case();
-            _newCase.objectData = new ObjectData
-            {
-                barCode = barCode,
-                halal = "",
-                expire = exp,
-                ingredients = ingredient,
-                mass = mass,
-                pacakge = prefabPackage,
-                productionCode = productionCode,
-                productName = productName,
-                QRCode = qrCode
-            };
-            _newCase.caseData = new ObjectData
-            {
-                barCode = barCodeCheck,
-                halal = "",
-                expire = expToCheck,
-                ingredients = ingredientToCheck,
-                mass = massToCheck,
-                pacakge = spriteCheck,
-                productionCode = productionCodeToCheck,
-                productName = productNameToCheck,
-                QRCode = qrCodeCheck
-            };
-            
-            generatedCases.Add(_newCase);
-        }
+      
     }
 
 }

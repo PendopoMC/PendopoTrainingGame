@@ -11,6 +11,7 @@ using Pendopo.TraningGame.Module.QueueSystem;
 using Pendopo.TraningGame.Module.ApproveDeny;
 using Pendopo.TraningGame.Module.CheckSystem;
 using Pendopo.TraningGame.Module.CameraHandler;
+using Pendopo.TraningGame.Module.Rotate;
 
 namespace Pendopo.TraningGame.Scene.Gameplay
 {
@@ -21,6 +22,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         GUI_IngredientCheckController ingredientCheck;
         ApproveDenyController approveDeny;
         CameraHandlerController cameraHandler;
+        RotateSystemController rotateHandler;
 
         public override string SceneName { get { return GameScene.GamePlay; } }
 
@@ -44,7 +46,8 @@ namespace Pendopo.TraningGame.Scene.Gameplay
                 new ApproveDenyController(),
                 new CheckSystemController(),
                 new CameraHandlerController(),
-                new QueueSystemController()
+                new QueueSystemController(),
+                 new RotateSystemController()
             };
         }
 
@@ -55,6 +58,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
             approveDeny.SetView(_view.approveDeny);
             queueSystem.SetView(_view.queueSystem);
             cameraHandler.SetView(_view.cameraHandler);
+            rotateHandler.SetView(_view.rotateHandler);
             yield return null;
         }
 

@@ -34,7 +34,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         {
             for (int i = 0; i < _view.cases.cases.Length; i++)
             {
-                Case _case = new Case { caseData = _view.cases.cases[i].caseData, finalAssesment = _view.cases.cases[i].finalAssesment, objectData = _view.cases.cases[i].objectData, type = _view.cases.cases[i].type };
+                Case _case = new Case { caseData = _view.cases.cases[i].caseData, finalAssesment = _view.cases.cases[i].finalAssesment, objectData = _view.cases.cases[i].objectData };
                 _model.Enqueue(_case);
             }
             SetupGameplay();
@@ -67,7 +67,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 
             //Instantiate Queue
             GameObjectModel _objModel = new GameObjectModel(_model.currentCase.objectData);
-            GameObjectView _objView = _view.ObjectView(_objModel.data.pacakge);
+            GameObjectView _objView = _view.ObjectView(_objModel.data.package);
             _objView.transform.position = _model.anchorPos.position;
             GameObjectController _goC = new GameObjectController();
             InjectDependencies(_goC);
@@ -76,11 +76,11 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 
             //Publish event
             //Set Expire date to check
-            Publish<SetExpireMessage>(new SetExpireMessage(_model.currentCase.caseData.expire));
+            Publish<SetExpireMessage>(new SetExpireMessage(_model.currentCase.caseData.EXP));
             //Set ingredient to check
-            Publish<SetIngredientMessage>(new SetIngredientMessage(_model.currentCase.caseData.ingredients));
+            Publish<SetIngredientMessage>(new SetIngredientMessage(_model.currentCase.caseData.komposisiInd));
             //Set Mass to check
-            Publish<SetMassMessage>(new SetMassMessage(_model.currentCase.caseData.mass));
+            Publish<SetMassMessage>(new SetMassMessage(_model.currentCase.caseData.berat));
         }
     }
 }

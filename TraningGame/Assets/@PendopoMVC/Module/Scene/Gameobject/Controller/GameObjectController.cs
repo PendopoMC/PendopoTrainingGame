@@ -4,6 +4,7 @@ using UnityEngine;
 using Agate.MVC.Base;
 using Agate.MVC.Core;
 using Pendopo.TraningGame.Module.PointClick;
+using Pendopo.TraningGame.Message;
 using Pendopo.TraningGame.Utils.Data;
 using DG.Tweening;
 namespace Pendopo.TraningGame.Module.Object
@@ -23,36 +24,49 @@ namespace Pendopo.TraningGame.Module.Object
                 switch (view.pointClickViews[i].checkType)
                 {
                     case CheckType.Package:
-                        _pcC.init(_pcModel, view.pointClickViews[i],_data.pacakge );
                         break;
-                    case CheckType.Expire:
-                        _pcC.init(_pcModel, view.pointClickViews[i], _data.expire);
+                    case CheckType.EXP:
                         break;
-                    case CheckType.Mass:
-                        _pcC.init(_pcModel, view.pointClickViews[i], _data.mass);
+                    case CheckType.komposisiInd:
                         break;
-                    case CheckType.Ingredient:
-                        _pcC.init(_pcModel, view.pointClickViews[i], _data.ingredients);
+                    case CheckType.komposisiEng:
                         break;
-                    case CheckType.Halal:
-                        _pcC.init(_pcModel, view.pointClickViews[i], _data.halal);
+                    case CheckType.berat:
                         break;
-                    case CheckType.ProductionCode:
-                        _pcC.init(_pcModel, view.pointClickViews[i], _data.productionCode);
+                    case CheckType.logoHalal:
                         break;
-                    case CheckType.BarCode:
-                        _pcC.init(_pcModel, view.pointClickViews[i], _data.barCode);
+                    case CheckType.contact:
+                        break;
+                    case CheckType.kodeProduksi:
+                        break;
+                    case CheckType.barCode:
                         break;
                     case CheckType.QRCode:
-                        _pcC.init(_pcModel, view.pointClickViews[i], _data.QRCode);
                         break;
-                    case CheckType.ProductName:
-                        _pcC.init(_pcModel, view.pointClickViews[i], _data.productName);
+                    case CheckType.seal:
                         break;
-                    default:
+                    case CheckType.sedotan:
+                        break;
+                    case CheckType.logoRecycle:
+                        break;
+                    case CheckType.rasa:
+                        break;
+                    case CheckType.rasaGambar:
+                        break;
+                    case CheckType.logoPilihan:
+                        break;
+                    case CheckType.peringatan:
+                        break;
+                    case CheckType.nutritionFact:
                         break;
                 }
             }
+        }
+
+
+        public void RotateObject(RotateMessage _message)
+        {
+            _view.transform.eulerAngles += (_message.rotateVector *Time.deltaTime);
         }
 
     }

@@ -14,27 +14,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   objectData:
-    pacakge: Wo'ah
-    expire: 24/03/2024
-    ingredients: Water
-    mass: 1 lt
-    halal: 
-    productName: 
-    productionCode: 
+    package: Wo'ah
+    EXP: 
+    komposisiInd: 
+    komposisiEng: 
+    berat: 
+    logoHalal: 
+    contact: 
+    kodeProduksi: 
     barCode: 
     QRCode: 
-    tagLine: 
-    straw: 
+    seal: 
+    sedotan: 
+    logoRecycle: 
+    rasa: 
+    rasaGambar: 
+    logoPilihan: 
+    peringatan: 
+    nutritionFact: 
   caseData:
-    pacakge: Wo'ah
-    expire: 24/03/2024
-    ingredients: Water
-    mass: 1 lt
-    halal: 
-    productName: 
-    productionCode: 
+    package: Wo'ah
+    EXP: 
+    komposisiInd: 
+    komposisiEng: 
+    berat: 
+    logoHalal: 
+    contact: 
+    kodeProduksi: 
     barCode: 
     QRCode: 
-    tagLine: 
-    straw: 
+    seal: 
+    sedotan: 
+    logoRecycle: 
+    rasa: 
+    rasaGambar: 
+    logoPilihan: 
+    peringatan: 
+    nutritionFact: 
   finalAssesment: 1
