@@ -11,6 +11,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             Subscribe<ApproveMessage>(_queueSystem.OnApprove);
             Subscribe<DeniedMessage>(_queueSystem.OnDenied);
             Subscribe<GameOverMessage>(_queueSystem.Gameover);
+            Subscribe<RotateMessage>(_queueSystem.RotateObject);
         }
 
         protected override void Disconnect()
@@ -19,6 +20,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             Unsubscribe<ApproveMessage>(_queueSystem.OnApprove);
             Unsubscribe<DeniedMessage>(_queueSystem.OnDenied);
             Unsubscribe<GameOverMessage>(_queueSystem.Gameover);
+            Subscribe<RotateMessage>(_queueSystem.RotateObject);
         }
     }
 }

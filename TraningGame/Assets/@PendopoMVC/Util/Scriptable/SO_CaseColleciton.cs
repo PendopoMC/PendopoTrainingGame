@@ -9,5 +9,6 @@ namespace Pendopo.TraningGame.Utils.Data
     {
         public SO_Case[] cases;
         public List<Case> csv_cases = new List<Case>();
+        public List<LevelCase> csv_level = new List<LevelCase>();
     }
 }

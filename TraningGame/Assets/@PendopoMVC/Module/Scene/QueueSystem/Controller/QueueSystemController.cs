@@ -34,7 +34,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         {
             for (int i = 0; i < _view.cases.cases.Length; i++)
             {
-                Case _case = new Case { caseData = _view.cases.cases[i].caseData, finalAssesment = _view.cases.cases[i].finalAssesment, objectData = _view.cases.cases[i].objectData };
+                Case _case = new Case {  finalAssesment = _view.cases.cases[i].finalAssesment, objectData = _view.cases.cases[i].objectData };
                 _model.Enqueue(_case);
             }
             SetupGameplay();
@@ -68,19 +68,28 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             //Instantiate Queue
             GameObjectModel _objModel = new GameObjectModel(_model.currentCase.objectData);
             GameObjectView _objView = _view.ObjectView(_objModel.data.package);
-            _objView.transform.position = _model.anchorPos.position;
             GameObjectController _goC = new GameObjectController();
+            
+            _objView.transform.position = _model.anchorPos.position;
             InjectDependencies(_goC);
             _goC.Init(_objModel, _objView);
             _model.SetCurrentObject(_goC, _objView.gameObject);
 
-            //Publish event
-            //Set Expire date to check
-            Publish<SetExpireMessage>(new SetExpireMessage(_model.currentCase.caseData.EXP));
-            //Set ingredient to check
-            Publish<SetIngredientMessage>(new SetIngredientMessage(_model.currentCase.caseData.komposisiInd));
-            //Set Mass to check
-            Publish<SetMassMessage>(new SetMassMessage(_model.currentCase.caseData.berat));
+            ////Publish event
+            ////Set Expire date to check
+            //Publish<SetExpireMessage>(new SetExpireMessage(_model.currentCase.caseData.EXP));
+            ////Set ingredient to check
+            //Publish<SetIngredientMessage>(new SetIngredientMessage(_model.currentCase.caseData.komposisiInd));
+            ////Set Mass to check
+            //Publish<SetMassMessage>(new SetMassMessage(_model.currentCase.caseData.berat));
+
+            Publish<StartTimeAttack>(new StartTimeAttack { maxTime = 300 });
+        }
+
+        public void RotateObject(RotateMessage _message)
+        {
+            if (Model.currentObject == null) return;
+            Model.currentObject.RotateObject(_message);
         }
     }
 }

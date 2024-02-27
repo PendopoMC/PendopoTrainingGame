@@ -6,6 +6,7 @@ using Pendopo.TraningGame.Module.QueueSystem;
 using Pendopo.TraningGame.Module.ApproveDeny;
 using Pendopo.TraningGame.Module.CameraHandler;
 using Pendopo.TraningGame.Module.Rotate;
+using Pendopo.TraningGame.Module.TimeAttack;
 
 namespace Pendopo.TraningGame.Scene.Gameplay
 {
@@ -18,5 +19,6 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         public ApproveDenyView approveDeny;
         public CameraHandlerView cameraHandler;
         public RotateSystemView rotateHandler;
+        public TimeAttackView timeAttackHandler;
     }
 }

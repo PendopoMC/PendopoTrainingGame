@@ -9,7 +9,8 @@ namespace Pendopo.Core
     public class CSVParser : MonoBehaviour
     {
         private static List<string> languageList = new List<string>();
-        private static Dictionary<string, List<string>> QCData = new Dictionary<string, List<string>>();
+        private static Dictionary<int, List<string>> QCData = new Dictionary<int, List<string>>();
+        private static Dictionary<string, List<string>> QCLevelData = new Dictionary<string, List<string>>();
         private static Dictionary<string, List<string>> JournalLanguageDict = new Dictionary<string, List<string>>();
 
         private static CheckType checkType;
@@ -49,6 +50,7 @@ namespace Pendopo.Core
             //SelectedLanguage = Language.ENG;
             Debug.Log("CSV CAlled");
             GetAllQCCase();
+            GetAllQCLevelCase();
         }
 
         public delegate void OnChangeLanguage(int id);
@@ -115,7 +117,7 @@ namespace Pendopo.Core
             if (QCData.Count == 0)
             {
                 caseColleciton.csv_cases.Clear();
-                var csvFile = Resources.Load<TextAsset>(path: "QCData");
+                var csvFile = Resources.Load<TextAsset>(path: "QCData_Case");
                 string[] lines = csvFile.text.Split("\n"[0]);
 
                 for (int i = 1; i < lines.Length; i++)
@@ -125,7 +127,7 @@ namespace Pendopo.Core
                     {
                         List<string> worlds = new List<string>(row);
                         worlds.RemoveAt(0);
-                        QCData.Add(row[0], worlds);
+                        QCData.Add(Int32.Parse(row[0]), worlds);
                     }
                 }
 
@@ -135,20 +137,46 @@ namespace Pendopo.Core
                     for (int i = 0; i < item.Value.Count; i++)
                     {
                         //Debug.Log($"{item.Key}  {item.Value[i]}");
-                        _newCase.SetData(i, item.Value[i], i < item.Value.Count / 2);
+                        _newCase.SetData(i, item.Value[i]);
                     }
                     caseColleciton.csv_cases.Add(_newCase);
                 }
 
-                //for (int i = 0; i < 17; i++)
-                //{
-                //    for (int j = 0; j < QCData.Count; j++)
-                //    {
+            }
+        }  
+        
+        
+        public void GetAllQCLevelCase()
+        {
+            if (QCLevelData.Count == 0)
+            {
+                caseColleciton.csv_level.Clear();
+                var csvFile = Resources.Load<TextAsset>(path: "QCData_Quest");
+                string[] lines = csvFile.text.Split("\n"[0]);
 
-                //        CheckType _c = (CheckType)i;
-                //        var _val = QCData[_c.ToString()];
-                //    }
-                //}
+                for (int i = 1; i < lines.Length; i++)
+                {
+                    Debug.Log(lines[i]);
+                    string[] row = SplitLine(lines[i]);
+                    if (row.Length > 1)
+                    {
+                        List<string> worlds = new List<string>(row);
+                        worlds.RemoveAt(0);
+                        QCLevelData.Add(row[0], worlds);
+                    }
+                }
+
+                foreach (var item in QCLevelData)
+                {
+                    LevelCase newLevel;
+                    for (int i = 0; i < item.Value.Count; i++)
+                    {
+                       // Debug.Log($"{item.Key}  {item.Value[i]}");
+
+                    }
+                    //caseColleciton.csv_level.Add(_newCase);
+                }
+
             }
         }
 

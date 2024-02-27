@@ -22,25 +22,25 @@ namespace Pendopo.TraningGame.Module.Rotate
 
         private void RotateLeft()
         {
-            rotateMessage.rotateVector = Vector3.left;
+            rotateMessage.rotateVector = Vector3.down * _view.speedRotation;
             Publish<RotateMessage>(rotateMessage);
         }
 
         private void RotateRight()
         {
-            rotateMessage.rotateVector = Vector3.right;
+            rotateMessage.rotateVector = Vector3.up * _view.speedRotation;
             Publish<RotateMessage>(rotateMessage);
         }
 
         private void RotateUp()
         {
-            rotateMessage.rotateVector = Vector3.up;
+            rotateMessage.rotateVector = Vector3.right * _view.speedRotation;
             Publish<RotateMessage>(rotateMessage);
         }
 
         private void RotateDown()
         {
-            rotateMessage.rotateVector = Vector3.down;
+            rotateMessage.rotateVector = Vector3.left * _view.speedRotation;
             Publish<RotateMessage>(rotateMessage);
         }
     }

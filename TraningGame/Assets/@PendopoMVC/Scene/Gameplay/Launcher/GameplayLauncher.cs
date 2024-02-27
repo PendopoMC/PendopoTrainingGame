@@ -12,6 +12,7 @@ using Pendopo.TraningGame.Module.ApproveDeny;
 using Pendopo.TraningGame.Module.CheckSystem;
 using Pendopo.TraningGame.Module.CameraHandler;
 using Pendopo.TraningGame.Module.Rotate;
+using Pendopo.TraningGame.Module.TimeAttack;
 
 namespace Pendopo.TraningGame.Scene.Gameplay
 {
@@ -23,6 +24,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         ApproveDenyController approveDeny;
         CameraHandlerController cameraHandler;
         RotateSystemController rotateHandler;
+        TimeAttackController timeAttackHandler;
 
         public override string SceneName { get { return GameScene.GamePlay; } }
 
@@ -33,6 +35,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
                 new GUI_MassCheckConnector(),
                 new CheckSystemConnector(),
                 new CameraHandlerConnector(),
+                new TimeAttackConnector(),
                 new QueueSystemConnector()
 
             };
@@ -47,6 +50,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
                 new CheckSystemController(),
                 new CameraHandlerController(),
                 new QueueSystemController(),
+                new TimeAttackController(),
                  new RotateSystemController()
             };
         }
@@ -59,6 +63,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
             queueSystem.SetView(_view.queueSystem);
             cameraHandler.SetView(_view.cameraHandler);
             rotateHandler.SetView(_view.rotateHandler);
+            timeAttackHandler.SetView(_view.timeAttackHandler);
             yield return null;
         }
 

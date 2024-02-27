@@ -5,6 +5,7 @@ namespace Pendopo.TraningGame.Module.Rotate
 {
     public class RotateSystemView : BaseView
     {
+        public float speedRotation =5f;
         private UnityAction rotateUp, rotateDown, rotateLeft, rotateRight;
        
 
