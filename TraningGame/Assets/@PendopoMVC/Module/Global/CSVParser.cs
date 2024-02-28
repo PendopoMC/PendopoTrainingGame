@@ -9,7 +9,7 @@ namespace Pendopo.Core
     public class CSVParser : MonoBehaviour
     {
         private static List<string> languageList = new List<string>();
-        private static Dictionary<int, List<string>> QCData = new Dictionary<int, List<string>>();
+        private static Dictionary<string, List<string>> QCData = new Dictionary<string, List<string>>();
         private static Dictionary<string, List<string>> QCLevelData = new Dictionary<string, List<string>>();
         private static Dictionary<string, List<string>> JournalLanguageDict = new Dictionary<string, List<string>>();
 
@@ -119,29 +119,39 @@ namespace Pendopo.Core
                 caseColleciton.csv_cases.Clear();
                 var csvFile = Resources.Load<TextAsset>(path: "QCData_Case");
                 string[] lines = csvFile.text.Split("\n"[0]);
+                string[] header = SplitLine(lines[0]);
+
+                Case _case;
+                ObjectData _data = new ObjectData();
+                for (int i = 0; i < header.Length; i++)
+                {
+                    QCData.Add(header[i], new List<string>());
+                }
 
                 for (int i = 1; i < lines.Length; i++)
                 {
                     string[] row = SplitLine(lines[i]);
-                    if (row.Length > 1)
+                    for (int j = 0; j < row.Length; j++)
                     {
-                        List<string> worlds = new List<string>(row);
-                        worlds.RemoveAt(0);
-                        QCData.Add(Int32.Parse(row[0]), worlds);
+                        QCData[header[j]].Add(string.IsNullOrEmpty(row[j]) ? "-" : row[j]);
                     }
                 }
-
-                foreach (var item in QCData)
+                for (int i = 0; i < lines.Length - 1; i++)
                 {
-                    Case _newCase = new Case();
-                    for (int i = 0; i < item.Value.Count; i++)
+                    _case = new Case();
+                    for (int j = 0; j < header.Length - 1; j++)
                     {
-                        //Debug.Log($"{item.Key}  {item.Value[i]}");
-                        _newCase.SetData(i, item.Value[i]);
+                        _data.SetValueByName(header[j], QCData[header[j]][i]);
+                        if(header[j] == "finalAssesment")
+                        {
+                            _case.finalAssesment = QCData[header[j]][i] == "Approve";
+                        }
                     }
-                    caseColleciton.csv_cases.Add(_newCase);
-                }
+                    _data.Initialize();
+                    _case.objectData = _data;
+                    caseColleciton.csv_cases.Add(_case);
 
+                }
             }
         }  
         
@@ -153,30 +163,42 @@ namespace Pendopo.Core
                 caseColleciton.csv_level.Clear();
                 var csvFile = Resources.Load<TextAsset>(path: "QCData_Quest");
                 string[] lines = csvFile.text.Split("\n"[0]);
+                string[] header = SplitLine(lines[0]);
+                for (int i = 0; i < header.Length; i++)
+                {
+                    QCLevelData.Add(header[i], new List<string>());
+                }
 
                 for (int i = 1; i < lines.Length; i++)
                 {
-                    Debug.Log(lines[i]);
                     string[] row = SplitLine(lines[i]);
-                    if (row.Length > 1)
+                    for (int j = 0; j < row.Length; j++)
                     {
-                        List<string> worlds = new List<string>(row);
-                        worlds.RemoveAt(0);
-                        QCLevelData.Add(row[0], worlds);
+                        QCLevelData[header[j]].Add(string.IsNullOrEmpty(row[j])?"-":row[j]);
                     }
                 }
 
-                foreach (var item in QCLevelData)
+
+                for (int i = 0; i < lines.Length-1; i++)
                 {
-                    LevelCase newLevel;
-                    for (int i = 0; i < item.Value.Count; i++)
+                    LevelCase newLevel = new LevelCase();
+                    ObjectData _data = new ObjectData();
+                    for (int j = 0; j < header.Length-1; j++)
                     {
-                       // Debug.Log($"{item.Key}  {item.Value[i]}");
-
+                        if (header[j] == "rule" || header[j] == "QC_ID_Start" || header[j] == "QC_ID_End")
+                        {
+                            newLevel.SetValueByName(header[j], QCLevelData[header[j]][i]);
+                        }
+                        else
+                        {
+                            _data.SetValueByName(header[j], QCLevelData[header[j]][i]);
+                        }
                     }
-                    //caseColleciton.csv_level.Add(_newCase);
-                }
+                    _data.Initialize();
+                    newLevel.Initialize(_data);
+                    caseColleciton.csv_level.Add(newLevel);
 
+                }               
             }
         }
 

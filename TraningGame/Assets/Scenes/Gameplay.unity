@@ -8017,25 +8017,6 @@ MonoBehaviour:
       logoPilihan: 
       peringatan: 
       nutritionFact: 
-    caseData:
-      package: 
-      EXP: 
-      komposisiInd: 
-      komposisiEng: 
-      berat: 
-      logoHalal: 
-      contact: 
-      kodeProduksi: 
-      barCode: 
-      QRCode: 
-      seal: 
-      sedotan: 
-      logoRecycle: 
-      rasa: 
-      rasaGambar: 
-      logoPilihan: 
-      peringatan: 
-      nutritionFact: 
     finalAssesment: 0
 --- !u!1 &1409424032
 GameObject:

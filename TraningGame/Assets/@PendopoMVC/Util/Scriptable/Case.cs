@@ -12,182 +12,145 @@ namespace Pendopo.TraningGame.Utils.Data
     {
         public ObjectData objectData;
         public bool finalAssesment;
- 
-        public void SetData(int _id, string _data)
-        {
-            switch ((CheckType)_id)
-            {
-                case CheckType.Package:
-                    objectData.package = _data;
-                    break;
-                case CheckType.EXP:
-                    objectData.EXP = _data;
-                    break;
-                case CheckType.komposisiInd:
-                    objectData.komposisiInd = _data;
-                    break;
-                case CheckType.komposisiEng:
-                    objectData.komposisiEng = _data;
-                    break;
-                case CheckType.berat:
-                    objectData.berat = _data;
-                    break;
-                case CheckType.logoHalal:
-                    objectData.logoHalal = _data;
-                    break;
-                case CheckType.contact:
-                    objectData.contact = _data;
-                    break;
-                case CheckType.kodeProduksi:
-                    objectData.kodeProduksi = _data;
-                    break;
-                case CheckType.barCode:
-                    objectData.barCode = _data;
-                    break;
-                case CheckType.QRCode:
-                    objectData.QRCode = _data;
-                    break;
-                case CheckType.seal:
-                    objectData.seal = _data;
-                    break;
-                case CheckType.sedotan:
-                    objectData.sedotan = _data;
-                    break;
-                case CheckType.logoRecycle:
-                    objectData.logoRecycle = _data;
-                    break;
-                case CheckType.rasa:
-                    objectData.rasa = _data;
-                    break;
-                case CheckType.rasaGambar:
-                    objectData.rasaGambar = _data;
-                    break;
-                case CheckType.logoPilihan:
-                    objectData.logoPilihan = _data;
-                    break;
-                case CheckType.peringatan:
-                    objectData.peringatan = _data;
-                    break;
-                case CheckType.nutritionFact:
-                    objectData.nutritionFact = _data;
-                    break;
-                default:
-                    break;
-            }
-
-        }
     }
 
 
     [System.Serializable]
-    public struct LevelCase
+    public class LevelCase
     {
-        public int id;
-        public string rule;
-        public int QC_ID_Start, QC_ID_End;
+        public int ID;
+        public int QC_ID_StartValue;
+        public int QC_ID_EndValue;
         public ObjectData caseData;
-
-        public struct LevelCaseBuilder
+        private string id { get; set; }
+        private string rule { get; set; }
+        private string QC_ID_Start { get; set; }
+        private string QC_ID_End { get; set; }
+        public void SetValueByName(string propertyName, object value,bool _debug=false)
         {
-            private int id;
-            private string rule;
-            private int QC_ID_Start, QC_ID_End;
-            private ObjectData caseData;
+            // Get the type of this class
+            Type type = this.GetType();
 
-            private Dictionary<string, string> pairValue;
-            public void SetValueByName(string variableName, object value)
+            // Get the property info based on the propertyName
+            PropertyInfo property = type.GetProperty(propertyName, BindingFlags.NonPublic | BindingFlags.Instance);
+
+            // If the property is found, set its value
+            if (property != null)
             {
-                // Get the type of this class
-                Type type = this.GetType();
-
-                // Get the field info based on the variableName
-                FieldInfo field = type.GetField(variableName, BindingFlags.NonPublic | BindingFlags.Instance);
-
-                // If the field is found, set its value
-                if (field != null)
-                {
-                    field.SetValue(this, value);
-                    Console.WriteLine($"Value {value} set to variable {variableName}");
-                }
-                else
-                {
-                    Console.WriteLine($"Variable {variableName} not found.");
-                }
+                property.SetValue(this, Convert.ChangeType(value, property.PropertyType));
+                if (!_debug) return;
+                Debug.Log($"Value {value} set to property {propertyName}");
+                Debug.Log(property.GetValue(this));
             }
-            public LevelCaseBuilder Initialze()
+            else
             {
-                pairValue = new Dictionary<string, string>();
-              
-                return this;
+                if (!_debug) return;
+               Debug.Log($"Property {propertyName} not found.");
             }
+        }
+        public override string ToString()
+        {
+            return $"id : {id}" +
+                $"rule : {rule}" +
+                $"QC_ID_Start : {QC_ID_Start}" +
+                $"QC_ID_Start : {QC_ID_End}";
+        }
 
-            public LevelCaseBuilder SetData(int _id,string _data)
-            {
-              
-                return this;
-            }
-
-            public LevelCaseBuilder WithID(int id)
-            {
-                this.id = id;
-                return this;
-            }   
-          
-            public LevelCaseBuilder WithRule(string rule)
-            {
-                this.rule = rule;
-                return this;
-            }  
-            
-            public LevelCaseBuilder WithStartAndEnd(int start,int end)
-            {
-                QC_ID_Start = start;
-                QC_ID_End = end;
-                return this;
-            }   
-            
-            public LevelCaseBuilder WithObjData(ObjectData caseData)
-            {
-                this.caseData = caseData;
-                return this;
-            }
-
-            public LevelCase Build()
-            {
-                LevelCase _newLevelCase = new LevelCase();
-                _newLevelCase.caseData = caseData;
-                _newLevelCase.id = id;
-                _newLevelCase.QC_ID_End = QC_ID_End;
-                _newLevelCase.QC_ID_Start = QC_ID_Start;
-                _newLevelCase.rule = rule;
-
-                return _newLevelCase;
-            }
+        public void Initialize(ObjectData _data)
+        {
+            QC_ID_StartValue = int.Parse(QC_ID_Start);
+            QC_ID_EndValue = int.Parse(QC_ID_End);
+            caseData = _data;
         }
     }
 
 
     [System.Serializable]
-    public struct ObjectData
+    public class ObjectData
     {
-        public string package;
-        public string EXP;
-        public string komposisiInd;
-        public string komposisiEng;
-        public string berat;
-        public string logoHalal;
-        public string contact;
-        public string kodeProduksi;
-        public string barCode;
-        public string QRCode;
-        public string seal;
-        public string sedotan;
-        public string logoRecycle;
-        public string rasa;
-        public string rasaGambar;
-        public string logoPilihan;
-        public string peringatan;
-        public string nutritionFact;
+        private string Package { get; set; }
+        private string EXP { get; set; }
+        private string komposisiInd { get; set; }
+        private string komposisiEng { get; set; }
+        private string berat { get; set; }
+        private string logoHalal { get; set; }
+        private string contact { get; set; }
+        private string kodeProduksi { get; set; }
+        private string barCode { get; set; }
+        private string QRCode { get; set; }
+        private string seal { get; set; }
+        private string sedotan { get; set; }
+        private string logoRecycle { get; set; }
+        private string rasa { get; set; }
+        private string rasaGambar { get; set; }
+        private string logoPilihan { get; set; }
+        private string peringatan { get; set; }
+        private string nutritionFact { get; set; }
+
+        public string PackageName;
+        public string Expire;
+        public string KomposisiInd;
+        public string KomposisiEng;
+        public string Berat;
+        public string LogoHalal;
+        public string Contact;
+        public string KodeProduksi;
+        public string BarCode;
+        public string QRCodeLogo;
+        public string Seal;
+        public string Sedotan;
+        public string LogoRecycle;
+        public string Rasa;
+        public string RasaGambar;
+        public string LogoPilihan;
+        public string Peringatan;
+        public string NutritionFact;
+
+        public void SetValueByName(string propertyName, object value,bool _debug = false)
+        {
+            // Get the type of this class
+            Type type = this.GetType();
+
+            // Get the property info based on the propertyName
+            PropertyInfo property = type.GetProperty(propertyName, BindingFlags.NonPublic | BindingFlags.Instance);
+
+            // If the property is found, set its value
+            if (property != null)
+            {
+                property.SetValue(this, Convert.ChangeType(value, property.PropertyType));
+                if (!_debug) return;
+                Debug.Log($"Value {value} set to property {propertyName}");
+                Debug.Log(property.GetValue(this));
+            }
+            else
+            {
+                if (!_debug) return;
+                Debug.Log($"Property {propertyName} not found.");
+            }
+        }
+
+        public void Initialize()
+        {
+            PackageName = Package;
+            Expire = EXP;
+            KomposisiInd = komposisiInd;
+            KomposisiEng = komposisiEng;
+            Berat = berat;
+            LogoHalal = logoHalal;
+            Contact = contact;
+            KodeProduksi = kodeProduksi;
+            BarCode = barCode;
+            QRCodeLogo = QRCode;
+            Seal = seal;
+            Sedotan = sedotan;
+            LogoRecycle = logoRecycle;
+            Rasa = rasa;
+            RasaGambar = rasaGambar;
+            LogoPilihan = logoPilihan;
+            Peringatan = peringatan;
+            NutritionFact = nutritionFact;
+
+        }
     }
 
     public enum CheckType

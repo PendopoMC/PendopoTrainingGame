@@ -12,43 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9075c44fdb11f4aaffab6748f99bb2, type: 3}
   m_Name: Case1
   m_EditorClassIdentifier: 
-  type: 1
   objectData:
-    package: Wo'ah
-    EXP: 
-    komposisiInd: 
-    komposisiEng: 
-    berat: 
-    logoHalal: 
-    contact: 
-    kodeProduksi: 
-    barCode: 
+    PackageName: Wo'ah
+    Expire: 
+    KomposisiInd: 
+    KomposisiEng: 
+    Berat: 
+    LogoHalal: 
+    Contact: 
+    KodeProduksi: 
+    BarCode: 
     QRCode: 
-    seal: 
-    sedotan: 
-    logoRecycle: 
-    rasa: 
-    rasaGambar: 
-    logoPilihan: 
-    peringatan: 
-    nutritionFact: 
+    Seal: 
+    Sedotan: 
+    LogoRecycle: 
+    Rasa: 
+    RasaGambar: 
+    LogoPilihan: 
+    Peringatan: 
+    NutritionFact: 
   caseData:
-    package: Wo'ah
-    EXP: 
-    komposisiInd: 
-    komposisiEng: 
-    berat: 
-    logoHalal: 
-    contact: 
-    kodeProduksi: 
-    barCode: 
+    PackageName: Wo'ah
+    Expire: 
+    KomposisiInd: 
+    KomposisiEng: 
+    Berat: 
+    LogoHalal: 
+    Contact: 
+    KodeProduksi: 
+    BarCode: 
     QRCode: 
-    seal: 
-    sedotan: 
-    logoRecycle: 
-    rasa: 
-    rasaGambar: 
-    logoPilihan: 
-    peringatan: 
-    nutritionFact: 
+    Seal: 
+    Sedotan: 
+    LogoRecycle: 
+    Rasa: 
+    RasaGambar: 
+    LogoPilihan: 
+    Peringatan: 
+    NutritionFact: 
   finalAssesment: 1
