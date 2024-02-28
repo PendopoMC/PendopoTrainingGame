@@ -4,6 +4,8 @@ using UnityEngine;
 using System;
 using System.Linq;
 using Pendopo.TraningGame.Utils.Data;
+using System.Text;
+
 namespace Pendopo.Core
 {
     public class CSVParser : MonoBehaviour
@@ -68,6 +70,41 @@ namespace Pendopo.Core
             return (from System.Text.RegularExpressions.Match m in System.Text.RegularExpressions.Regex.Matches(input: line,
                pattern: @"(((?<x>(?=[,\r\n]+))|""(?<x>([^""]|"""")+)""|(?<x>[^,\r\n]+)),?)", System.Text.RegularExpressions.RegexOptions.ExplicitCapture)
                     select m.Groups[1].Value).ToArray();
+        }
+
+        //To ignore input newlines and commas within double-quoted fields, you can modify the regular expression pattern to handle this case. Here's the modified version of the SplitLine method
+        public static string[] SplitLineModified(string line)
+        {
+            List<string> fields = new List<string>();
+
+            bool withinQuotes = false;
+            StringBuilder currentField = new StringBuilder();
+
+            for (int i = 0; i < line.Length; i++)
+            {
+                char c = line[i];
+
+                if (c == '"')
+                {
+                    withinQuotes = !withinQuotes;
+                    currentField.Append(c); // Include the quote in the field
+                }
+                else if ((c == ','||c=='\n') && !withinQuotes)
+                {
+                    fields.Add(currentField.ToString().Trim('"'));
+                    currentField.Clear();
+                    continue;
+                }
+                else
+                {
+                    currentField.Append(c);
+                }
+            }
+
+            // Add the last field
+            fields.Add(currentField.ToString().Trim('"'));
+
+            return fields.ToArray();
         }
 
         public static List<string> GetAvailableLanguanges()
@@ -163,42 +200,49 @@ namespace Pendopo.Core
                 caseColleciton.csv_level.Clear();
                 var csvFile = Resources.Load<TextAsset>(path: "QCData_Quest");
                 string[] lines = csvFile.text.Split("\n"[0]);
+                string[] linesMod = SplitLineModified( csvFile.text);
                 string[] header = SplitLine(lines[0]);
-                for (int i = 0; i < header.Length; i++)
+
+                foreach (var item in linesMod)
                 {
-                    QCLevelData.Add(header[i], new List<string>());
+                    Debug.Log(item);
                 }
 
-                for (int i = 1; i < lines.Length; i++)
-                {
-                    string[] row = SplitLine(lines[i]);
-                    for (int j = 0; j < row.Length; j++)
-                    {
-                        QCLevelData[header[j]].Add(string.IsNullOrEmpty(row[j])?"-":row[j]);
-                    }
-                }
+                //for (int i = 0; i < header.Length; i++)
+                //{
+                //    QCLevelData.Add(header[i], new List<string>());
+                //}
+
+                //for (int i = 1; i < lines.Length; i++)
+                //{
+                //    string[] row = SplitLine(lines[i]);
+                //    for (int j = 0; j < row.Length; j++)
+                //    {
+                //        QCLevelData[header[j]].Add(string.IsNullOrEmpty(row[j])?"-":row[j]);
+                //    }
+                //}
 
 
-                for (int i = 0; i < lines.Length-1; i++)
-                {
-                    LevelCase newLevel = new LevelCase();
-                    ObjectData _data = new ObjectData();
-                    for (int j = 0; j < header.Length-1; j++)
-                    {
-                        if (header[j] == "rule" || header[j] == "QC_ID_Start" || header[j] == "QC_ID_End")
-                        {
-                            newLevel.SetValueByName(header[j], QCLevelData[header[j]][i]);
-                        }
-                        else
-                        {
-                            _data.SetValueByName(header[j], QCLevelData[header[j]][i]);
-                        }
-                    }
-                    _data.Initialize();
-                    newLevel.Initialize(_data);
-                    caseColleciton.csv_level.Add(newLevel);
+                //for (int i = 0; i < lines.Length-1; i++)
+                //{
+                //    LevelCase newLevel = new LevelCase();
+                //    ObjectData _data = new ObjectData();
+                //    for (int j = 0; j < header.Length-1; j++)
+                //    {
+                //        if (header[j] == "rule" || header[j] == "QC_ID_Start" || header[j] == "QC_ID_End")
+                //        {
+                //            newLevel.SetValueByName(header[j], QCLevelData[header[j]][i]);
+                //        }
+                //        else
+                //        {
+                //            _data.SetValueByName(header[j], QCLevelData[header[j]][i]);
+                //        }
+                //    }
+                //    _data.Initialize();
+                //    newLevel.Initialize(_data);
+                //    caseColleciton.csv_level.Add(newLevel);
 
-                }               
+                //}               
             }
         }
 

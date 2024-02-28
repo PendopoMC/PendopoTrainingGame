@@ -1,8 +1,10 @@
 ID,Package,EXP,komposisiInd,komposisiEng,berat,logoHalal,contact,kodeProduksi,barCode,QRCode,seal,sedotan,logoRecycle,rasa,rasaGambar,logoPilihan,peringatan,nutritionFact
-0,Good,03/01/2025,KompGood,CompGood,165,HalalGood,ContGood,030124QRTZ,BarCodeGood,QRGood,SealGood,StrawGood,RecGood,FlavBananaGood,ImgBananaGood,ChoiceGood,WarnGood,NutGood
-1,Bad,03/01/2025,KompGood,CompGood,165,HalalGood,ContGood,030124QRTZ,BarCodeGood,QRGood,SealGood,StrawGood,RecGood,FlavBananaGood,ImgBananaGood,ChoiceGood,WarnGood,NutGood
-2,Good,03/01/2024,KompGood,CompGood,165,HalalGood,ContGood,030124QRTZ,BarCodeGood,QRGood,SealGood,StrawBad,RecGood,FlavBananaGood,ImgBananaGood,ChoiceGood,WarnGood,NutGood
-3,Good,03/01/2025,KompGood,CompGood,120,HalalGood,ContGood,030124QRTZ,BarCodeGood,QRGood,SealGood,StrawGood,RecGood,FlavBananaGood,ImgBananaGood,ChoiceGood,WarnGood,NutGood
-4,Good,03/01/2025,KompGood,CompGood,165,HalalGood,ContGood,030124QRTZ,BarCodeGood,QRGood,SealGood,StrawGood,RecGood,FlavChocoGood,ImgChocoGood,ChoiceGood,WarnGood,NutGood
-5,Bad,03/01/2025,KompGood,CompGood,120,HalalGood,ContGood,030124QRTZ,BarCodeGood,QRGood,SealGood,StrawBad,RecGood,FlavBananaGood,ImgBananaGood,ChoiceGood,WarnGood,NutGood
-6,Bad,03/01/2025,qwe,qwe,qwe,qwe,qwe,qwe,,,,,,,,,,
+0,Good,3/1/2025,"KompGod
+asdasdasdasdasd
+asdasd",CompGood,165,HalalGood,ContGood,030124QRTZ,BarCodeGood,QRGood,SealGood,StrawGood,RecGood,FlavBananaGood,ImgBananaGood,ChoiceGood,WarnGood,NutGood
+1,Bad,3/1/2025,KompGood,CompGood,165,HalalGood,ContGood,030124QRTZ,BarCodeGood,QRGood,SealGood,StrawGood,RecGood,FlavBananaGood,ImgBananaGood,ChoiceGood,WarnGood,NutGood
+2,Good,3/1/2024,KompGood,CompGood,165,HalalGood,ContGood,030124QRTZ,BarCodeGood,QRGood,SealGood,StrawBad,RecGood,FlavBananaGood,ImgBananaGood,ChoiceGood,WarnGood,NutGood
+3,Good,3/1/2025,KompGood,CompGood,120,HalalGood,ContGood,030124QRTZ,BarCodeGood,QRGood,SealGood,StrawGood,RecGood,FlavBananaGood,ImgBananaGood,ChoiceGood,WarnGood,NutGood
+4,Good,3/1/2025,KompGood,CompGood,165,HalalGood,ContGood,030124QRTZ,BarCodeGood,QRGood,SealGood,StrawGood,RecGood,FlavChocoGood,ImgChocoGood,ChoiceGood,WarnGood,NutGood
+5,Bad,3/1/2025,KompGood,CompGood,120,HalalGood,ContGood,030124QRTZ,BarCodeGood,QRGood,SealGood,StrawBad,RecGood,FlavBananaGood,ImgBananaGood,ChoiceGood,WarnGood,NutGood
+,,,,,,,,,,,,,,,,,,
