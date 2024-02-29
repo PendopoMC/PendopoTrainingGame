@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine;
+using Pendopo.Core.Parser;
 
 namespace Pendopo.TraningGame.Utils.Data
 {
@@ -16,38 +17,19 @@ namespace Pendopo.TraningGame.Utils.Data
 
 
     [System.Serializable]
-    public class LevelCase
+    public class LevelCase : IParserValueSerializers<ObjectData>
     {
         public int ID;
         public int QC_ID_StartValue;
         public int QC_ID_EndValue;
-        public ObjectData caseData;
+        public string Rule;
+        public ObjectData SubClass;
         private string id { get; set; }
         private string rule { get; set; }
         private string QC_ID_Start { get; set; }
         private string QC_ID_End { get; set; }
-        public void SetValueByName(string propertyName, object value,bool _debug=false)
-        {
-            // Get the type of this class
-            Type type = this.GetType();
 
-            // Get the property info based on the propertyName
-            PropertyInfo property = type.GetProperty(propertyName, BindingFlags.NonPublic | BindingFlags.Instance);
 
-            // If the property is found, set its value
-            if (property != null)
-            {
-                property.SetValue(this, Convert.ChangeType(value, property.PropertyType));
-                if (!_debug) return;
-                Debug.Log($"Value {value} set to property {propertyName}");
-                Debug.Log(property.GetValue(this));
-            }
-            else
-            {
-                if (!_debug) return;
-               Debug.Log($"Property {propertyName} not found.");
-            }
-        }
         public override string ToString()
         {
             return $"id : {id}" +
@@ -60,13 +42,20 @@ namespace Pendopo.TraningGame.Utils.Data
         {
             QC_ID_StartValue = int.Parse(QC_ID_Start);
             QC_ID_EndValue = int.Parse(QC_ID_End);
-            caseData = _data;
+            Rule = rule;
+            SubClass = _data;
+            SubClass.Initialize();
         }
+
+        public void Initialize()
+        {
+        }
+
     }
 
 
     [System.Serializable]
-    public class ObjectData
+    public class ObjectData : IParserValueSerializer
     {
         private string Package { get; set; }
         private string EXP { get; set; }
@@ -84,8 +73,8 @@ namespace Pendopo.TraningGame.Utils.Data
         private string rasa { get; set; }
         private string rasaGambar { get; set; }
         private string logoPilihan { get; set; }
-        private string peringatan { get; set; }
         private string nutritionFact { get; set; }
+        private string peringatan { get; set; }
 
         public string PackageName;
         public string Expire;

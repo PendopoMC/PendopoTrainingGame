@@ -1,20 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using System.Linq;
 using Pendopo.TraningGame.Utils.Data;
-using System.Text;
 
-namespace Pendopo.Core
+namespace Pendopo.Core.Parser
 {
     public class CSVParser : MonoBehaviour
     {
-        private static List<string> languageList = new List<string>();
         private static Dictionary<string, List<string>> QCData = new Dictionary<string, List<string>>();
         private static Dictionary<string, List<string>> QCLevelData = new Dictionary<string, List<string>>();
-        private static Dictionary<string, List<string>> JournalLanguageDict = new Dictionary<string, List<string>>();
-
+        private int dataLenght;
         private static CheckType checkType;
         [SerializeField] private bool isTestingOnStart;
         [SerializeField] private SO_CaseColleciton caseColleciton;
@@ -65,123 +61,26 @@ namespace Pendopo.Core
             }
         }
 
-        public static string[] SplitLine(string line)
-        {
-            return (from System.Text.RegularExpressions.Match m in System.Text.RegularExpressions.Regex.Matches(input: line,
-               pattern: @"(((?<x>(?=[,\r\n]+))|""(?<x>([^""]|"""")+)""|(?<x>[^,\r\n]+)),?)", System.Text.RegularExpressions.RegexOptions.ExplicitCapture)
-                    select m.Groups[1].Value).ToArray();
-        }
-
-        //To ignore input newlines and commas within double-quoted fields, you can modify the regular expression pattern to handle this case. Here's the modified version of the SplitLine method
-        public static string[] SplitLineModified(string line)
-        {
-            List<string> fields = new List<string>();
-
-            bool withinQuotes = false;
-            StringBuilder currentField = new StringBuilder();
-
-            for (int i = 0; i < line.Length; i++)
-            {
-                char c = line[i];
-
-                if (c == '"')
-                {
-                    withinQuotes = !withinQuotes;
-                    currentField.Append(c); // Include the quote in the field
-                }
-                else if ((c == ','||c=='\n') && !withinQuotes)
-                {
-                    fields.Add(currentField.ToString().Trim('"'));
-                    currentField.Clear();
-                    continue;
-                }
-                else
-                {
-                    currentField.Append(c);
-                }
-            }
-
-            // Add the last field
-            fields.Add(currentField.ToString().Trim('"'));
-
-            return fields.ToArray();
-        }
-
-        public static List<string> GetAvailableLanguanges()
-        {
-            if (languageList.Count == 0)
-            {
-                var csvFile = Resources.Load<TextAsset>(path: "Localization");
-                string[] lines = csvFile.text.Split("\n"[0]);
-                languageList = new List<string>(SplitLine(lines[0]));
-                languageList.RemoveAt(0);
-            }
-            return languageList;
-        }
-
-     
-
-        public static string Journal_GetTextFromID(string id)
-        {
-            int languageId = (int)checkType;
-            if (JournalLanguageDict.Count == 0)
-            {
-                var csvFile = Resources.Load<TextAsset>(path: "JournalLocalization");
-                string[] lines = csvFile.text.Split("\n"[0]);
-
-                for (int i = 1; i < lines.Length; i++)
-                {
-                    string[] row = SplitLine(lines[i]);
-                    if (row.Length > 1)
-                    {
-                        List<string> worlds = new List<string>(row);
-                        worlds.RemoveAt(0);
-                        JournalLanguageDict.Add(row[0], worlds);
-                    }
-                }
-            }
-
-            if (JournalLanguageDict.ContainsKey(id))
-            {
-                var values = JournalLanguageDict[id];
-                return values[languageId];
-
-            }
-            return id;
-        }
+      
         public void GetAllQCCase()
         {
             if (QCData.Count == 0)
             {
                 caseColleciton.csv_cases.Clear();
                 var csvFile = Resources.Load<TextAsset>(path: "QCData_Case");
-                string[] lines = csvFile.text.Split("\n"[0]);
-                string[] header = SplitLine(lines[0]);
 
+                QCData = ParserHelper.ParseCSVToDict(csvFile, out QCData, out dataLenght);
                 Case _case;
                 ObjectData _data = new ObjectData();
-                for (int i = 0; i < header.Length; i++)
-                {
-                    QCData.Add(header[i], new List<string>());
-                }
-
-                for (int i = 1; i < lines.Length; i++)
-                {
-                    string[] row = SplitLine(lines[i]);
-                    for (int j = 0; j < row.Length; j++)
-                    {
-                        QCData[header[j]].Add(string.IsNullOrEmpty(row[j]) ? "-" : row[j]);
-                    }
-                }
-                for (int i = 0; i < lines.Length - 1; i++)
+                for (int i = 0; i < dataLenght - 1; i++)
                 {
                     _case = new Case();
-                    for (int j = 0; j < header.Length - 1; j++)
+                    foreach (var item in QCData)
                     {
-                        _data.SetValueByName(header[j], QCData[header[j]][i]);
-                        if(header[j] == "finalAssesment")
+                        _data.SetValueByName(item.Key, QCData[item.Key][i]);
+                        if (item.Key == "finalAssesment")
                         {
-                            _case.finalAssesment = QCData[header[j]][i] == "Approve";
+                            _case.finalAssesment = QCData[item.Key][i] == "Approve";
                         }
                     }
                     _data.Initialize();
@@ -198,51 +97,32 @@ namespace Pendopo.Core
             if (QCLevelData.Count == 0)
             {
                 caseColleciton.csv_level.Clear();
+
                 var csvFile = Resources.Load<TextAsset>(path: "QCData_Quest");
-                string[] lines = csvFile.text.Split("\n"[0]);
-                string[] linesMod = SplitLineModified( csvFile.text);
-                string[] header = SplitLine(lines[0]);
 
-                foreach (var item in linesMod)
+                QCLevelData = ParserHelper.ParseCSVToDict(csvFile, out QCLevelData,out dataLenght);
+
+                Debug.Log($"{dataLenght}");
+                for (int i = 0; i < dataLenght - 1; i++)
                 {
-                    Debug.Log(item);
+                    IParserValueSerializers<ObjectData> newLevel = new LevelCase();
+                    IParserValueSerializer _data = new ObjectData();
+
+                    foreach (var item in QCLevelData)
+                    {
+                        if (item.Key == "rule" || item.Key == "QC_ID_Start" || item.Key == "QC_ID_End")
+                        {
+                            newLevel.SetValueByName(item.Key, QCLevelData[item.Key][i]);
+                        }
+                        else
+                        {
+                            _data.SetValueByName(item.Key, QCLevelData[item.Key][i]);
+                        }
+                    }
+                    newLevel.Initialize(_data as ObjectData);
+                    caseColleciton.csv_level.Add(newLevel as LevelCase);
+
                 }
-
-                //for (int i = 0; i < header.Length; i++)
-                //{
-                //    QCLevelData.Add(header[i], new List<string>());
-                //}
-
-                //for (int i = 1; i < lines.Length; i++)
-                //{
-                //    string[] row = SplitLine(lines[i]);
-                //    for (int j = 0; j < row.Length; j++)
-                //    {
-                //        QCLevelData[header[j]].Add(string.IsNullOrEmpty(row[j])?"-":row[j]);
-                //    }
-                //}
-
-
-                //for (int i = 0; i < lines.Length-1; i++)
-                //{
-                //    LevelCase newLevel = new LevelCase();
-                //    ObjectData _data = new ObjectData();
-                //    for (int j = 0; j < header.Length-1; j++)
-                //    {
-                //        if (header[j] == "rule" || header[j] == "QC_ID_Start" || header[j] == "QC_ID_End")
-                //        {
-                //            newLevel.SetValueByName(header[j], QCLevelData[header[j]][i]);
-                //        }
-                //        else
-                //        {
-                //            _data.SetValueByName(header[j], QCLevelData[header[j]][i]);
-                //        }
-                //    }
-                //    _data.Initialize();
-                //    newLevel.Initialize(_data);
-                //    caseColleciton.csv_level.Add(newLevel);
-
-                //}               
             }
         }
 

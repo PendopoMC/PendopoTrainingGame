@@ -1,3 +1,5 @@
-id,rule,QC_ID_Start,QC_ID_End,Package,EXP,komposisiInd,komposisiEng,berat,logoHalal,contact,kodeProduksi,barCode,QRCode,seal,sedotan,logoRecycle,rasa,rasaGambar,logoPilihan,peringatan,nutritionFact
-0,"Production Team. Hari ini adalah pengecekan susu rasa ""Vanila Latte"" dengan ukuran isi 350 ml.Tidak ada produk dengan rasa dan ukuran lain untuk pengecekan hari ",0,20,Fiar,ttttttt,qwe,qwe,qwe,qwe,ad,asd,asd,-,-,-,-,-,-,-,-,-
-1,"Production Team. Hari ini adalah pengecekan susu rasa ""Vanila Latte"" dengan ukuran isi 350 ml.Tidak ada produk dengan rasa dan ukuran lain untuk pengecekan hari ",21,40,Fiar,qwe,qwe,qwe,"qwe,asd,ffff",qwe,ad,asd,asd,-,-,-,-,-,-,-,-,-
+id,rule,QC_ID_Start,QC_ID_End,Package,EXP,komposisiInd,komposisiEng,berat,logoHalal,contact,kodeProduksi,barCode,QRCode,seal,sedotan,logoRecycle,rasa,rasaGambar,logoPilihan,nutritionFact,peringatan
+0,"<b>Production Team</b> <br/>Hari ini adalah pengecekan susu rasa <b>""Banana""</b> dengan ukuran isi 165ml.<br/>Tidak ada produk dengan rasa dan ukuran lain untuk pengecekan hari, pastikan bahwa semua produk yang di approve adalah produk dengan kondisi baik.",0,6,Good,3/1/2025,KompGood,CompGood,165,HalalGood,ContGood,030124QRTZ,BarCodeGood,QRGood,SealGood,StrawGood,RecGood,FlavBananaGood,ImgBananaGood,ChoiceGood,WarnGood,NutGood
+1,"Production Team.
+Hari ini adalah pengecekan susu rasa ""Vanila Latte"" dengan ukuran isi 350 ml.
+Tidak ada produk dengan rasa dan ukuran lain untuk pengecekan hari ",21,40,Fiar,qwe,qwe,qwe,"qwe,asd,ffff",qwe,ad,asd,asd,-,-,-,-,-,-,-,-,-
