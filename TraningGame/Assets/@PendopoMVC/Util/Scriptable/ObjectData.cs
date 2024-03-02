@@ -9,53 +9,7 @@ using Pendopo.Core.Parser;
 namespace Pendopo.TraningGame.Utils.Data
 {
     [System.Serializable]
-    public class Case
-    {
-        public ObjectData objectData;
-        public bool finalAssesment;
-    }
-
-
-    [System.Serializable]
-    public class LevelCase : IParserValueSerializers<ObjectData>
-    {
-        public int ID;
-        public int QC_ID_StartValue;
-        public int QC_ID_EndValue;
-        public string Rule;
-        public ObjectData SubClass;
-        private string id { get; set; }
-        private string rule { get; set; }
-        private string QC_ID_Start { get; set; }
-        private string QC_ID_End { get; set; }
-
-
-        public override string ToString()
-        {
-            return $"id : {id}" +
-                $"rule : {rule}" +
-                $"QC_ID_Start : {QC_ID_Start}" +
-                $"QC_ID_Start : {QC_ID_End}";
-        }
-
-        public void Initialize(ObjectData _data)
-        {
-            QC_ID_StartValue = int.Parse(QC_ID_Start);
-            QC_ID_EndValue = int.Parse(QC_ID_End);
-            Rule = rule;
-            SubClass = _data;
-            SubClass.Initialize();
-        }
-
-        public void Initialize()
-        {
-        }
-
-    }
-
-
-    [System.Serializable]
-    public class ObjectData : IParserValueSerializer
+    public class ObjectData :BaseClassSerializer
     {
         private string Package { get; set; }
         private string EXP { get; set; }
@@ -95,30 +49,7 @@ namespace Pendopo.TraningGame.Utils.Data
         public string Peringatan;
         public string NutritionFact;
 
-        public void SetValueByName(string propertyName, object value,bool _debug = false)
-        {
-            // Get the type of this class
-            Type type = this.GetType();
-
-            // Get the property info based on the propertyName
-            PropertyInfo property = type.GetProperty(propertyName, BindingFlags.NonPublic | BindingFlags.Instance);
-
-            // If the property is found, set its value
-            if (property != null)
-            {
-                property.SetValue(this, Convert.ChangeType(value, property.PropertyType));
-                if (!_debug) return;
-                Debug.Log($"Value {value} set to property {propertyName}");
-                Debug.Log(property.GetValue(this));
-            }
-            else
-            {
-                if (!_debug) return;
-                Debug.Log($"Property {propertyName} not found.");
-            }
-        }
-
-        public void Initialize()
+        public override void Initialize()
         {
             PackageName = Package;
             Expire = EXP;
@@ -138,8 +69,8 @@ namespace Pendopo.TraningGame.Utils.Data
             LogoPilihan = logoPilihan;
             Peringatan = peringatan;
             NutritionFact = nutritionFact;
-
         }
+        public bool finalAssesment;
     }
 
     public enum CheckType

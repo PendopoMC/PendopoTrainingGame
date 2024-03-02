@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace Pendopo.Core.Parser
 {
-    public interface IParserValueSerializer
+    public abstract class BaseClassSerializer
     {
         public void SetValueByName(string propertyName, object value, bool _debug = false)
         {
@@ -30,7 +30,7 @@ namespace Pendopo.Core.Parser
         }
 
 
-        public void Initialize();
+        public abstract void Initialize();
     }
 }
 

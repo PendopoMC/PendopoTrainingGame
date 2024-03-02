@@ -50,18 +50,6 @@ namespace Pendopo.Core.Parser
             GetAllQCCase();
             GetAllQCLevelCase();
         }
-
-        public delegate void OnChangeLanguage(int id);
-        public static event OnChangeLanguage OnLanguageChange;
-        public static void DoChangeLanguage(int id)
-        {
-            if (OnLanguageChange != null)
-            {
-                OnLanguageChange(id);
-            }
-        }
-
-      
         public void GetAllQCCase()
         {
             if (QCData.Count == 0)
@@ -70,11 +58,11 @@ namespace Pendopo.Core.Parser
                 var csvFile = Resources.Load<TextAsset>(path: "QCData_Case");
 
                 QCData = ParserHelper.ParseCSVToDict(csvFile, out QCData, out dataLenght);
-                Case _case;
+                ObjectData _case;
                 ObjectData _data = new ObjectData();
                 for (int i = 0; i < dataLenght - 1; i++)
                 {
-                    _case = new Case();
+                    _case = new ObjectData();
                     foreach (var item in QCData)
                     {
                         _data.SetValueByName(item.Key, QCData[item.Key][i]);
@@ -84,7 +72,6 @@ namespace Pendopo.Core.Parser
                         }
                     }
                     _data.Initialize();
-                    _case.objectData = _data;
                     caseColleciton.csv_cases.Add(_case);
 
                 }
@@ -105,8 +92,8 @@ namespace Pendopo.Core.Parser
                 Debug.Log($"{dataLenght}");
                 for (int i = 0; i < dataLenght - 1; i++)
                 {
-                    IParserValueSerializers<ObjectData> newLevel = new LevelCase();
-                    IParserValueSerializer _data = new ObjectData();
+                    ParentClassSerialier<CaseData> newLevel = new LevelCase();
+                    BaseClassSerializer _data = new CaseData();
 
                     foreach (var item in QCLevelData)
                     {
@@ -119,16 +106,11 @@ namespace Pendopo.Core.Parser
                             _data.SetValueByName(item.Key, QCLevelData[item.Key][i]);
                         }
                     }
-                    newLevel.Initialize(_data as ObjectData);
+                    newLevel.Initialize(_data as CaseData);
                     caseColleciton.csv_level.Add(newLevel as LevelCase);
 
                 }
             }
-        }
-
-        public void ChangeLanguage(int index)
-        {
-            DoChangeLanguage(index);
         }
 
     }

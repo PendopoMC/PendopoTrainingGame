@@ -6,6 +6,12 @@ namespace Pendopo.Core.Parser
 {
     public static class ParserHelper
     {
+
+        public static string[] SplitLineOnCommaSimple(string line)
+        {
+            return line.Split(",");
+        }
+
         public static string[] SplitLineEveryCommaModified(string line)
         {
             List<string> fields = new List<string>();

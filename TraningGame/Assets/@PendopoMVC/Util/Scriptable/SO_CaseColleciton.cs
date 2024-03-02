@@ -8,7 +8,7 @@ namespace Pendopo.TraningGame.Utils.Data
     public class SO_CaseColleciton : ScriptableObject
     {
         public SO_Case[] cases;
-        public List<Case> csv_cases = new List<Case>();
+        public List<ObjectData> csv_cases = new List<ObjectData>();
         public List<LevelCase> csv_level = new List<LevelCase>();
     }
 }

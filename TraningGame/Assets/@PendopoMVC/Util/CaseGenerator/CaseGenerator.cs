@@ -8,7 +8,7 @@ namespace Pendopo.TraningGame.Utils.CaseGenerator
 {
     public class CaseGenerator : MonoBehaviour
     {
-        public List<Case> generatedCases = new List<Case>();
+        public List<ObjectData> generatedCases = new List<ObjectData>();
 
         public bool checkPackage;
         [ShowIf("checkPackage")] [SerializeField] private string prefabPackage;

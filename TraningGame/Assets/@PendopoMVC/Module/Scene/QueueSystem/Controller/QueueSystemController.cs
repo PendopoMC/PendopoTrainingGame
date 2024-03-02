@@ -7,6 +7,10 @@ using Pendopo.TraningGame.Utils.Data;
 using Pendopo.TraningGame.Message;
 namespace Pendopo.TraningGame.Module.QueueSystem
 {
+
+    /// <summary>
+    /// TO DO Arief  Change this to use CaseDataCollectionController
+    /// </summary>
     public class QueueSystemController : ObjectController<QueueSystemController, QueueSystemModel, IQueueSystemModel, QueueSystemView>
     {
         public override IEnumerator Finalize()
@@ -32,9 +36,10 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 
         private void InitQueue()
         {
+            //Change this to use CaseDataCollectionController
             for (int i = 0; i < _view.cases.cases.Length; i++)
             {
-                Case _case = new Case {  finalAssesment = _view.cases.cases[i].finalAssesment, objectData = _view.cases.cases[i].objectData };
+                ObjectData _case = new ObjectData { finalAssesment = _view.cases.cases[i].finalAssesment };
                 _model.Enqueue(_case);
             }
             SetupGameplay();
@@ -66,7 +71,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             //Publish<SpawnObjectMessage>(new SpawnObjectMessage { prefabObject = _caseObjectData.prefabObject, damaged = _caseObjectData.damaged, expire = _caseObjectData.expire, ingredients = _caseObjectData.expire, mass = _caseObjectData.mass });
 
             //Instantiate Queue
-            GameObjectModel _objModel = new GameObjectModel(_model.currentCase.objectData);
+            GameObjectModel _objModel = new GameObjectModel(_model.currentCase);
             GameObjectView _objView = _view.ObjectView(_objModel.data.PackageName);
             GameObjectController _goC = new GameObjectController();
             

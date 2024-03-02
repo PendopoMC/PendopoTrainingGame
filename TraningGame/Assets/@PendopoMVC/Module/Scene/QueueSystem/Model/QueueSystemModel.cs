@@ -8,18 +8,18 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 {
     public class QueueSystemModel : BaseModel, IQueueSystemModel
     {
-        private Queue<Case> casePool = new Queue<Case>();
+        private Queue<ObjectData> casePool = new Queue<ObjectData>();
         public int stepChecked { get; private set; }
 
         public GameObjectController currentObject { get; private set; }
 
-        public Case currentCase { get; set; }
+        public ObjectData currentCase { get; set; }
 
         public Transform anchorPos { get; private set; }
 
         public GameObject currentGameObject { get; private set; }
 
-        public Queue<Case> CasePool { get => casePool; }
+        public Queue<ObjectData> CasePool { get => casePool; }
 
         public void SetCurrentObject(GameObjectController _goC,GameObject _go)
         {
@@ -33,13 +33,13 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         {
             anchorPos = _anchor;
         }
-        public void Enqueue(Case _item)
+        public void Enqueue(ObjectData _item)
         {
             casePool.Enqueue(_item);
             SetDataAsDirty();
         }
 
-        public Case Dequeue()
+        public ObjectData Dequeue()
         {
             return casePool.Dequeue();
         }

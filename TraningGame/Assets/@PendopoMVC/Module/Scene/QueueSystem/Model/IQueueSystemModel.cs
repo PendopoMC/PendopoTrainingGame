@@ -9,10 +9,10 @@ namespace Pendopo.TraningGame.Module.QueueSystem
     public interface IQueueSystemModel : IBaseModel
     {
         public GameObjectController currentObject { get; }
-        public Case currentCase { get; }
+        public ObjectData currentCase { get; }
         public int stepChecked { get; }
         public Transform anchorPos { get; }
-        public Queue<Case> CasePool { get; }
+        public Queue<ObjectData> CasePool { get; }
         public GameObject currentGameObject { get; }
     }
 }
