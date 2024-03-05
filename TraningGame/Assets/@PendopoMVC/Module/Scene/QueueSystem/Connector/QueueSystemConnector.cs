@@ -7,7 +7,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         private QueueSystemController _queueSystem;
         protected override void Connect()
         {
-            Subscribe<StartPlayMessage>(_queueSystem.StartGame);
+            Subscribe<RequestCaseCallback>(_queueSystem.StartGame);
             Subscribe<ApproveMessage>(_queueSystem.OnApprove);
             Subscribe<DeniedMessage>(_queueSystem.OnDenied);
             Subscribe<GameOverMessage>(_queueSystem.Gameover);
@@ -16,7 +16,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 
         protected override void Disconnect()
         {
-            Unsubscribe<StartPlayMessage>(_queueSystem.StartGame);
+            Unsubscribe<RequestCaseCallback>(_queueSystem.StartGame);
             Unsubscribe<ApproveMessage>(_queueSystem.OnApprove);
             Unsubscribe<DeniedMessage>(_queueSystem.OnDenied);
             Unsubscribe<GameOverMessage>(_queueSystem.Gameover);

@@ -491,8 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkType: 3
-  imageCheck: {fileID: 0}
-  textCheck: {fileID: 230230397216518823}
+  mesh: {fileID: 0}
 --- !u!1 &2434019370860223026
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,8 +745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkType: 2
-  imageCheck: {fileID: 0}
-  textCheck: {fileID: 6147274486815447159}
+  mesh: {fileID: 0}
 --- !u!1 &6261904119673988988
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +760,7 @@ GameObject:
   - component: {fileID: 2438967435354133590}
   - component: {fileID: 3106679728353205242}
   m_Layer: 0
-  m_Name: Wo'ah
+  m_Name: Good
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -871,16 +869,6 @@ MonoBehaviour:
   - {fileID: 3495343878533651529}
   - {fileID: 7629184100613707586}
   - {fileID: 916616147701635981}
-  data:
-    prefabObject: 
-    expire: 
-    ingredients: 
-    mass: 
-    color: 
-    productName: 
-    productionCode: 
-    barCode: 
-    QRCode: 
 --- !u!1 &7372602551236605435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,5 +1151,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkType: 1
-  imageCheck: {fileID: 0}
-  textCheck: {fileID: 6764666281752742799}
+  mesh: {fileID: 0}

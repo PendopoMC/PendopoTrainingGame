@@ -12,17 +12,18 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
 
     public class CaseDataCollectionController : DataController<CaseDataCollectionController,CaseDataCollectionModel>
     {
+        RequestCaseCallback callback = new RequestCaseCallback();
         int dataLenght;
         private Dictionary<string, List<string>> QCData = new Dictionary<string, List<string>>();
         private Dictionary<string, List<string>> QCLevelData = new Dictionary<string, List<string>>();
         public override IEnumerator Initialize()
         {
             yield return base.Initialize();
-            Debug.Log("Load all CSV data");
             GetAllQCCase();
             GetAllQCLevelCase();
+            Debug.Log("Load all CSV data");
         }
-        public void GetAllQCCase()
+        private void GetAllQCCase()
         {
             if ( QCData.Count == 0)
             {
@@ -30,28 +31,27 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
                 var csvFile = Resources.Load<TextAsset>(path: "QCData_Case");
 
                 QCData = ParserHelper.ParseCSVToDict(csvFile, out QCData, out dataLenght);
-                ObjectData _case;
                 ObjectData _data = new ObjectData();
                 for (int i = 0; i < dataLenght - 1; i++)
                 {
-                    _case = new ObjectData();
+                    _data = new ObjectData();
                     foreach (var item in QCData)
                     {
                         _data.SetValueByName(item.Key, QCData[item.Key][i]);
                         if (item.Key == "finalAssesment")
                         {
-                            _case.finalAssesment = QCData[item.Key][i] == "Approve";
+                            _data.finalAssesment = QCData[item.Key][i] == "Approve";
                         }
                     }
                     _data.Initialize();
-                    _model.csv_cases.Add(_case);
+                    _model.csv_cases.Add(_data);
 
                 }
             }
         }
 
 
-        public void GetAllQCLevelCase()
+        private void GetAllQCLevelCase()
         {
             if (QCLevelData.Count == 0)
             {
@@ -84,24 +84,34 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
                 }
             }
         }
-    }
 
-    public class CaseDataCollectionModel :BaseModel
-    {
-        public List<ObjectData> csv_cases = new List<ObjectData>();
-        public List<LevelCase> csv_level = new List<LevelCase>();
-    }
-
-    public class CaseDataCollectionConnector : BaseConnector
-    {
-        protected override void Connect()
+        public void GetCaseQueue(RequestCase _requestLevelCase)
         {
-            throw new System.NotImplementedException();
+            List<ObjectData> _cases = new List<ObjectData>();
+
+            //Adding all the data
+            for (int i = _model.csv_level[_requestLevelCase.levelID].QC_ID_StartValue; i < _model.csv_level[_requestLevelCase.levelID].QC_ID_EndValue; i++)
+            {
+                _cases.Add(_model.csv_cases[i]);
+            }
+
+            Shuffle<ObjectData>(_cases);
+            callback.caseCollection = _cases;
+            Publish<RequestCaseCallback>(callback);
+
         }
 
-        protected override void Disconnect()
+        void Shuffle<T>(List<T> list)
         {
-            throw new System.NotImplementedException();
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = Random.Range(0, n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
         }
     }
 

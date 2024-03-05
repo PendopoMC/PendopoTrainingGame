@@ -71,6 +71,28 @@ namespace Pendopo.TraningGame.Utils.Data
             NutritionFact = nutritionFact;
         }
         public bool finalAssesment;
+
+        public override string ToString()
+        {
+            return $"Package Name : {PackageName}" +
+                $"\n Expire Name : {Expire}" +
+                $"\n KomposisiInd Name : {KomposisiInd}" +
+                $"\n KomposisiEng Name : {KomposisiEng}" +
+                $"\n Berat Name : {Berat}" +
+                $"\n LogoHalal Name : {LogoHalal}" +
+                $"\n Contact Name : {Contact}" +
+                $"\n KodeProduksi Name : {KodeProduksi}" +
+                $"\n BarCode Name : {BarCode}" +
+                $"\n QRCodeLogo Name : {QRCodeLogo}" +
+                $"\n Seal Name : {Seal}" +
+                $"\n Sedotan Name : {Sedotan}" +
+                $"\n LogoRecycle Name : {LogoRecycle}" +
+                $"\n Rasa Name : {Rasa}" +
+                $"\n RasaGambar Name : {RasaGambar}" +
+                $"\n LogoPilihan Name : {LogoPilihan}" +
+                $"\n Peringatan Name : {Peringatan}" +
+                $"\n NutritionFact Name : {NutritionFact}";
+        }
     }
 
     public enum CheckType

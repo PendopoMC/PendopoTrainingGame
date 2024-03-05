@@ -4,13 +4,14 @@ using UnityEngine;
 using Agate.MVC.Base;
 using Agate.MVC.Core;
 using Pendopo.TraningGame.Boot;
+using Pendopo.TraningGame.Module.MainMenuCanvas;
 
 namespace Pendopo.TraningGame.Scene.MainMenu
 {
     public class MainMenuLauncher : SceneLauncher<MainMenuLauncher, MainMenuView>
     {
         public override string SceneName { get { return GameScene.MainMenu; } }
-
+        MainMenuCanvasController mainMenuCanvasController;
         protected override IConnector[] GetSceneConnectors()
         {
             return new IConnector[] {
@@ -21,11 +22,13 @@ namespace Pendopo.TraningGame.Scene.MainMenu
         protected override IController[] GetSceneDependencies()
         {
             return new IController[] {
+                new MainMenuCanvasController()
             };
         }
 
         protected override IEnumerator InitSceneObject()
         {
+            mainMenuCanvasController.SetView(_view.mainMenuCanvas);
             yield return null;
         }
 

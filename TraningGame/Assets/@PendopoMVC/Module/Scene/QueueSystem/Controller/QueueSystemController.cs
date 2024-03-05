@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Agate.MVC.Core;
 using Agate.MVC.Base;
@@ -22,25 +23,27 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             base.SetView(view);
             _model.SetAnchor(_view.anchor);
             _view.SetCallback(delegate { Publish<StartPlayMessage>(new StartPlayMessage()); });
-            InitQueue();
+
+            //Change this to use CaseDataCollectionController
+            Publish<RequestCase>(new RequestCase { levelID = 0 });
         }
 
-        public void StartGame(StartPlayMessage _emssage)
+        public void StartGame(RequestCaseCallback _message)
         {
-            SetupGameplay();
+            InitQueue(_message.caseCollection);
         }
 
         public void Gameover(GameOverMessage _emssage)
         {
         }
 
-        private void InitQueue()
+        private void InitQueue(List<ObjectData> _list)
         {
-            //Change this to use CaseDataCollectionController
-            for (int i = 0; i < _view.cases.cases.Length; i++)
+            _view.cases.csv_cases = _list;
+          
+            for (int i = 0; i < _list.Count; i++)
             {
-                ObjectData _case = new ObjectData { finalAssesment = _view.cases.cases[i].finalAssesment };
-                _model.Enqueue(_case);
+                _model.Enqueue(_list[i]);
             }
             SetupGameplay();
         }
@@ -58,7 +61,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             SetupGameplay();
         }
 
-        public void SetupGameplay()
+        private void SetupGameplay()
         {
             if (_model.currentGameObject) _view.RemovingPreviousObject(_model.currentGameObject);
             if (_model.CasePool.Count < 1) return;
@@ -66,10 +69,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             _model.currentCase = _model.Dequeue();
             _view.currentCase = _model.currentCase;
 
-            //Request Object pool to spawn Object
-            //ObjectData _caseObjectData = _model.currentCase.objectData;
-            //Publish<SpawnObjectMessage>(new SpawnObjectMessage { prefabObject = _caseObjectData.prefabObject, damaged = _caseObjectData.damaged, expire = _caseObjectData.expire, ingredients = _caseObjectData.expire, mass = _caseObjectData.mass });
-
+            //Request Object pool to spawn Object But for now just spawn it
             //Instantiate Queue
             GameObjectModel _objModel = new GameObjectModel(_model.currentCase);
             GameObjectView _objView = _view.ObjectView(_objModel.data.PackageName);
