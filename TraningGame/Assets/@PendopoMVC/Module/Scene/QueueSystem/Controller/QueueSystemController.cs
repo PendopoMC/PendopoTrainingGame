@@ -25,10 +25,10 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             _view.SetCallback(delegate { Publish<StartPlayMessage>(new StartPlayMessage()); });
 
             //Change this to use CaseDataCollectionController
-            Publish<RequestCase>(new RequestCase { levelID = 0 });
+            Publish<RequestCaseQueue>(new RequestCaseQueue ());
         }
 
-        public void StartGame(RequestCaseCallback _message)
+        public void StartGame(RequestCaseQueueCallback _message)
         {
             InitQueue(_message.caseCollection);
         }

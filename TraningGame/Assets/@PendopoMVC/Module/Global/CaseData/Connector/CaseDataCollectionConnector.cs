@@ -8,12 +8,12 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
         CaseDataCollectionController controller;
         protected override void Connect()
         {
-            Subscribe<RequestCase>(controller.GetCaseQueue);
+            Subscribe<RequestCaseQueue>(controller.GetCaseQueue);
         }
 
         protected override void Disconnect()
         {
-            Unsubscribe<RequestCase>(controller.GetCaseQueue);
+            Unsubscribe<RequestCaseQueue>(controller.GetCaseQueue);
         }
     }
 

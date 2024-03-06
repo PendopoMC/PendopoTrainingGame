@@ -12,7 +12,7 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
 
     public class CaseDataCollectionController : DataController<CaseDataCollectionController,CaseDataCollectionModel>
     {
-        RequestCaseCallback callback = new RequestCaseCallback();
+        RequestCaseQueueCallback callback = new RequestCaseQueueCallback();
         int dataLenght;
         private Dictionary<string, List<string>> QCData = new Dictionary<string, List<string>>();
         private Dictionary<string, List<string>> QCLevelData = new Dictionary<string, List<string>>();
@@ -85,19 +85,20 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
             }
         }
 
-        public void GetCaseQueue(RequestCase _requestLevelCase)
+        public void GetCaseQueue(RequestCaseQueue _requestLevelCase)
         {
             List<ObjectData> _cases = new List<ObjectData>();
 
             //Adding all the data
-            for (int i = _model.csv_level[_requestLevelCase.levelID].QC_ID_StartValue; i < _model.csv_level[_requestLevelCase.levelID].QC_ID_EndValue; i++)
+            for (int i = _model.csv_level[_model.currentLevel].QC_ID_StartValue; i < _model.csv_level[_model.currentLevel].QC_ID_EndValue; i++)
             {
                 _cases.Add(_model.csv_cases[i]);
             }
 
             Shuffle<ObjectData>(_cases);
             callback.caseCollection = _cases;
-            Publish<RequestCaseCallback>(callback);
+            callback.caseLevel =  _model.csv_level[_model.currentLevel];
+            Publish<RequestCaseQueueCallback>(callback);
 
         }
 
