@@ -9,6 +9,16 @@ namespace Pendopo.TraningGame.Message
         }
 
         public string data { get; private set; }
+    } 
+    
+    public struct SetProductionCodeMessage : ISetMessage
+    {
+        public SetProductionCodeMessage(string data)
+        {
+            this.data = data;
+        }
+
+        public string data { get; private set; }
     }
     public struct SetActivetIngredientMessage : ISetActiveMessage
     {

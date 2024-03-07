@@ -30,7 +30,14 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 
         public void StartGame(RequestCaseQueueCallback _message)
         {
+            SetCase(_message);
             InitQueue(_message.caseCollection);
+        }
+
+        private void SetCase(RequestCaseQueueCallback _message)
+        {
+            _model.SetCase(_message.caseLevel);
+            //publish to inform the mission GUI
         }
 
         public void Gameover(GameOverMessage _emssage)
@@ -40,38 +47,35 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         private void InitQueue(List<ObjectData> _list)
         {
             _view.cases.csv_cases = _list;
-          
-            for (int i = 0; i < _list.Count; i++)
-            {
-                _model.Enqueue(_list[i]);
-            }
+            _model.SetCaseList(_list);
             SetupGameplay();
         }
 
         public void OnApprove(ApproveMessage _message)
         {
-            Debug.Log(!_model.currentCase.finalAssesment ? "You Approve something Wrong" : "You Approve right");
+            Debug.Log(!_model.currentCaseObject.finalAssesment ? "You Approve something Wrong" : "You Approve right");
             SetupGameplay();
 
         }
 
         public void OnDenied(DeniedMessage _message)
         {
-            Debug.Log(_model.currentCase.finalAssesment ? "You Denied something Right" : "You Deny right");
+            Debug.Log(_model.currentCaseObject.finalAssesment ? "You Denied something Right" : "You Deny right");
             SetupGameplay();
         }
 
         private void SetupGameplay()
         {
             if (_model.currentGameObject) _view.RemovingPreviousObject(_model.currentGameObject);
-            if (_model.CasePool.Count < 1) return;
+
             //Update the Model
-            _model.currentCase = _model.Dequeue();
-            _view.currentCase = _model.currentCase;
+            _model.currentCaseObject = _model.GetCaseObject();
+            _model.caseIndex = _model.caseIndex >= _model.caseObjectList.Count ? 0 : _model.caseIndex++;
+            _view.currentCase = _model.currentCaseObject;
 
             //Request Object pool to spawn Object But for now just spawn it
             //Instantiate Queue
-            GameObjectModel _objModel = new GameObjectModel(_model.currentCase);
+            GameObjectModel _objModel = new GameObjectModel(_model.currentCaseObject);
             GameObjectView _objView = _view.ObjectView(_objModel.data.PackageName);
             GameObjectController _goC = new GameObjectController();
             
