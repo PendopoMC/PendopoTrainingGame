@@ -6,7 +6,7 @@ using Agate.MVC.Base;
 using Pendopo.TraningGame.Utils.Data;
 using Pendopo.TraningGame.Message;
 using Pendopo.Core.Parser;
-
+using Pendopo.Core.Helper;
 namespace Pendopo.TraningGame.Global.CaseDataCollection
 {
 
@@ -61,7 +61,6 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
 
                 QCLevelData = ParserHelper.ParseCSVToDict(csvFile, out QCLevelData, out dataLenght);
 
-                Debug.Log($"{dataLenght}");
                 for (int i = 0; i < dataLenght - 1; i++)
                 {
                     ParentClassSerialier<CaseData> newLevel = new LevelCase();
@@ -95,25 +94,14 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
                 _cases.Add(_model.csv_cases[i]);
             }
 
-            Shuffle<ObjectData>(_cases);
+            Shuffler.Shuffle<ObjectData>(_cases);
             callback.caseCollection = _cases;
             callback.caseLevel =  _model.csv_level[_model.currentLevel];
             Publish<RequestCaseQueueCallback>(callback);
 
         }
 
-        void Shuffle<T>(List<T> list)
-        {
-            int n = list.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = Random.Range(0, n + 1);
-                T value = list[k];
-                list[k] = list[n];
-                list[n] = value;
-            }
-        }
+    
     }
 
 }

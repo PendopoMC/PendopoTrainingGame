@@ -4,14 +4,16 @@ using UnityEngine;
 using Agate.MVC.Base;
 using Agate.MVC.Core;
 using Pendopo.TraningGame.Boot;
-using Pendopo.TraningGame.Module.GUIDataCheck;
-using Pendopo.TraningGame.Module.IngredientCheck;
+using Pendopo.TraningGame.Module.ProductionCodeCheck;
+using Pendopo.TraningGame.Module.Date;
+using Pendopo.TraningGame.Module.GUIMission;
 using Pendopo.TraningGame.Module.MassCheck;
 using Pendopo.TraningGame.Module.QueueSystem;
 using Pendopo.TraningGame.Module.ApproveDeny;
 using Pendopo.TraningGame.Module.CheckSystem;
 using Pendopo.TraningGame.Module.CameraHandler;
 using Pendopo.TraningGame.Module.Rotate;
+using Pendopo.TraningGame.Module.WarningCheck;
 using Pendopo.TraningGame.Module.TimeAttack;
 
 namespace Pendopo.TraningGame.Scene.Gameplay
@@ -20,22 +22,28 @@ namespace Pendopo.TraningGame.Scene.Gameplay
     {
         GUI_MassCheckController massCheck;
         QueueSystemController queueSystem;
-        GUI_IngredientCheckController ingredientCheck;
         ApproveDenyController approveDeny;
         CameraHandlerController cameraHandler;
         RotateSystemController rotateHandler;
         TimeAttackController timeAttackHandler;
+        GUI_DateController dateController;
+        GUI_ProductionCodeController productionCodeController;
+        GUI_WarningCheckController warningCheckController;
+        GUI_MissionController missionController;
 
         public override string SceneName { get { return GameScene.GamePlay; } }
 
         protected override IConnector[] GetSceneConnectors()
         {
             return new IConnector[] {
-                new GUI_IngredientCheckConnector(),
                 new GUI_MassCheckConnector(),
                 new CheckSystemConnector(),
                 new CameraHandlerConnector(),
                 new TimeAttackConnector(),
+                new GUI_MissionConnector(),
+                new GUI_DateConnector(),
+                new GUI_ProductionCodeConnector(),
+                new GUI_WarningCheckConnector(),
                 new QueueSystemConnector()
 
             };
@@ -44,20 +52,26 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         protected override IController[] GetSceneDependencies()
         {
             return new IController[] {
-                new GUI_IngredientCheckController(),
                new GUI_MassCheckController(),
                 new ApproveDenyController(),
                 new CheckSystemController(),
                 new CameraHandlerController(),
                 new QueueSystemController(),
                 new TimeAttackController(),
+                new GUI_DateController(),
+                new GUI_MissionController(),
+                new GUI_ProductionCodeController(),
+                new GUI_WarningCheckController(),
                  new RotateSystemController()
             };
         }
 
         protected override IEnumerator InitSceneObject()
         {
-            ingredientCheck.SetView(_view.ingredientCheck);
+            dateController.SetView(_view.dateView);
+            warningCheckController.SetView(_view.warningCheckView);
+            missionController.SetView(_view.missionView);
+            productionCodeController.SetView(_view.productionCodeView);
             massCheck.SetView(_view.massCheck);
             approveDeny.SetView(_view.approveDeny);
             queueSystem.SetView(_view.queueSystem);

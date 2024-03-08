@@ -12,6 +12,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             Subscribe<DeniedMessage>(_queueSystem.OnDenied);
             Subscribe<GameOverMessage>(_queueSystem.Gameover);
             Subscribe<RotateMessage>(_queueSystem.RotateObject);
+            Subscribe<ResetRotateMessage>(_queueSystem.ResetRotation);
         }
 
         protected override void Disconnect()
@@ -21,6 +22,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             Unsubscribe<DeniedMessage>(_queueSystem.OnDenied);
             Unsubscribe<GameOverMessage>(_queueSystem.Gameover);
             Subscribe<RotateMessage>(_queueSystem.RotateObject);
+            Subscribe<ResetRotateMessage>(_queueSystem.ResetRotation);
         }
     }
 }

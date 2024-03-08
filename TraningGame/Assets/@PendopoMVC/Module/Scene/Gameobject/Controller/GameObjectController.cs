@@ -69,5 +69,10 @@ namespace Pendopo.TraningGame.Module.Object
             _view.transform.eulerAngles += (_message.rotateVector *Time.deltaTime);
         }
 
+        public void ResetRotation(ResetRotateMessage _mesage)
+        {
+            _view.transform.eulerAngles = Vector3.down * 30f;
+        }
+
     }
 }

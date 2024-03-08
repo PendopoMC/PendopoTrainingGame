@@ -25,10 +25,5 @@ namespace Pendopo.TraningGame.Module.ProductionCodeCheck
             CompareCheck checkCaseText = new CompareCheck { data = _view.t_data.text };
             Publish<CompareCheck>(checkCaseText);
         }
-
-        public string Data()
-        {
-            return "Hey";
-        }
     }
 }

@@ -6,11 +6,12 @@ using Agate.MVC.Base;
 using Pendopo.TraningGame.Module.Object;
 using Pendopo.TraningGame.Utils.Data;
 using Pendopo.TraningGame.Message;
+using Pendopo.Core.Helper;
 namespace Pendopo.TraningGame.Module.QueueSystem
 {
 
     /// <summary>
-    /// TO DO Arief  Change this to use CaseDataCollectionController
+    /// TO DO Arief : Load every Count Case and shuffle after last case played
     /// </summary>
     public class QueueSystemController : ObjectController<QueueSystemController, QueueSystemModel, IQueueSystemModel, QueueSystemView>
     {
@@ -38,6 +39,8 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         {
             _model.SetCase(_message.caseLevel);
             //publish to inform the mission GUI
+            Publish<SetProductionCodeMessage>(new SetProductionCodeMessage ( _message.caseLevel.SubClass.KodeProduksi[0]));
+            Publish<MissionCallbackMessage>(new MissionCallbackMessage { mission = _message.caseLevel.Rule });
         }
 
         public void Gameover(GameOverMessage _emssage)
@@ -47,6 +50,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         private void InitQueue(List<ObjectData> _list)
         {
             _view.cases.csv_cases = _list;
+            Debug.Log(_list.Count);
             _model.SetCaseList(_list);
             SetupGameplay();
         }
@@ -70,7 +74,15 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 
             //Update the Model
             _model.currentCaseObject = _model.GetCaseObject();
-            _model.caseIndex = _model.caseIndex >= _model.caseObjectList.Count ? 0 : _model.caseIndex++;
+            _model.caseIndex++;
+            if (_model.caseIndex > _model.caseObjectList.Count-1)
+            {
+
+                _model.caseIndex =   0;
+                Shuffler.Shuffle<ObjectData>(_model.caseObjectList);
+                _view.cases.csv_cases = _model.caseObjectList;
+                Debug.Log("Shuffle");
+            }
             _view.currentCase = _model.currentCaseObject;
 
             //Request Object pool to spawn Object But for now just spawn it
@@ -84,14 +96,8 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             _goC.Init(_objModel, _objView);
             _model.SetCurrentObject(_goC, _objView.gameObject);
 
-            ////Publish event
-            ////Set Expire date to check
-            //Publish<SetExpireMessage>(new SetExpireMessage(_model.currentCase.caseData.EXP));
-            ////Set ingredient to check
-            //Publish<SetIngredientMessage>(new SetIngredientMessage(_model.currentCase.caseData.komposisiInd));
             ////Set Mass to check
-            //Publish<SetMassMessage>(new SetMassMessage(_model.currentCase.caseData.berat));
-
+            Publish<SetMassMessage>(new SetMassMessage(_model.currentCaseObject.Berat));
             Publish<StartTimeAttack>(new StartTimeAttack { maxTime = 300 });
         }
 
@@ -100,5 +106,11 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             if (Model.currentObject == null) return;
             Model.currentObject.RotateObject(_message);
         }
+        public void ResetRotation(ResetRotateMessage _mesage)
+        {
+            if (Model.currentObject == null) return;
+            Model.currentObject.ResetRotation(_mesage);
+        }
+
     }
 }

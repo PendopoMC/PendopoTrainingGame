@@ -14,7 +14,7 @@ namespace Pendopo.TraningGame.Module.Rotate
         public override void SetView(RotateSystemView view)
         {
             base.SetView(view);
-            _view.SetCallback(RotateUp, RotateDown, RotateLeft, RotateRight);
+            _view.SetCallback(RotateUp, RotateDown, RotateLeft, RotateRight, ResetRotate);
             rotateMessage = new RotateMessage();
         }
 
@@ -42,6 +42,11 @@ namespace Pendopo.TraningGame.Module.Rotate
         {
             rotateMessage.rotateVector = Vector3.left * _view.speedRotation;
             Publish<RotateMessage>(rotateMessage);
+        }  
+        
+        private void ResetRotate()
+        {
+            Publish<ResetRotateMessage>(new ResetRotateMessage());
         }
     }
 

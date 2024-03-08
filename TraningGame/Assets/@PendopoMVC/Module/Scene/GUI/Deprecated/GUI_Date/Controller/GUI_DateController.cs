@@ -24,7 +24,7 @@ namespace Pendopo.TraningGame.Module.Date
        
         protected override void PublishMessage()
         {
-            CompareCheck checkCaseText = new CompareCheck { data = _view.t_mass.text };
+            CompareCheck checkCaseText = new CompareCheck { data = _view.t_data.text };
             Publish<CompareCheck>(checkCaseText);
         }
     }

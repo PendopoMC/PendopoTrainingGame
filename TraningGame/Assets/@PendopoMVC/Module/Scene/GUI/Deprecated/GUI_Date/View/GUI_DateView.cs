@@ -9,10 +9,9 @@ namespace Pendopo.TraningGame.Module.Date
 {
     public class GUI_DateView : GUI_DataCheckView
     {
-        public TextMeshProUGUI t_mass;
         public override void SetData(string _xp)
         {
-            t_mass.text = _xp;
+            t_data.text = _xp;
         }
     }
 }

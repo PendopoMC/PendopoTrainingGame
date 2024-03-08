@@ -14,6 +14,7 @@ namespace Pendopo.TraningGame.Module.WarningCheck
         {
             base.SetView(view);
             SetCallBack();
+            _view.SetActive(false);
         }
 
         public override void SetMessage<T>(T _expMessage)

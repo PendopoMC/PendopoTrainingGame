@@ -8,13 +8,13 @@ namespace Pendopo.TraningGame.Module.ProductionCodeCheck
         GUI_ProductionCodeController _control;
         protected override void Connect()
         {
-            Subscribe<SetDateMessage>(_control.SetMessage);
+            Subscribe<SetProductionCodeMessage>(_control.SetMessage);
             //Subscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
         }
 
         protected override void Disconnect()
         {
-            Unsubscribe<SetDateMessage>(_control.SetMessage);
+            Unsubscribe<SetProductionCodeMessage>(_control.SetMessage);
             //Unsubscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
         }
     }

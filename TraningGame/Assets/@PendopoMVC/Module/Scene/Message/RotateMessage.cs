@@ -11,5 +11,8 @@ namespace Pendopo.TraningGame.Message
             this.rotateVector = rotateVector;
         }
     }  
+    public struct ResetRotateMessage
+    {
+    }  
     
 }

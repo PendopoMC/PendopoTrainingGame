@@ -1,7 +1,9 @@
 ﻿using Agate.MVC.Base;
-using Pendopo.TraningGame.Module.GUIDataCheck;
-using Pendopo.TraningGame.Module.IngredientCheck;
 using Pendopo.TraningGame.Module.MassCheck;
+using Pendopo.TraningGame.Module.ProductionCodeCheck;
+using Pendopo.TraningGame.Module.Date;
+using Pendopo.TraningGame.Module.WarningCheck;
+using Pendopo.TraningGame.Module.GUIMission;
 using Pendopo.TraningGame.Module.QueueSystem;
 using Pendopo.TraningGame.Module.ApproveDeny;
 using Pendopo.TraningGame.Module.CameraHandler;
@@ -12,13 +14,15 @@ namespace Pendopo.TraningGame.Scene.Gameplay
 {
     public class GameplayView : BaseSceneView
     {
-        public  GUI_DataCheckView expireCheck;
-        public GUI_IngredientCheckView ingredientCheck;
         public GUI_MassCheckView massCheck;
         public QueueSystemView queueSystem;
         public ApproveDenyView approveDeny;
         public CameraHandlerView cameraHandler;
         public RotateSystemView rotateHandler;
         public TimeAttackView timeAttackHandler;
+        public GUI_MissionView missionView;
+        public GUI_ProductionCodeView productionCodeView;
+        public GUI_DateView dateView;
+        public GUI_WarningCheckView warningCheckView;
     }
 }
