@@ -13,6 +13,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
     {
         public Transform anchor;
         public SO_CaseColleciton cases;
+        public LevelCase currentLevelMission;
         public ObjectData currentCase;
         private UnityAction onTry;
         protected override void InitRenderModel(IQueueSystemModel model)
