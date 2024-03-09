@@ -6,10 +6,6 @@ using Pendopo.TraningGame.Utils.Data;
 
 namespace Pendopo.Core.Parser
 {
-    /// <summary>
-    /// This class is Deprecated
-    /// </summary>
-    
     public class CSVParser : MonoBehaviour
     {
         private static Dictionary<string, List<string>> QCData = new Dictionary<string, List<string>>();
