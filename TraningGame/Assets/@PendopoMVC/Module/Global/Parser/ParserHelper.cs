@@ -18,7 +18,7 @@ namespace Pendopo.Core.Parser
 
             bool withinQuotes = false;
             StringBuilder currentField = new StringBuilder();
-
+            Debug.Log(line);
             for (int i = 0; i < line.Length; i++)
             {
                 char c = line[i];
@@ -85,10 +85,10 @@ namespace Pendopo.Core.Parser
         public static Dictionary<string, List<string>> ParseCSVToDict(TextAsset _csvFile, out Dictionary<string, List<string>> _dict,out int dataLenght)
         {
             _dict = new Dictionary<string, List<string>>();
-
+            int _id;
             string[] lines = SplitLineEveryReturnModified(_csvFile.text);
             string[] header = SplitLineEveryCommaModified(lines[0]);
-            dataLenght = lines.Length;
+            dataLenght = 0;
 
             for (int i = 0; i < header.Length; i++)
             {
@@ -98,6 +98,8 @@ namespace Pendopo.Core.Parser
             for (int i = 1; i < lines.Length; i++)
             {
                 string[] row = SplitLineEveryCommaModified(lines[i]);
+                if (!int.TryParse(row[0], out _id)) continue;
+                dataLenght++;
                 for (int j = 0; j < row.Length; j++)
                 {
                     _dict[header[j]].Add(string.IsNullOrEmpty(row[j]) ? "-" : row[j]);

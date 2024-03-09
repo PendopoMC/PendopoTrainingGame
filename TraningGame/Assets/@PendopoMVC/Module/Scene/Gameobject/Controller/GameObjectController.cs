@@ -65,10 +65,12 @@ namespace Pendopo.TraningGame.Module.Object
 
 
         public void RotateObject(RotateMessage _message)
-        {
-            _view.transform.eulerAngles += (_message.rotateVector *Time.deltaTime);
+        {    
+            float swipeAngle = Mathf.Atan2(_message.rotateVector.y, _message.rotateVector.x) * Mathf.Rad2Deg;
+            float rotationAmount = _message.rotateVector.magnitude * Time.deltaTime;
+            Vector3 rotationAxis = Quaternion.Euler(0, 0, swipeAngle) * Vector3.up;
+            _view.transform.Rotate(rotationAxis, rotationAmount,Space.World);
         }
-
         public void ResetRotation(ResetRotateMessage _mesage)
         {
             _view.transform.eulerAngles = Vector3.down * 30f;

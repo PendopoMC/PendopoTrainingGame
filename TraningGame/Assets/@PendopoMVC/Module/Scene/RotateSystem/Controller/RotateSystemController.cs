@@ -11,14 +11,33 @@ namespace Pendopo.TraningGame.Module.Rotate
     public class RotateSystemController : ObjectController<RotateSystemController,RotateSystemView>
     {
         RotateMessage rotateMessage;
+        Camera cam;
+        Vector3 initialMousePos, currentPos;
+        Vector2 deltaInputPos;
         public override void SetView(RotateSystemView view)
         {
             base.SetView(view);
-            _view.SetCallback(RotateUp, RotateDown, RotateLeft, RotateRight, ResetRotate);
             rotateMessage = new RotateMessage();
+            cam = Camera.main;
+            _view.SetCallback(InputRotation,ResetRotate);
         }
 
 
+        private void InputRotation()
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                initialMousePos = Input.mousePosition;
+            }
+            else if(Input.GetMouseButton(0))
+            {
+
+                currentPos = Input.mousePosition;
+                deltaInputPos = initialMousePos- currentPos;
+                rotateMessage.rotateVector = deltaInputPos * _view.speedRotation;
+                Publish<RotateMessage>(rotateMessage);
+            }
+        }
 
         private void RotateLeft()
         {

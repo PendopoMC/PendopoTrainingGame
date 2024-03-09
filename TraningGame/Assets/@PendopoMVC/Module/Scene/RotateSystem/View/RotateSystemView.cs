@@ -6,16 +6,18 @@ namespace Pendopo.TraningGame.Module.Rotate
     public class RotateSystemView : BaseView
     {
         public float speedRotation =5f;
-        private UnityAction rotateUp, rotateDown, rotateLeft, rotateRight,resetRotation;
+        private UnityAction rotateUp, rotateDown, rotateLeft, rotateRight,resetRotation,rotateInput;
 
 
-        public void SetCallback(UnityAction _rotateUp, UnityAction _rotateDown, UnityAction _rotateLeft, UnityAction _rotateRight, UnityAction _resetRotation)
+        public void SetCallback(UnityAction _rotateInput,UnityAction _resetRotation)
         {
-            rotateUp = _rotateUp;
-            rotateDown = _rotateDown;
-            rotateLeft = _rotateLeft;
-            rotateRight = _rotateRight;
+            rotateInput = _rotateInput;
             resetRotation = _resetRotation;
+        }
+
+        private void Update()
+        {
+            rotateInput?.Invoke();
         }
 
         public void RotateLeft()
