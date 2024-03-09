@@ -39,6 +39,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         {
             _view.currentLevelMission = _message.caseLevel;
             _model.SetCase(_message.caseLevel);
+
             //publish to inform the mission GUI
             Publish<SetProductionCodeMessage>(new SetProductionCodeMessage ( _message.caseLevel.SubClass.KodeProduksi[0]));
             Publish<MissionCallbackMessage>(new MissionCallbackMessage { mission = _message.caseLevel.Rule });

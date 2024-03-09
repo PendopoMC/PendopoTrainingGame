@@ -9420,6 +9420,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchor: {fileID: 1379292975}
   cases: {fileID: 11400000, guid: 22edf4ecbe740b4488c8134b0edf35a4, type: 2}
+  currentLevelMission:
+    ID: 0
+    QC_ID_StartValue: 0
+    QC_ID_EndValue: 0
+    Rule: 
+    DateChecking: 
+    SubClass:
+      PackageName: []
+      Expire: []
+      KomposisiInd: []
+      KomposisiEng: []
+      Berat: []
+      LogoHalal: []
+      Contact: []
+      KodeProduksi: []
+      BarCode: []
+      QRCodeLogo: []
+      Seal: []
+      Sedotan: []
+      LogoRecycle: []
+      Rasa: []
+      RasaGambar: []
+      LogoPilihan: []
+      Peringatan: []
+      NutritionFact: []
   currentCase:
     PackageName: 
     Expire: 
