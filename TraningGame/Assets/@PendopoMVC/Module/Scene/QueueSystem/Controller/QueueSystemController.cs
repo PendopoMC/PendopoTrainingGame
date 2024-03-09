@@ -37,7 +37,6 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 
         private void SetCase(RequestCaseQueueCallback _message)
         {
-            _view.currentLevelMission = _message.caseLevel;
             _model.SetCase(_message.caseLevel);
             //publish to inform the mission GUI
             Publish<SetProductionCodeMessage>(new SetProductionCodeMessage ( _message.caseLevel.SubClass.KodeProduksi[0]));
@@ -51,6 +50,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         private void InitQueue(List<ObjectData> _list)
         {
             _view.cases.csv_cases = _list;
+            Debug.Log(_list.Count);
             _model.SetCaseList(_list);
             SetupGameplay();
         }

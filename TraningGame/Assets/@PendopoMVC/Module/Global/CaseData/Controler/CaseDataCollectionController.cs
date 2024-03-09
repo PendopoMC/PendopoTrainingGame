@@ -68,7 +68,7 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
 
                     foreach (var item in QCLevelData)
                     {
-                        if (item.Key == "rule" || item.Key == "QC_ID_Start" || item.Key == "QC_ID_End" || item.Key == "Date")
+                        if (item.Key == "rule" || item.Key == "QC_ID_Start" || item.Key == "QC_ID_End")
                         {
                             newLevel.SetValueByName(item.Key, QCLevelData[item.Key][i]);
                         }
