@@ -1,0 +1,4 @@
+Maybe use some load and de-load segment
+GC is your enemy, cache it and modify later
+Always take look at profiling
+Just make it and refactor later

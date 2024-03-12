@@ -13,6 +13,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             Subscribe<GameOverMessage>(_queueSystem.Gameover);
             Subscribe<RotateMessage>(_queueSystem.RotateObject);
             Subscribe<ResetRotateMessage>(_queueSystem.ResetRotation);
+            Subscribe<RequestObjectCallback>(_queueSystem.RequestObjectViewCallback);
         }
 
         protected override void Disconnect()
@@ -23,6 +24,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             Unsubscribe<GameOverMessage>(_queueSystem.Gameover);
             Subscribe<RotateMessage>(_queueSystem.RotateObject);
             Subscribe<ResetRotateMessage>(_queueSystem.ResetRotation);
+            Subscribe<RequestObjectCallback>(_queueSystem.RequestObjectViewCallback);
         }
     }
 }

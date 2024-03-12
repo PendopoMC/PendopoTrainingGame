@@ -9,6 +9,7 @@ using Pendopo.TraningGame.Module.ApproveDeny;
 using Pendopo.TraningGame.Module.CameraHandler;
 using Pendopo.TraningGame.Module.Rotate;
 using Pendopo.TraningGame.Module.TimeAttack;
+using Pendopo.TraningGame.Module.ObjectPool;
 
 namespace Pendopo.TraningGame.Scene.Gameplay
 {
@@ -24,5 +25,6 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         public GUI_ProductionCodeView productionCodeView;
         public GUI_DateView dateView;
         public GUI_WarningCheckView warningCheckView;
+        public ObjectPoolerview objectPoolerview;
     }
 }

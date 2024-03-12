@@ -22,6 +22,8 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
             GetAllQCCase();
             GetAllQCLevelCase();
             Debug.Log("Load all CSV data");
+
+            Publish<RequestPopulatePool>(new RequestPopulatePool());
         }
         private void GetAllQCCase()
         {

@@ -15,6 +15,8 @@ using Pendopo.TraningGame.Module.CameraHandler;
 using Pendopo.TraningGame.Module.Rotate;
 using Pendopo.TraningGame.Module.WarningCheck;
 using Pendopo.TraningGame.Module.TimeAttack;
+using Pendopo.TraningGame.Module.ObjectPool;
+
 
 namespace Pendopo.TraningGame.Scene.Gameplay
 {
@@ -30,6 +32,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         GUI_ProductionCodeController productionCodeController;
         GUI_WarningCheckController warningCheckController;
         GUI_MissionController missionController;
+        ObjectPoolerController poolerController;
 
         public override string SceneName { get { return GameScene.GamePlay; } }
 
@@ -44,7 +47,8 @@ namespace Pendopo.TraningGame.Scene.Gameplay
                 new GUI_DateConnector(),
                 new GUI_ProductionCodeConnector(),
                 new GUI_WarningCheckConnector(),
-                new QueueSystemConnector()
+                new QueueSystemConnector(),
+                new ObjectPoolerConnector()
 
             };
         }
@@ -62,7 +66,8 @@ namespace Pendopo.TraningGame.Scene.Gameplay
                 new GUI_MissionController(),
                 new GUI_ProductionCodeController(),
                 new GUI_WarningCheckController(),
-                 new RotateSystemController()
+                 new RotateSystemController(),
+                 new ObjectPoolerController()
             };
         }
 
@@ -78,6 +83,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
             cameraHandler.SetView(_view.cameraHandler);
             rotateHandler.SetView(_view.rotateHandler);
             timeAttackHandler.SetView(_view.timeAttackHandler);
+            poolerController.SetView(_view.objectPoolerview);
             yield return null;
         }
 

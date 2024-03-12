@@ -11,7 +11,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 {
     public class QueueSystemView : ObjectView<IQueueSystemModel>
     {
-        public Transform anchor;
+        public Transform tr_anchorEnd,tr_anchorSpawn,tr_andhorReject,tr_anchorApprove;
         public SO_CaseColleciton cases;
         public ObjectData currentCase;
         private UnityAction onTry;
@@ -22,6 +22,11 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         protected override void UpdateRenderModel(IQueueSystemModel model)
         {
         }
+        /// <summary>
+        /// Change to use ObjectPool
+        /// </summary>
+        /// <param name="_prefabName"></param>
+        /// <returns></returns>
         public GameObjectView ObjectView(string _prefabName)
         {
             GameObjectView _obj = Instantiate(Resources.Load(_prefabName,typeof(GameObjectView)) as GameObjectView, transform);

@@ -11,7 +11,7 @@ namespace Pendopo.TraningGame.Module.Object
         {
 
         }
-        public GameObjectModel(ObjectData _data)
+        public void Setdata(ObjectData _data)
         {
             data = _data;
         }
@@ -19,6 +19,6 @@ namespace Pendopo.TraningGame.Module.Object
 
         public List<PointClickController> pointClickControllers = new List<PointClickController>();
 
-        public ObjectData data { get; }
+        public ObjectData data { get; private set; }
     }
 }

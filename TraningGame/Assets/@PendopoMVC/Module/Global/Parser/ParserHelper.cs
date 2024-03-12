@@ -18,7 +18,6 @@ namespace Pendopo.Core.Parser
 
             bool withinQuotes = false;
             StringBuilder currentField = new StringBuilder();
-            Debug.Log(line);
             for (int i = 0; i < line.Length; i++)
             {
                 char c = line[i];
