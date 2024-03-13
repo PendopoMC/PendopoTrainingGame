@@ -45,8 +45,6 @@ namespace Pendopo.TraningGame.Module.ObjectPool
                     _model.dictPool[_view.objectPrefabs[i].name].Push(_objView);
                 }
             }
-            //Change this to use CaseDataCollectionController
-            Publish<RequestCaseQueue>(new RequestCaseQueue());
         }
     }
 

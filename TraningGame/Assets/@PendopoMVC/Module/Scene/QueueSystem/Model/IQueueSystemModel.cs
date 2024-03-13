@@ -11,9 +11,14 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         public GameObjectController currentObject { get; }
         public ObjectData currentCaseObject { get; }
         public int caseIndex { get; }
-        public Transform anchorPos { get; }
+        public Transform tr_anchorEnd { get; }
+        public Transform tr_anchorSpawn { get; }
+        public Transform  tr_andhorReject{ get; }
+        public Transform  tr_anchorApprove { get; }
         public List<ObjectData> caseObjectList { get; }
-        public GameObject currentGameObject { get; }
+        public GameObjectView currentGameObject { get; }
         public LevelCase currentCase { get; }
+
+        public bool isQueueing { get; }
     }
 }

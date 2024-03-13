@@ -16,51 +16,14 @@ namespace Pendopo.TraningGame.Module.Object
             _model = model;
             ObjectData _data = _model.data;
             SetView(view);
-            for (int i = 0; i < view.pointClickViews.Length; i++)
-            {
-                PointClickController _pcC = new PointClickController();
-                PointClickModel _pcModel = new PointClickModel();
-                InjectDependencies(_pcC);
-                switch (view.pointClickViews[i].checkType)
-                {
-                    case CheckType.Package:
-                        break;
-                    case CheckType.EXP:
-                        break;
-                    case CheckType.komposisiInd:
-                        break;
-                    case CheckType.komposisiEng:
-                        break;
-                    case CheckType.berat:
-                        break;
-                    case CheckType.logoHalal:
-                        break;
-                    case CheckType.contact:
-                        break;
-                    case CheckType.kodeProduksi:
-                        break;
-                    case CheckType.barCode:
-                        break;
-                    case CheckType.QRCode:
-                        break;
-                    case CheckType.seal:
-                        break;
-                    case CheckType.sedotan:
-                        break;
-                    case CheckType.logoRecycle:
-                        break;
-                    case CheckType.rasa:
-                        break;
-                    case CheckType.rasaGambar:
-                        break;
-                    case CheckType.logoPilihan:
-                        break;
-                    case CheckType.peringatan:
-                        break;
-                    case CheckType.nutritionFact:
-                        break;
-                }
-            }
+
+            ///For now this code was not used due to all button that attached to object only have one task : Sugest player to open Rule Book
+            //for (int i = 0; i < view.pointClickViews.Length; i++)
+            //{
+            //    PointClickController _pcC = new PointClickController();
+            //    PointClickModel _pcModel = new PointClickModel();
+            //    InjectDependencies(_pcC);   
+            //}
         }
 
 
@@ -75,6 +38,10 @@ namespace Pendopo.TraningGame.Module.Object
         {
             _view.transform.eulerAngles = Vector3.down * 30f;
         }
-
+        public void SetupReturn()
+        {
+            _view.gameObject.SetActive(false);
+            _view.transform.eulerAngles = Vector3.down * 30f;
+        }
     }
 }

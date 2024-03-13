@@ -39,6 +39,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         protected override IConnector[] GetSceneConnectors()
         {
             return new IConnector[] {
+                new ObjectPoolerConnector(),
                 new GUI_MassCheckConnector(),
                 new CheckSystemConnector(),
                 new CameraHandlerConnector(),
@@ -47,8 +48,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
                 new GUI_DateConnector(),
                 new GUI_ProductionCodeConnector(),
                 new GUI_WarningCheckConnector(),
-                new QueueSystemConnector(),
-                new ObjectPoolerConnector()
+                new QueueSystemConnector()
 
             };
         }
@@ -56,6 +56,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         protected override IController[] GetSceneDependencies()
         {
             return new IController[] {
+                 new ObjectPoolerController(),
                new GUI_MassCheckController(),
                 new ApproveDenyController(),
                 new CheckSystemController(),
@@ -66,14 +67,14 @@ namespace Pendopo.TraningGame.Scene.Gameplay
                 new GUI_MissionController(),
                 new GUI_ProductionCodeController(),
                 new GUI_WarningCheckController(),
-                 new RotateSystemController(),
-                 new ObjectPoolerController()
+                 new RotateSystemController()
             };
         }
 
         protected override IEnumerator InitSceneObject()
         {
             dateController.SetView(_view.dateView);
+            poolerController.SetView(_view.objectPoolerview);
             warningCheckController.SetView(_view.warningCheckView);
             missionController.SetView(_view.missionView);
             productionCodeController.SetView(_view.productionCodeView);
@@ -83,7 +84,6 @@ namespace Pendopo.TraningGame.Scene.Gameplay
             cameraHandler.SetView(_view.cameraHandler);
             rotateHandler.SetView(_view.rotateHandler);
             timeAttackHandler.SetView(_view.timeAttackHandler);
-            poolerController.SetView(_view.objectPoolerview);
             yield return null;
         }
 

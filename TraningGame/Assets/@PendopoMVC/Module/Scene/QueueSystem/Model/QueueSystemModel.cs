@@ -14,15 +14,24 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 
         public ObjectData currentCaseObject { get; set; }
 
-        public Transform anchorPos { get; private set; }
 
-        public GameObject currentGameObject { get; private set; }
+        public GameObjectView currentGameObject { get; private set; }
 
         public List<ObjectData> caseObjectList { get; set; }
 
         public LevelCase currentCase { get; private set; }
 
-        public void SetCurrentObject(GameObjectController _goC,GameObject _go)
+        public Transform tr_anchorEnd { get; private set; }
+
+        public Transform tr_anchorSpawn { get; private set; }
+
+        public Transform tr_andhorReject { get; private set; }
+
+        public Transform tr_anchorApprove { get; private set; }
+
+        public bool isQueueing { get; set; }
+
+        public void SetCurrentObject(GameObjectController _goC, GameObjectView _go)
         {
             
             currentObject = _goC;
@@ -30,9 +39,12 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         }
 
 
-        public void SetAnchor(Transform _anchor)
+        public void SetAnchor(Transform _anchorEnd, Transform _anchorSpawn, Transform _anchorReject, Transform _anchorApprove)
         {
-            anchorPos = _anchor;
+            tr_anchorEnd = _anchorEnd;
+            tr_anchorSpawn = _anchorSpawn;
+            tr_andhorReject = _anchorReject;
+            tr_anchorApprove = _anchorApprove;
         }
         public void SetCaseList(List<ObjectData> _item)
         {
