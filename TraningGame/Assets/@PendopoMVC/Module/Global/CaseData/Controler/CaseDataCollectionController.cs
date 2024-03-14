@@ -7,6 +7,7 @@ using Pendopo.TraningGame.Utils.Data;
 using Pendopo.TraningGame.Message;
 using Pendopo.Core.Parser;
 using Pendopo.Core.Helper;
+using Pendopo.TraningGame.Global.ProgressionData;
 namespace Pendopo.TraningGame.Global.CaseDataCollection
 {
 
@@ -16,6 +17,7 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
         int dataLenght;
         private Dictionary<string, List<string>> QCData = new Dictionary<string, List<string>>();
         private Dictionary<string, List<string>> QCLevelData = new Dictionary<string, List<string>>();
+        private ProgressionDataController dataController;
         public override IEnumerator Initialize()
         {
             yield return base.Initialize();
@@ -91,14 +93,14 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
             List<ObjectData> _cases = new List<ObjectData>();
 
             //Adding all the data
-            for (int i = _model.csv_level[_model.currentLevel].QC_ID_StartValue; i < _model.csv_level[_model.currentLevel].QC_ID_EndValue; i++)
+            for (int i = _model.csv_level[dataController.Model.progress.levelId].QC_ID_StartValue; i < _model.csv_level[dataController.Model.progress.levelId].QC_ID_EndValue; i++)
             {
                 _cases.Add(_model.csv_cases[i]);
             }
 
             Shuffler.Shuffle<ObjectData>(_cases);
             callback.caseCollection = _cases;
-            callback.caseLevel =  _model.csv_level[_model.currentLevel];
+            callback.caseLevel =  _model.csv_level[dataController.Model.progress.levelId];
             Publish<RequestCaseQueueCallback>(callback);
 
         }

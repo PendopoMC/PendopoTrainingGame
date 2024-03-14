@@ -9,6 +9,5 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
         public List<ObjectData> csv_cases = new List<ObjectData>();
         public List<LevelCase> csv_level = new List<LevelCase>();
         public LevelCase currentLevelCase;
-        public int currentLevel = 0;
     }
 }

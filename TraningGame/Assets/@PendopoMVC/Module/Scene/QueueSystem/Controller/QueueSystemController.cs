@@ -24,15 +24,27 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         RequestReturnObject requestReturn;
         SetMassMessage massMessage;
         StartTimeAttack startTimeAttackMessage;
+        SetWarningMessage warningMessage;
+        AddProgressionAprrove progressionAprrove;
+        AddProgressionCount progressionCount;
+        AddProgressionReject progressionReject;
+        public override IEnumerator Initialize()
+        {
+            yield return base.Initialize();
+            requestReturn = new RequestReturnObject();
+            requestObject = new RequestObject();
+            startTimeAttackMessage = new StartTimeAttack();
+            massMessage = new SetMassMessage();
+            warningMessage = new SetWarningMessage();
+            progressionAprrove = new AddProgressionAprrove();
+            progressionCount = new AddProgressionCount();
+            progressionReject = new AddProgressionReject();
+        }
         public override void SetView(QueueSystemView view)
         {
             base.SetView(view);
             objModel = new GameObjectModel();
             goC = new GameObjectController();
-            requestReturn = new RequestReturnObject();
-            requestObject = new RequestObject();
-            startTimeAttackMessage = new StartTimeAttack();
-            massMessage = new SetMassMessage();
             _model.SetAnchor(_view.tr_anchorEnd, _view.tr_anchorSpawn, _view.tr_andhorReject, _view.tr_anchorApprove);
             _view.SetCallback(delegate { Publish<StartPlayMessage>(new StartPlayMessage()); });
 
@@ -76,14 +88,20 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         public void OnApprove(ApproveMessage _message)
         {
             if (_model.isQueueing) return;
-            Debug.Log(!_model.currentCaseObject.finalAssesment ? "You Approve something Wrong" : "You Approve right");
+            //Debug.Log(!_model.currentCaseObject.finalAssesment ? "You Approve something Wrong" : "You Approve right");
+            warningMessage.data = !_model.currentCaseObject.finalAssesment ? "You Approve something Wrong" : "You Approve right";
+            Publish<SetWarningMessage>(warningMessage);
+            Publish<AddProgressionAprrove>(progressionAprrove);
             _view.StartCoroutine(MoveToTargetPosiution(_model.tr_anchorApprove.position, delegate { SetupGameplay(); }));
         }
 
         public void OnDenied(DeniedMessage _message)
         {
             if (_model.isQueueing) return;
-            Debug.Log(_model.currentCaseObject.finalAssesment ? "You Denied something Right" : "You Deny right");
+            //Debug.Log(_model.currentCaseObject.finalAssesment ? "You Denied something Right" : "You Deny right");
+            warningMessage.data = _model.currentCaseObject.finalAssesment ? "You Denied something Right" : "You Deny right";
+            Publish<SetWarningMessage>(warningMessage);
+            Publish<AddProgressionReject>(progressionReject);
             _view.StartCoroutine(MoveToTargetPosiution(_model.tr_andhorReject.position,  delegate { SetupGameplay(); }));
         }
 

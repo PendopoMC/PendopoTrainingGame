@@ -8,13 +8,13 @@ namespace Pendopo.TraningGame.Module.WarningCheck
         GUI_WarningCheckController _control;
         protected override void Connect()
         {
-            Subscribe<SetIngredientMessage>(_control.SetMessage);
+            Subscribe<SetWarningMessage>(_control.SetMessage);
             //Subscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
         }
 
         protected override void Disconnect()
         {
-            Unsubscribe<SetIngredientMessage>(_control.SetMessage);
+            Unsubscribe<SetWarningMessage>(_control.SetMessage);
             //Unsubscribe<PointClick_IngredientMessage>(_control.OnOpenGUI);
         }
     }
