@@ -5,47 +5,24 @@ using UnityEngine.UI;
 using Agate.MVC.Base;
 using Agate.MVC.Core;
 using Pendopo.TraningGame.Message;
-using TMPro;
+using Pendopo.TraningGame.Global.ProgressionData;
 
 namespace Pendopo.TraningGame.Module.GUIResult
 {
 
-    public class GUI_ResultController : ObjectController<GUI_ResultController,GUI_ResultModel,IGUI_ResultModel,GUI_ResultView>
+    public class GUI_ResultController : ObjectController<GUI_ResultController,GUI_ResultView>
     {
-        public void ShowResult()
+        private ProgressionDataController progressionData;
+        private int finalScore;
+        private Progress progress;
+        public void ShowResult(ShowResult _result)
         {
-            
+            progress = progressionData.Model.progress;
+            finalScore = (progress.totalApproved * _view.multiplication) - (progress.totalRejected * _view.multiplication);
+            //Get from data progression
+            _view.UpdateScore(progress.totalProductQC, progress.totalProductQC * _view.multiplication,
+                progress.totalApproved, progress.totalApproved * _view.multiplication, progress.totalRejected, progress.totalRejected * _view.multiplication, finalScore);
+            Publish<SetScore>(new SetScore { score = finalScore });
         }
-    }
-    public class GUI_ResultView : ObjectView<IGUI_ResultModel>
-    {
-        public TextMeshProUGUI t_allProduct, t_productCount, t_productScore;
-        public TextMeshProUGUI t_approve, t_approveCount, t_approveScore;
-        public TextMeshProUGUI t_deny, t_denyCount, t_denyScore;
-        public TextMeshProUGUI t_totalScore;
-
-        protected override void InitRenderModel(IGUI_ResultModel model)
-        {
-        }
-
-        protected override void UpdateRenderModel(IGUI_ResultModel model)
-        {
-        }
-    }
-    public class GUI_ResultConnector : BaseConnector
-    {
-        protected override void Connect()
-        {
-        }
-
-        protected override void Disconnect()
-        {
-        }
-    }
-    public class GUI_ResultModel : BaseModel,IGUI_ResultModel
-    {
-    }
-    public interface IGUI_ResultModel: IBaseModel
-    {
     }
 }

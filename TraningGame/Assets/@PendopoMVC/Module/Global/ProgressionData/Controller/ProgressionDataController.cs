@@ -31,7 +31,10 @@ namespace Pendopo.TraningGame.Global.ProgressionData
         {
             _model.ResetProgress();
         }
-
+        public void AddScore(SetScore _message)
+        {
+            _model.SetScore(_message.score);
+        }
     }
 
 }
