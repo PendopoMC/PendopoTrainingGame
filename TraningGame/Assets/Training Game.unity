@@ -186,6 +186,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_3D_KotakSusu_Good
       objectReference: {fileID: 0}
+    - target: {fileID: 6355638107682619775, guid: a73ec4a784e080943a7ac1758f0b085d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d3f862676e12cba4ba0c673744e89fd1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
