@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1796ea29528c3094da852346f8cfffe2
+guid: 879d6f859d013e641ad8198fff74293d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -14,6 +14,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: 115_KompInd_Good_Stroberi
     second: {fileID: 2100000, guid: 51a7af42bbdc8064881abcda3921c0f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 115_SedotanPlastik_Psd
+    second: {fileID: 2100000, guid: 8454fbb0fd74d274995a7317302b7bd2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -78,7 +83,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Vanila 115 ml
-    second: {fileID: 2100000, guid: c0ba8437638c81f4ca59c546f89b7603, type: 2}
+    second: {fileID: 2100000, guid: d3f862676e12cba4ba0c673744e89fd1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
