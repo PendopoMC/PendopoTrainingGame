@@ -88,6 +88,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         public void OnApprove(ApproveMessage _message)
         {
             if (_model.isQueueing) return;
+            Model.currentObject.ResetRotation();
             //Debug.Log(!_model.currentCaseObject.finalAssesment ? "You Approve something Wrong" : "You Approve right");
             warningMessage.data = !_model.currentCaseObject.finalAssesment ? "You Approve something Wrong" : "You Approve right";
             Publish<SetWarningMessage>(warningMessage);
@@ -98,6 +99,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         public void OnDenied(DeniedMessage _message)
         {
             if (_model.isQueueing) return;
+            Model.currentObject.ResetRotation();
             //Debug.Log(_model.currentCaseObject.finalAssesment ? "You Denied something Right" : "You Deny right");
             warningMessage.data = _model.currentCaseObject.finalAssesment ? "You Denied something Right" : "You Deny right";
             Publish<SetWarningMessage>(warningMessage);
@@ -141,7 +143,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             _model.currentGameObject.gameObject.transform.position = _model.tr_anchorSpawn.position;
 
             ////Set Mass to check
-            massMessage.data = _model.currentCaseObject.Berat;
+            massMessage.data = _model.currentCaseObject.Berat.Split("_")[0];
             Publish<SetMassMessage>(massMessage);
             _view.StartCoroutine(MoveToTargetPosiution(_model.tr_anchorEnd.position));
         }

@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using Agate.MVC.Base;
 using Pendopo.TraningGame.Module.Object;
-
+using UnityEngine;
 namespace Pendopo.TraningGame.Module.ObjectPool
 {
     public class ObjectPoolerModel : BaseModel, IObjectPoolerModel
@@ -35,6 +36,7 @@ namespace Pendopo.TraningGame.Module.ObjectPool
                     return _objPooled;
                 }
             }
+            UnityEngine.Debug.LogError($"Return Null, No Prefab: {_prefabName}");
             return _objPooled;
         }
 

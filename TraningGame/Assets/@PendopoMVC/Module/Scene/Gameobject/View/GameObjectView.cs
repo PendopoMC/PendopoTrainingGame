@@ -10,6 +10,7 @@ namespace Pendopo.TraningGame.Module.Object
     public class GameObjectView : ObjectView<IGameObjectModel>
     {
         public PointClickView[] pointClickViews;
+        public Rigidbody rb;
         protected override void InitRenderModel(IGameObjectModel model)
         {
            

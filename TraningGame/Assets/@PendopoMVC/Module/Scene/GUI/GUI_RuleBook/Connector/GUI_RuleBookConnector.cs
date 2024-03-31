@@ -7,12 +7,10 @@ namespace Pendopo.TraningGame.Module.GUIRuleBook
         GUI_RuleBookController controller;
         protected override void Connect()
         {
-            Subscribe<MissionCallbackMessage>(controller.MissionCallback);
         }
 
         protected override void Disconnect()
         {
-            Unsubscribe<MissionCallbackMessage>(controller.MissionCallback);
         }
     }
 }

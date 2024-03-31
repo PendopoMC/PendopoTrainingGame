@@ -1,15 +1,33 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using Agate.MVC.Base;
 using TMPro;
 namespace Pendopo.TraningGame.Module.GUIRuleBook
 {
     public class GUI_RuleBookView : BaseView
     {
-        [SerializeField] private TextMeshProUGUI t_package;
+        [SerializeField] private GameObject hud;
+        public GameObject[] pages;
+        UnityAction nextAction, prevAction;
 
-        internal void SetTextMission(string _mission)
+        public void AssignListner(UnityAction nextAction, UnityAction prevAction)
         {
-            t_package.SetText(_mission);
+            this.nextAction = nextAction;
+            this.prevAction = prevAction;
+        }
+        public void Next()
+        {
+            nextAction?.Invoke();
+        }
+
+        public void Previous()
+        {
+            prevAction?.Invoke();
+        }
+
+        public void OpenHUD()
+        {
+            hud.SetActive(!hud.activeInHierarchy);
         }
     }
 }

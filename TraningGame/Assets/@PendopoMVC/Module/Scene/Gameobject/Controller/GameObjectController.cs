@@ -16,14 +16,7 @@ namespace Pendopo.TraningGame.Module.Object
             _model = model;
             ObjectData _data = _model.data;
             SetView(view);
-
-            ///For now this code was not used due to all button that attached to object only have one task : Sugest player to open Rule Book
-            //for (int i = 0; i < view.pointClickViews.Length; i++)
-            //{
-            //    PointClickController _pcC = new PointClickController();
-            //    PointClickModel _pcModel = new PointClickModel();
-            //    InjectDependencies(_pcC);   
-            //}
+            _model.SetRigidBody(view.rb);
         }
 
 
@@ -35,6 +28,11 @@ namespace Pendopo.TraningGame.Module.Object
             _view.transform.Rotate(rotationAxis, rotationAmount,Space.World);
         }
         public void ResetRotation(ResetRotateMessage _mesage)
+        {
+            _view.transform.eulerAngles = Vector3.down * 30f;
+        } 
+        
+        public void ResetRotation()
         {
             _view.transform.eulerAngles = Vector3.down * 30f;
         }
