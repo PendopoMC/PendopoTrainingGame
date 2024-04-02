@@ -15,6 +15,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         public Transform tr_anchorSpawn { get; }
         public Transform  tr_andhorReject{ get; }
         public Transform  tr_anchorApprove { get; }
+        public Transform  tr_anchorPickUp { get; }
         public List<ObjectData> caseObjectList { get; }
         public GameObjectView currentGameObject { get; }
         public LevelCase currentCase { get; }

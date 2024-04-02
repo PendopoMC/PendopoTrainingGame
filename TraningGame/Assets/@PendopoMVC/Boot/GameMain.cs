@@ -4,6 +4,7 @@ using Agate.MVC.Core;
 using Agate.MVC.Base;
 using Pendopo.TraningGame.Global.CaseDataCollection;
 using Pendopo.TraningGame.Global.ProgressionData;
+using Pendopo.TraningGame.Global.TextureDataCollection;
 namespace Pendopo.TraningGame.Boot
 {
     public class GameMain : BaseMain<GameMain>, IMain
@@ -13,6 +14,7 @@ namespace Pendopo.TraningGame.Boot
             return new IConnector[]
             {
             new ProgressionDataConnector(),
+            new TextureDataCollectionConnector(),
             new CaseDataCollectionConnector()
             };
         }
@@ -22,6 +24,7 @@ namespace Pendopo.TraningGame.Boot
             return new IController[]
             {
             new ProgressionDataController(),
+            new TextureDataCollectionController(),
             new CaseDataCollectionController()
             };
         }

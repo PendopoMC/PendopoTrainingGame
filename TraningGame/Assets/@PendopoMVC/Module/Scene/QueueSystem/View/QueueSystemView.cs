@@ -11,7 +11,8 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 {
     public class QueueSystemView : ObjectView<IQueueSystemModel>
     {
-        public Transform tr_anchorEnd,tr_anchorSpawn,tr_andhorReject,tr_anchorApprove;
+        public float conveyerSpeed, pickupSpeed;
+        public Transform tr_anchorEnd,tr_anchorSpawn,tr_anchorPick,tr_andhorReject,tr_anchorApprove;
         public SO_CaseColleciton cases;
         public ObjectData currentCase;
         private UnityAction onTry;

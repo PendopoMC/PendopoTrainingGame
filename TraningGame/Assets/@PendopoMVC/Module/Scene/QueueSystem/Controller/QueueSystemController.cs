@@ -18,7 +18,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
     /// </summary>
     public class QueueSystemController : ObjectController<QueueSystemController, QueueSystemModel, IQueueSystemModel, QueueSystemView>
     {
-        GameObjectModel objModel;
+        //GameObjectModel objModel;
         GameObjectController goC;
         RequestObject requestObject;
         RequestReturnObject requestReturn;
@@ -43,9 +43,9 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         public override void SetView(QueueSystemView view)
         {
             base.SetView(view);
-            objModel = new GameObjectModel();
+            //objModel = new GameObjectModel();
             goC = new GameObjectController();
-            _model.SetAnchor(_view.tr_anchorEnd, _view.tr_anchorSpawn, _view.tr_andhorReject, _view.tr_anchorApprove);
+            _model.SetAnchor(_view.tr_anchorEnd, _view.tr_anchorSpawn,_view.tr_anchorPick, _view.tr_andhorReject, _view.tr_anchorApprove);
             _view.SetCallback(delegate { Publish<StartPlayMessage>(new StartPlayMessage()); });
 
             //Change this to use CaseDataCollectionController
@@ -88,23 +88,31 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         public void OnApprove(ApproveMessage _message)
         {
             if (_model.isQueueing) return;
-            Model.currentObject.ResetRotation();
-            //Debug.Log(!_model.currentCaseObject.finalAssesment ? "You Approve something Wrong" : "You Approve right");
-            warningMessage.data = !_model.currentCaseObject.finalAssesment ? "You Approve something Wrong" : "You Approve right";
-            Publish<SetWarningMessage>(warningMessage);
-            Publish<AddProgressionAprrove>(progressionAprrove);
-            _view.StartCoroutine(MoveToTargetPosiution(_model.tr_anchorApprove.position, delegate { SetupGameplay(); }));
+            Model.currentObject.ResetRotation(); 
+            
+            _view.StartCoroutine(MoveToTargetPosiution(_model.tr_anchorEnd.position, _view.pickupSpeed, delegate {
+                //Debug.Log(!_model.currentCaseObject.finalAssesment ? "You Approve something Wrong" : "You Approve right");
+                warningMessage.data = !_model.currentCaseObject.finalAssesment ? "You Approve something Wrong" : "You Approve right";
+                Publish<SetWarningMessage>(warningMessage);
+                Publish<AddProgressionAprrove>(progressionAprrove);
+                _view.StartCoroutine(MoveToTargetPosiution(_model.tr_anchorApprove.position, _view.conveyerSpeed, delegate { SetupGameplay(); }));
+            }));
+
         }
 
         public void OnDenied(DeniedMessage _message)
         {
             if (_model.isQueueing) return;
             Model.currentObject.ResetRotation();
-            //Debug.Log(_model.currentCaseObject.finalAssesment ? "You Denied something Right" : "You Deny right");
-            warningMessage.data = _model.currentCaseObject.finalAssesment ? "You Denied something Right" : "You Deny right";
-            Publish<SetWarningMessage>(warningMessage);
-            Publish<AddProgressionReject>(progressionReject);
-            _view.StartCoroutine(MoveToTargetPosiution(_model.tr_andhorReject.position,  delegate { SetupGameplay(); }));
+
+            _view.StartCoroutine(MoveToTargetPosiution(_model.tr_anchorEnd.position, _view.pickupSpeed, delegate {
+                //Debug.Log(_model.currentCaseObject.finalAssesment ? "You Denied something Right" : "You Deny right");
+                warningMessage.data = _model.currentCaseObject.finalAssesment ? "You Denied something Right" : "You Deny right";
+                Publish<SetWarningMessage>(warningMessage);
+                Publish<AddProgressionReject>(progressionReject);
+                _view.StartCoroutine(MoveToTargetPosiution(_model.tr_andhorReject.position, _view.conveyerSpeed, delegate { SetupGameplay(); }));
+            }));
+     
         }
 
         private void SetupGameplay()
@@ -136,16 +144,16 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         {
             //Request Object pool to spawn Object But for now just spawn it
             //Instantiate Queue
-            objModel.Setdata(Model.currentCaseObject);
+            //objModel.Setdata();
             InjectDependencies(goC);
-            goC.Init(objModel, _objectViewRequested);
+            goC.Init(Model.currentCaseObject, _objectViewRequested);
             _model.SetCurrentObject(goC, _objectViewRequested);
             _model.currentGameObject.gameObject.transform.position = _model.tr_anchorSpawn.position;
 
             ////Set Mass to check
             massMessage.data = _model.currentCaseObject.Berat.Split("_")[0];
             Publish<SetMassMessage>(massMessage);
-            _view.StartCoroutine(MoveToTargetPosiution(_model.tr_anchorEnd.position));
+            _view.StartCoroutine(MoveToTargetPosiution(_model.tr_anchorEnd.position,_view.conveyerSpeed, delegate { _view.StartCoroutine(MoveToTargetPosiution(_model.tr_anchorPickUp.position, _view.pickupSpeed)); }));
         }
 
         public void RotateObject(RotateMessage _message)
@@ -159,13 +167,16 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             Model.currentObject.ResetRotation(_mesage);
         }
 
-        IEnumerator MoveToTargetPosiution(Vector3 _endPos,UnityAction _doAfter=null)
+        IEnumerator MoveToTargetPosiution(Vector3 _endPos,float _speed,UnityAction _doAfter=null)
         {
             _model.isQueueing = true;
-            _model.currentGameObject.gameObject.transform.DOMove(_endPos, 3f);
-            yield return new WaitForSeconds(3f);
-            _model.isQueueing = false;
+            _model.currentGameObject.gameObject.transform.DOMove(_endPos, _speed);
+            yield return new WaitForSeconds(_speed);
             _doAfter?.Invoke();
+            if(_doAfter==null)
+            {
+                _model.isQueueing = false;
+            }
         }
     }
 }

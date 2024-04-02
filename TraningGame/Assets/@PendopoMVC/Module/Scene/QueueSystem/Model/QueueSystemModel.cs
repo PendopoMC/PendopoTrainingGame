@@ -31,6 +31,8 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 
         public bool isQueueing { get; set; }
 
+        public Transform tr_anchorPickUp { get; private set; }
+
         public void SetCurrentObject(GameObjectController _goC, GameObjectView _go)
         {
             
@@ -39,12 +41,13 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         }
 
 
-        public void SetAnchor(Transform _anchorEnd, Transform _anchorSpawn, Transform _anchorReject, Transform _anchorApprove)
+        public void SetAnchor(Transform _anchorEnd, Transform _anchorSpawn, Transform _anchorPick, Transform _anchorReject, Transform _anchorApprove)
         {
             tr_anchorEnd = _anchorEnd;
             tr_anchorSpawn = _anchorSpawn;
             tr_andhorReject = _anchorReject;
             tr_anchorApprove = _anchorApprove;
+            tr_anchorPickUp = _anchorPick;
         }
         public void SetCaseList(List<ObjectData> _item)
         {

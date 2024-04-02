@@ -13,6 +13,7 @@ namespace Pendopo.TraningGame.Utils.Data
     {
         private string Package { get; set; }
         private string EXP { get; set; }
+        private string FlavorPackage { get; set; }
         private string komposisiInd { get; set; }
         private string komposisiEng { get; set; }
         private string berat { get; set; }
@@ -31,6 +32,7 @@ namespace Pendopo.TraningGame.Utils.Data
         private string peringatan { get; set; }
 
         public string PackageName;
+        public string FlavorPackageTexture;
         public string Expire;
         public string KomposisiInd;
         public string KomposisiEng;
@@ -69,6 +71,7 @@ namespace Pendopo.TraningGame.Utils.Data
             LogoPilihan = logoPilihan;
             Peringatan = peringatan;
             NutritionFact = nutritionFact;
+            FlavorPackageTexture = FlavorPackage;
         }
         public bool finalAssesment;
 

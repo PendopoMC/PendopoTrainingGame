@@ -7,5 +7,6 @@ namespace Pendopo.TraningGame.Module.Object
     {
         public ObjectData data { get; }
         public Rigidbody rb { get; }
+
     }
 }

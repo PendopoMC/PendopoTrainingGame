@@ -8,10 +8,8 @@ namespace Pendopo.TraningGame.Module.Object
 {
     public class GameObjectModel : BaseModel, IGameObjectModel
     {
-        public GameObjectModel()
-        {
+     
 
-        }
         public void Setdata(ObjectData _data)
         {
             data = _data;
@@ -21,10 +19,12 @@ namespace Pendopo.TraningGame.Module.Object
             rb= _rb;
         }
 
+      
         public List<PointClickController> pointClickControllers = new List<PointClickController>();
 
         public ObjectData data { get; private set; }
 
         public Rigidbody rb { get; private set; }
+
     }
 }

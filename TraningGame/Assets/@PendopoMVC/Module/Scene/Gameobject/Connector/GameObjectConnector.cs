@@ -9,14 +9,10 @@ namespace Pendopo.TraningGame.Module.Object
         internal GameObjectController controller;
         protected override void Connect()
         {
-            Subscribe<RotateMessage>(controller.RotateObject); 
-            Subscribe<ResetRotateMessage>(controller.ResetRotation); 
         }
 
         protected override void Disconnect()
         {
-            Unsubscribe<RotateMessage>(controller.RotateObject);
-            Unsubscribe<ResetRotateMessage>(controller.ResetRotation);
         }
 
     }

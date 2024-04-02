@@ -35,11 +35,12 @@ namespace Pendopo.TraningGame.Module.ObjectPool
             Debug.Log("Request Populate Pool");
             for (int i = 0; i < _view.objectPrefabs.Length; i++)
             {
-                _model.dictPool.Add(_view.objectPrefabs[i].name,new System.Collections.Generic.Stack<GameObjectView>());
+                _model.dictPool.Add(_view.objectPrefabs[i].name, new System.Collections.Generic.Stack<GameObjectView>());
                 for (int j = 0; j < _view.populateCount; j++)
                 {
                     GameObjectView _objView = _view.ObjectView(_view.objectPrefabs[i].name);
-                    GameObjectController _goC = new GameObjectController(); 
+                    GameObjectModel _goC = new GameObjectModel();
+                    _objView.SetModel(_goC);
                     _objView.transform.position = Vector3.zero;
                     _objView.gameObject.SetActive(false);
                     _model.dictPool[_view.objectPrefabs[i].name].Push(_objView);
