@@ -64,7 +64,9 @@ namespace Pendopo.TraningGame.Module.QueueSystem
         private void SetCase(RequestCaseQueueCallback _message)
         {
             _model.SetCase(_message.caseLevel);
+            _view.currentCase = _message.caseLevel;
             //publish to inform the mission GUI
+            Publish<SetDateMessage>(new SetDateMessage( _message.caseLevel.date));
             Publish<SetProductionCodeMessage>(new SetProductionCodeMessage ( _message.caseLevel.SubClass.KodeProduksi[0]));
             Publish<MissionCallbackMessage>(new MissionCallbackMessage { mission = _message.caseLevel.Rule });
         }
@@ -134,7 +136,6 @@ namespace Pendopo.TraningGame.Module.QueueSystem
                 Shuffler.Shuffle<ObjectData>(_model.caseObjectList);
                 _view.cases.csv_cases = _model.caseObjectList;
             }
-            _view.currentCase = _model.currentCaseObject;
 
             requestObject.prefabName = _model.currentCaseObject.PackageName;
             Publish<RequestObject>(requestObject);
@@ -158,12 +159,12 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 
         public void RotateObject(RotateMessage _message)
         {
-            if (Model.currentObject == null) return;
+            if (Model.currentObject == null || _model.isQueueing == true) return;
             Model.currentObject.RotateObject(_message);
         }
         public void ResetRotation(ResetRotateMessage _mesage)
         {
-            if (Model.currentObject == null) return;
+            if (Model.currentObject == null|| _model.isQueueing == true) return;
             Model.currentObject.ResetRotation(_mesage);
         }
 

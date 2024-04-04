@@ -9,6 +9,11 @@ namespace Pendopo.TraningGame.Message
     
     public struct SetDateMessage : ISetMessage
     {
+        public SetDateMessage(string data)
+        {
+            this.data = data;
+        }
+
         public string data { get; set; }
     }
     public struct SetActivetMassMessage : ISetActiveMessage

@@ -19,7 +19,7 @@ namespace Pendopo.TraningGame.Module.Date
         }
         public override void SetMessage<T>(T _expMessage)
         {
-            _view.SetData($"Mass : {_expMessage.data}");
+            _view.SetData($"Date : {_expMessage.data}");
         }
        
         protected override void PublishMessage()

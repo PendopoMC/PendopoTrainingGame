@@ -9,8 +9,10 @@ namespace Pendopo.TraningGame.Utils.Data
         public int QC_ID_StartValue;
         public int QC_ID_EndValue;
         public string Rule;
+        public string date;
         public CaseData SubClass;
         private string id { get; set; }
+        private string Date { get; set; }
         private string rule { get; set; }
         private string QC_ID_Start { get; set; }
         private string QC_ID_End { get; set; }
@@ -31,6 +33,7 @@ namespace Pendopo.TraningGame.Utils.Data
             Rule = rule;
             SubClass = _data;
             SubClass.Initialize();
+            date = Date;
         }
          
 
