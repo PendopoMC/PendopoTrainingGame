@@ -24,7 +24,7 @@ namespace Pendopo.TraningGame.Module.WarningCheck
 
         public override void SetMessage<T>(T _expMessage)
         {
-            _view.SetData($"Ingredients : {_expMessage.data}");
+            _view.SetData(_expMessage.data);
             _view.StartCoroutine(Delay());
         }
         

@@ -19,7 +19,7 @@ namespace Pendopo.TraningGame.Module.MassCheck
         }
         public override void SetMessage<T>(T _expMessage)
         {
-            _view.SetData($"Mass : {_expMessage.data}");
+            _view.SetData($"{_expMessage.data} ml");
         }
        
         protected override void PublishMessage()
