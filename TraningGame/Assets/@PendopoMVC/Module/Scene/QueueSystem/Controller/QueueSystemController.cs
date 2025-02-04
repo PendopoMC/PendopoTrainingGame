@@ -49,6 +49,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             _view.SetCallback(delegate { Publish<StartPlayMessage>(new StartPlayMessage()); });
 
             //Change this to use CaseDataCollectionController
+            Debug.Log("Request From Queue System Load case");
             Publish<RequestCaseQueue>(new RequestCaseQueue());
         }
 
@@ -82,7 +83,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 
         private void InitQueue(List<ObjectData> _list)
         {
-            _view.cases.csv_cases = _list;
+            //_view.cases.csv_cases = _list;
             _model.SetCaseList(_list);
             SetupGameplay();
         }
@@ -94,7 +95,8 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             
             _view.StartCoroutine(MoveToTargetPosiution(_model.tr_anchorEnd.position, _view.pickupSpeed, delegate {
                 //Debug.Log(!_model.currentCaseObject.finalAssesment ? "You Approve something Wrong" : "You Approve right");
-                warningMessage.data = !_model.currentCaseObject.finalAssesment ? "You Approve something Wrong" : "You Approve right";
+                warningMessage.data = !_model.currentCaseObject.finalAssesment ? "Your Approval is Wrong" : "Your Approval is Correct";
+                warningMessage.isCorrect = _model.currentCaseObject.finalAssesment;
                 Publish<SetWarningMessage>(warningMessage);
                 Publish<AddProgressionAprrove>(progressionAprrove);
                 _view.StartCoroutine(MoveToTargetPosiution(_model.tr_anchorApprove.position, _view.conveyerSpeed, delegate { SetupGameplay(); }));
@@ -109,7 +111,8 @@ namespace Pendopo.TraningGame.Module.QueueSystem
 
             _view.StartCoroutine(MoveToTargetPosiution(_model.tr_anchorEnd.position, _view.pickupSpeed, delegate {
                 //Debug.Log(_model.currentCaseObject.finalAssesment ? "You Denied something Right" : "You Deny right");
-                warningMessage.data = _model.currentCaseObject.finalAssesment ? "You Denied something Right" : "You Deny right";
+                warningMessage.data = _model.currentCaseObject.finalAssesment ? "Your Rejection is False" : "Your Rejection is Correct";
+                warningMessage.isCorrect = _model.currentCaseObject.finalAssesment;
                 Publish<SetWarningMessage>(warningMessage);
                 Publish<AddProgressionReject>(progressionReject);
                 _view.StartCoroutine(MoveToTargetPosiution(_model.tr_andhorReject.position, _view.conveyerSpeed, delegate { SetupGameplay(); }));
@@ -134,7 +137,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
             {
                 _model.caseIndex = 0;
                 Shuffler.Shuffle<ObjectData>(_model.caseObjectList);
-                _view.cases.csv_cases = _model.caseObjectList;
+                //_view.cases.csv_cases = _model.caseObjectList;
             }
 
             requestObject.prefabName = _model.currentCaseObject.PackageName;

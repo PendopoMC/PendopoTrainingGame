@@ -11,7 +11,7 @@ using Pendopo.TraningGame.Global.ProgressionData;
 namespace Pendopo.TraningGame.Global.CaseDataCollection
 {
 
-    public class CaseDataCollectionController : DataController<CaseDataCollectionController,CaseDataCollectionModel>
+    public class CaseDataCollectionController : ObjectController<CaseDataCollectionController,CaseDataCollectionModel, CaseDataView>
     {
         RequestCaseQueueCallback callback = new RequestCaseQueueCallback();
         int dataLenght;
@@ -21,9 +21,9 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
         public override IEnumerator Initialize()
         {
             yield return base.Initialize();
-            GetAllQCCase();
-            GetAllQCLevelCase();
-            Debug.Log("Load all CSV data");
+            //GetAllQCCase();
+            //GetAllQCLevelCase();
+            //Debug.Log("Load all CSV data");
 
             Publish<RequestPopulatePool>(new RequestPopulatePool());
         }
@@ -91,7 +91,8 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
         public void GetCaseQueue(RequestCaseQueue _requestLevelCase)
         {
             List<ObjectData> _cases = new List<ObjectData>();
-
+            _model.csv_level = _view.sO_CaseColleciton.levelQuestCollection.questLevel[_requestLevelCase.levelID].quest;
+            _model.csv_cases = _view.sO_CaseColleciton.caseCollection.casesLevel[_requestLevelCase.levelID].cases;
             //Adding all the data
             for (int i = _model.csv_level[dataController.Model.progress.levelId].QC_ID_StartValue; i < _model.csv_level[dataController.Model.progress.levelId].QC_ID_EndValue; i++)
             {
@@ -107,5 +108,4 @@ namespace Pendopo.TraningGame.Global.CaseDataCollection
 
     
     }
-
 }

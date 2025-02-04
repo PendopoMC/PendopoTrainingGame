@@ -12,6 +12,789 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02961f436e5e73498a68ea4b828f6fa, type: 3}
   m_Name: Cases Collection
   m_EditorClassIdentifier: 
-  cases: []
-  csv_cases: []
-  csv_level: []
+  CSVAssetCase:
+  - {fileID: 4900000, guid: 81237dc6011c1b64b902e6de346cb049, type: 3}
+  CSVAssetQuest:
+  - {fileID: 4900000, guid: c5b460d2a67334a479dd8e4dbb9fbef0, type: 3}
+  caseCollection:
+    casesLevel:
+    - cases:
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_03012025
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Good_Banana
+        Berat: 165_IsiBersih_165_Banana
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_030124qrtz
+        BarCode: 165_BarCode_Good_Banana
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Good
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Banana
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_165ml_Bad
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_03012025
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Good_Banana
+        Berat: 165_IsiBersih_165_Banana
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_030124qrtz
+        BarCode: 165_BarCode_Good_Banana
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Good
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Banana
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 0
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_04012024
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Good_Banana
+        Berat: 165_IsiBersih_165_Banana
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_030124qrtz
+        BarCode: 165_BarCode_Good_Banana
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Bad
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Banana
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 0
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_03012025
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Good_Banana
+        Berat: 165_IsiBersih_115_Choco
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_030124qrtz
+        BarCode: 165_BarCode_Good_Banana
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Good
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Banana
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 0
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_03012025
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Good_Banana
+        Berat: 165_IsiBersih_165_Banana
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_030124qrtz
+        BarCode: 165_BarCode_Good_Banana
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Good
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Choco
+        RasaGambar: 165_RasaGambar_Choco
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 0
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_03012025
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Good_Banana
+        Berat: 165_IsiBersih_115_Vanilla
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_030124qrtz
+        BarCode: 165_BarCode_Good_Banana
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Bad
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Banana
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 0
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_03012025
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Good_Banana
+        Berat: 165_IsiBersih_165_Banana
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_030124qrtz
+        BarCode: 165_BarCode_Good_Banana
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Good
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Banana
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_03012025
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Good_Banana
+        Berat: 165_IsiBersih_165_Banana
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_030124qrtz
+        BarCode: 165_BarCode_Good_Banana
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Good
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Banana
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_03012025
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Bad_Banana
+        Berat: 165_IsiBersih_165_Banana
+        LogoHalal: '-'
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_010124qrtz
+        BarCode: '-'
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Good
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Banana
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: '-'
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 0
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_03012025
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Good_Banana
+        Berat: 165_IsiBersih_165_Banana
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_030124qrtz
+        BarCode: 165_BarCode_Good_Banana
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Good
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Banana
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseChocolate
+        Expire: 165_Exp_04012025
+        KomposisiInd: 165_KompIndo_Good_Choco
+        KomposisiEng: 165_KompEng_Good_Choco
+        Berat: 165_IsiBersih_165_Choco
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Choco
+        KodeProduksi: 165_KodeProd_040124qwxc
+        BarCode: 165_BarCode_Good_Choco
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Bad
+        Sedotan: 165_Seal_Good
+        LogoRecycle: '-'
+        Rasa: 165_RasaNama_Choco
+        RasaGambar: 165_RasaGambar_Choco
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Choco
+        finalAssesment: 0
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_04012025
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Good_Banana
+        Berat: 165_IsiBersih_165_Banana
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_040124qwxc
+        BarCode: 165_BarCode_Good_Banana
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Good
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Banana
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_04012025
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Good_Banana
+        Berat: 165_IsiBersih_165_Banana
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_040124qwxc
+        BarCode: 165_BarCode_Good_Banana
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Good
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Banana
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_04012025
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Good_Banana
+        Berat: 165_IsiBersih_165_Banana
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_030124qrtz
+        BarCode: '-'
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Good
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Choco
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 0
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseVanilla
+        Expire: 165_Exp_04012025
+        KomposisiInd: 165_KompIndo_Good_Vanilla
+        KomposisiEng: 165_KompEng_Good_Vanilla
+        Berat: 165_IsiBersih_165_Vanilla
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Vanilla
+        KodeProduksi: 165_KodeProd_040124qwxc
+        BarCode: 165_BarCode_Good_Vanilla
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: '-'
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Choco
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Vanilla
+        finalAssesment: 0
+      - PackageName: SM_3D_KotakSusu_Good_115
+        FlavorPackageTexture: 115_BaseCokelat
+        Expire: 115_Exp_040125
+        KomposisiInd: 115_KompInd_Good_Cokelat
+        KomposisiEng: 115_KompEng_Good_Cokelat
+        Berat: 115_IsiBersihGood_Cokelat
+        LogoHalal: 115_Halal_Good
+        Contact: 115_ContactGood_Cokelat
+        KodeProduksi: 115_KodProd_040124QWXC
+        BarCode: 115_BarcodeGood_Cokelat
+        QRCodeLogo: '-'
+        Seal: 115_Seal_Good
+        Sedotan: 115_SedotanPlastik_Psd
+        LogoRecycle: 115_LogoRecycle_Good
+        Rasa: 115_RasaNama_Cokelat
+        RasaGambar: '-'
+        LogoPilihan: 115_Choice_Good
+        Peringatan: 115_WarnGood_Cokelat
+        NutritionFact: 115_NutGood_Cokelat
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_Good_115
+        FlavorPackageTexture: 115_BaseStroberi
+        Expire: 115_Exp_040125
+        KomposisiInd: 115_KompInd_Good_Stroberi
+        KomposisiEng: 115_KompEng_Good_Stroberi
+        Berat: 115_IsiBersihGood_Stroberi
+        LogoHalal: 115_Halal_Good
+        Contact: 115_ContactGood_Stroberi
+        KodeProduksi: 115_KodProd_040124QWXC
+        BarCode: 115_BarcodeGood_Stroberi
+        QRCodeLogo: '-'
+        Seal: 115_Seal_Good
+        Sedotan: 115_SedotanPlastik_Psd
+        LogoRecycle: 115_LogoRecycle_Good
+        Rasa: 115_RasaNama_Stroberi
+        RasaGambar: '-'
+        LogoPilihan: 115_Choice_Good
+        Peringatan: 115_WarnGood_Stroberi
+        NutritionFact: 115_NutGood_Stroberi
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_Good_115
+        FlavorPackageTexture: 115_BaseCokelat
+        Expire: 115_Exp_040125
+        KomposisiInd: '-'
+        KomposisiEng: 115_KompEng_Bad_Cokelat
+        Berat: 165
+        LogoHalal: 115_Halal_Good
+        Contact: 115_ContactGood_Cokelat
+        KodeProduksi: 115_KodProd_040124QWXC
+        BarCode: 115_BarcodeGood_Cokelat
+        QRCodeLogo: '-'
+        Seal: 115_Seal_Good
+        Sedotan: 115_SedotanPlastik_Psd
+        LogoRecycle: 115_LogoRecycle_Good
+        Rasa: 115_RasaNama_Cokelat
+        RasaGambar: '-'
+        LogoPilihan: 115_Choice_Bad
+        Peringatan: 115_WarnGood_Cokelat
+        NutritionFact: 115_WarnGood_Cokelat
+        finalAssesment: 0
+      - PackageName: SM_3D_KotakSusu_Good_115
+        FlavorPackageTexture: 115_BaseCokelat
+        Expire: 115_Exp_040125
+        KomposisiInd: 115_KompInd_Good_Cokelat
+        KomposisiEng: 115_KompEng_Good_Cokelat
+        Berat: 115_IsiBersihGood_Cokelat
+        LogoHalal: 115_Halal_Good
+        Contact: 115_ContactGood_Cokelat
+        KodeProduksi: 115_KodProd_040124QWXC
+        BarCode: 115_BarcodeGood_Cokelat
+        QRCodeLogo: '-'
+        Seal: 115_Seal_Good
+        Sedotan: 115_SedotanPlastik_Psd
+        LogoRecycle: 115_LogoRecycle_Good
+        Rasa: 115_RasaNama_Cokelat
+        RasaGambar: '-'
+        LogoPilihan: 115_Choice_Good
+        Peringatan: 115_WarnGood_Cokelat
+        NutritionFact: 115_NutGood_Cokelat
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_Bad_115
+        FlavorPackageTexture: 115_BaseCokelat
+        Expire: 115_Exp_030125
+        KomposisiInd: 115_KompInd_Good_Cokelat
+        KomposisiEng: 115_KompEng_Good_Cokelat
+        Berat: 115_IsiBersihGood_Cokelat
+        LogoHalal: '-'
+        Contact: 115_ContactGood_Cokelat
+        KodeProduksi: 115_KodProd_030124QRTZ
+        BarCode: 115_BarcodeGood_Cokelat
+        QRCodeLogo: '-'
+        Seal: 115_Seal_Bad
+        Sedotan: '-'
+        LogoRecycle: '-'
+        Rasa: 115_RasaNama_Cokelat
+        RasaGambar: '-'
+        LogoPilihan: 115_Choice_Good
+        Peringatan: 115_WarnBad_Cokelat
+        NutritionFact: 115_NutGood_Cokelat
+        finalAssesment: 0
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_05012025
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Good_Banana
+        Berat: 165_IsiBersih_165_Banana
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_050124rtgo
+        BarCode: 165_BarCode_Good_Banana
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 115_SedotanPlastik_Psd
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Banana
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseChocolate
+        Expire: 165_Exp_05012025
+        KomposisiInd: 165_KompIndo_Good_Choco
+        KomposisiEng: 165_KompEng_Good_Choco
+        Berat: 165_IsiBersih_165_Choco
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Choco
+        KodeProduksi: 165_KodeProd_040124qwxc
+        BarCode: 165_BarCode_Good_Choco
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 115_SedotanPlastik_Psd
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Choco
+        RasaGambar: 165_RasaGambar_Choco
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Choco
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseVanilla
+        Expire: 165_Exp_05012025
+        KomposisiInd: 165_KompIndo_Good_Vanilla
+        KomposisiEng: 165_KompEng_Good_Vanilla
+        Berat: 165_IsiBersih_165_Vanilla
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Vanilla
+        KodeProduksi: 165_KodeProd_040124qwxc
+        BarCode: 165_BarCode_Good_Vanilla
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 115_SedotanPlastik_Psd
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Vanilla
+        RasaGambar: 165_RasaGambar_Vanilla
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Vanilla
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_Good_115
+        FlavorPackageTexture: 115_BaseCokelat
+        Expire: 115_Exp_050125
+        KomposisiInd: 115_KompInd_Good_Cokelat
+        KomposisiEng: 115_KompEng_Good_Cokelat
+        Berat: 115_IsiBersihGood_Cokelat
+        LogoHalal: 115_Halal_Good
+        Contact: 115_ContactGood_Cokelat
+        KodeProduksi: 115_KodProd_050124RTGO
+        BarCode: 115_BarcodeGood_Cokelat
+        QRCodeLogo: '-'
+        Seal: 115_Seal_Good
+        Sedotan: 115_SedotanPlastik_Psd
+        LogoRecycle: 115_LogoRecycle_Good
+        Rasa: 115_RasaNama_Cokelat
+        RasaGambar: '-'
+        LogoPilihan: 115_Choice_Good
+        Peringatan: 115_WarnGood_Cokelat
+        NutritionFact: 115_NutGood_Cokelat
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_Good_115
+        FlavorPackageTexture: 115_BaseCokelat
+        Expire: 115_Exp_050125
+        KomposisiInd: 115_KompInd_Good_Cokelat
+        KomposisiEng: 115_KompEng_Good_Cokelat
+        Berat: 115_IsiBersihGood_Cokelat
+        LogoHalal: '-'
+        Contact: 115_ContactGood_Cokelat
+        KodeProduksi: 115_KodProd_050124RTGO
+        BarCode: 115_BarcodeBad_Cokelat
+        QRCodeLogo: '-'
+        Seal: 115_Seal_Good
+        Sedotan: '-'
+        LogoRecycle: 115_LogoRecycle_Good
+        Rasa: 115_RasaNama_Cokelat
+        RasaGambar: '-'
+        LogoPilihan: 115_Choice_Good
+        Peringatan: 115_WarnGood_Cokelat
+        NutritionFact: 115_NutGood_Cokelat
+        finalAssesment: 0
+      - PackageName: SM_3D_KotakSusu_Good_115
+        FlavorPackageTexture: 115_BaseCokelat
+        Expire: 115_Exp_050125
+        KomposisiInd: 115_KompInd_Good_Cokelat
+        KomposisiEng: 115_KompEng_Good_Cokelat
+        Berat: 115_IsiBersihGood_Cokelat
+        LogoHalal: 115_Halal_Good
+        Contact: 115_ContactGood_Cokelat
+        KodeProduksi: 115_KodProd_050124RTGO
+        BarCode: 115_BarcodeGood_Cokelat
+        QRCodeLogo: '-'
+        Seal: 115_Seal_Good
+        Sedotan: 115_SedotanPlastik_Psd
+        LogoRecycle: 115_LogoRecycle_Good
+        Rasa: 115_RasaNama_Cokelat
+        RasaGambar: '-'
+        LogoPilihan: 115_Choice_Good
+        Peringatan: 115_WarnGood_Cokelat
+        NutritionFact: 115_NutGood_Cokelat
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_Good_115
+        FlavorPackageTexture: 115_BaseVanila
+        Expire: 115_Exp_050125
+        KomposisiInd: 115_KompInd_Good_Vanila
+        KomposisiEng: 115_KompEng_Good_Vanila
+        Berat: 115_IsiBersihGood_Vanila
+        LogoHalal: 115_Halal_Good
+        Contact: 115_ContactGood_Vanila
+        KodeProduksi: 115_KodProd_050124RTGO
+        BarCode: 115_BarcodeGood_Vanila
+        QRCodeLogo: '-'
+        Seal: 115_Seal_Good
+        Sedotan: 115_Seal_Good
+        LogoRecycle: 115_LogoRecycle_Good
+        Rasa: 115_RasaNama_Vanila
+        RasaGambar: '-'
+        LogoPilihan: 115_Choice_Good
+        Peringatan: 115_WarnGood_Vanila
+        NutritionFact: 115_NutGood_Vanila
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseBanana
+        Expire: 165_Exp_05012025
+        KomposisiInd: 165_KompIndo_Good_Banana
+        KomposisiEng: 165_KompEng_Good_Banana
+        Berat: 165_IsiBersih_165_Banana
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Banana
+        KodeProduksi: 165_KodeProd_050124rtgo
+        BarCode: 165_BarCode_Good_Banana
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Good
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Banana
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Banana
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseChocolate
+        Expire: 165_Exp_05012025
+        KomposisiInd: 165_KompIndo_Good_Choco
+        KomposisiEng: 165_KompEng_Good_Choco
+        Berat: 165_IsiBersih_165_Choco
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Choco
+        KodeProduksi: 165_KodeProd_040124qwxc
+        BarCode: 165_BarCode_Good_Choco
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Good
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Choco
+        RasaGambar: 165_RasaGambar_Choco
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Choco
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_Good_115
+        FlavorPackageTexture: 165_BaseChocolate
+        Expire: 165_Exp_05012025
+        KomposisiInd: 165_KompIndo_Good_Choco
+        KomposisiEng: 165_KompEng_Good_Choco
+        Berat: 165_IsiBersih_165_Choco
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Choco
+        KodeProduksi: 165_KodeProd_040124qwxc
+        BarCode: 165_BarCode_Good_Choco
+        QRCodeLogo: 165_QRCode_Bad
+        Seal: 165_Seal_Bad
+        Sedotan: StrawPaperGood
+        LogoRecycle: '-'
+        Rasa: 165_RasaNama_Choco
+        RasaGambar: 165_RasaGambar_Banana
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: '-'
+        finalAssesment: 0
+      - PackageName: SM_3D_KotakSusu_165ml_Good
+        FlavorPackageTexture: 165_BaseVanilla
+        Expire: 165_Exp_05012025
+        KomposisiInd: 165_KompIndo_Good_Vanilla
+        KomposisiEng: 165_KompEng_Good_Vanilla
+        Berat: 165_IsiBersih_165_Vanilla
+        LogoHalal: 165_LogoHalal
+        Contact: 165_Contact_Vanilla
+        KodeProduksi: 165_KodeProd_040124qwxc
+        BarCode: 165_BarCode_Good_Vanilla
+        QRCodeLogo: 165_QRCode_Good
+        Seal: 165_Seal_Good
+        Sedotan: 165_SedotanPlastik_Good
+        LogoRecycle: 165_LogoRecycle
+        Rasa: 165_RasaNama_Vanilla
+        RasaGambar: 165_RasaGambar_Vanilla
+        LogoPilihan: 165_LogoPilihan_Good
+        Peringatan: 165_Peringatan_Good
+        NutritionFact: 165_Nutrition_Good_Vanilla
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_Good_115
+        FlavorPackageTexture: 115_BaseVanila
+        Expire: 115_Exp_050125
+        KomposisiInd: 115_KompInd_Good_Vanila
+        KomposisiEng: 115_KompEng_Good_Vanila
+        Berat: 115_IsiBersihGood_Vanila
+        LogoHalal: 115_Halal_Good
+        Contact: 115_ContactGood_Vanila
+        KodeProduksi: 115_KodProd_050124RTGO
+        BarCode: 115_BarcodeGood_Vanila
+        QRCodeLogo: '-'
+        Seal: 115_Seal_Good
+        Sedotan: 115_SedotanPlastik_Psd
+        LogoRecycle: 115_LogoRecycle_Good
+        Rasa: 115_RasaNama_Vanila
+        RasaGambar: '-'
+        LogoPilihan: 115_Choice_Good
+        Peringatan: 115_WarnGood_Vanila
+        NutritionFact: 115_NutGood_Vanila
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_Good_115
+        FlavorPackageTexture: 115_BaseCokelat
+        Expire: 115_Exp_050125
+        KomposisiInd: 115_KompInd_Good_Cokelat
+        KomposisiEng: 115_KompEng_Good_Cokelat
+        Berat: 115_IsiBersihGood_Cokelat
+        LogoHalal: 115_Halal_Good
+        Contact: 115_ContactGood_Cokelat
+        KodeProduksi: 115_KodProd_050124RTGO
+        BarCode: 115_BarcodeGood_Cokelat
+        QRCodeLogo: '-'
+        Seal: 115_Seal_Good
+        Sedotan: 115_SedotanPlastik_Psd
+        LogoRecycle: 115_LogoRecycle_Good
+        Rasa: 115_RasaNama_Cokelat
+        RasaGambar: '-'
+        LogoPilihan: 115_Choice_Good
+        Peringatan: 115_WarnGood_Cokelat
+        NutritionFact: 115_NutGood_Cokelat
+        finalAssesment: 1
+      - PackageName: SM_3D_KotakSusu_Good_115
+        FlavorPackageTexture: 115_BaseVanila
+        Expire: 115_Exp_050125
+        KomposisiInd: 115_KompInd_Good_Vanila
+        KomposisiEng: 115_KompEng_Good_Vanila
+        Berat: 115_IsiBersihGood_Vanila
+        LogoHalal: 115_Halal_Good
+        Contact: 115_ContactGood_Vanila
+        KodeProduksi: 115_KodProd_050124RTGO
+        BarCode: 115_BarcodeGood_Vanila
+        QRCodeLogo: '-'
+        Seal: 115_Seal_Good
+        Sedotan: 115_SedotanPlastik_Psd
+        LogoRecycle: 115_LogoRecycle_Good
+        Rasa: 115_RasaNama_Vanila
+        RasaGambar: '-'
+        LogoPilihan: 115_Choice_Good
+        Peringatan: 115_WarnGood_Vanila
+        NutritionFact: 115_NutGood_Vanila
+        finalAssesment: 1
+  levelQuestCollection:
+    questLevel:
+    - quest:
+      - ID: 0
+        QC_ID_StartValue: 0
+        QC_ID_EndValue: 9
+        Rule: 'Production Team
+
+          Hari ini adalah pengecekan susu rasa ''''Banana''''
+          dengan ukuran isi 165ml.Tidak ada produk dengan rasa dan ukuran lain untuk
+          pengecekan hari ini, pastikan bahwa semua produk yang di approve adalah
+          produk dengan kondisi baik.'
+        date: 02/0/2015
+        SubClass:
+          PackageName:
+          - Good
+          Expire:
+          - 03/01/2025
+          KomposisiInd:
+          - KompGood
+          KomposisiEng:
+          - CompGood
+          Berat:
+          - 165
+          LogoHalal:
+          - HalalGood
+          Contact:
+          - ContGood
+          KodeProduksi:
+          - 030124QRTZ
+          BarCode:
+          - BarCodeGood
+          QRCodeLogo:
+          - QRGood
+          Seal:
+          - SealGood
+          Sedotan:
+          - StrawGood
+          LogoRecycle:
+          - RecGood
+          Rasa:
+          - FlavBananaGood
+          RasaGambar:
+          - ImgBananaGood
+          LogoPilihan:
+          - ChoiceGood
+          Peringatan:
+          - WarnGood
+          NutritionFact:
+          - NutGood
+      - ID: 0
+        QC_ID_StartValue: 10
+        QC_ID_EndValue: 19
+        Rule: "Production Team\r\nHari ini adalah pengecekan susu rasa ''Banana''
+          dan ''Coklat''. \r\nRasa ''Coklat'' memiliki ukuran 180ml dan rasa ''Banana''
+          memiliki ukuran 115ml. Tidak ada produk dengan rasa dan ukuran lain untuk
+          pengecekan hari ini, pastikan bahwa semua produk yang di approve adalah
+          produk dengan kondisi baik."
+        date: 02/0/2016
+        SubClass:
+          PackageName:
+          - Good
+          Expire:
+          - 04/01/2025
+          KomposisiInd:
+          - KompGood
+          KomposisiEng:
+          - CompGood
+          Berat:
+          - 165
+          - 115
+          LogoHalal:
+          - HalalGood
+          Contact:
+          - ContGood
+          KodeProduksi:
+          - 040124QWXC
+          BarCode:
+          - BarCodeGood
+          QRCodeLogo:
+          - QRGood
+          Seal:
+          - SealGood
+          Sedotan:
+          - StrawGood
+          LogoRecycle:
+          - RecGood
+          Rasa:
+          - FlavBananaGood
+          - ' FlavChocoGood'
+          RasaGambar:
+          - ImgBananaGood
+          - ' ImgChocoGood'
+          LogoPilihan:
+          - ChoiceGood
+          Peringatan:
+          - WarnGood
+          NutritionFact:
+          - NutGood

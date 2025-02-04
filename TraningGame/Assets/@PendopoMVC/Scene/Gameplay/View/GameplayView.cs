@@ -10,6 +10,7 @@ using Pendopo.TraningGame.Module.CameraHandler;
 using Pendopo.TraningGame.Module.Rotate;
 using Pendopo.TraningGame.Module.TimeAttack;
 using Pendopo.TraningGame.Module.ObjectPool;
+using Pendopo.TraningGame.Global.CaseDataCollection;
 
 namespace Pendopo.TraningGame.Scene.Gameplay
 {
@@ -26,5 +27,6 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         public GUI_DateView dateView;
         public GUI_WarningCheckView warningCheckView;
         public ObjectPoolerview objectPoolerview;
+        public CaseDataView caseDataView;
     }
 }

@@ -24,8 +24,15 @@ namespace Pendopo.TraningGame.Module.WarningCheck
 
         public override void SetMessage<T>(T _expMessage)
         {
-            _view.SetData(_expMessage.data);
-            _view.StartCoroutine(Delay());
+            if (_expMessage is SetWarningMessage warningMessage)
+            {
+                _view.SetData(warningMessage);
+                _view.StartCoroutine(Delay());
+            }
+            else
+            {
+                Debug.LogWarning($"Received unknown message type: {typeof(T)}");
+            }
         }
         
         IEnumerator Delay()

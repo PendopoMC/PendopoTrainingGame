@@ -13,7 +13,7 @@ namespace Pendopo.TraningGame.Module.QueueSystem
     {
         public float conveyerSpeed, pickupSpeed;
         public Transform tr_anchorEnd,tr_anchorSpawn,tr_anchorPick,tr_andhorReject,tr_anchorApprove;
-        public SO_CaseColleciton cases;
+        //public SO_CaseColleciton cases;
         public LevelCase currentCase;
         private UnityAction onTry;
         protected override void InitRenderModel(IQueueSystemModel model)

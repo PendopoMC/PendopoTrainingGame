@@ -16,7 +16,7 @@ using Pendopo.TraningGame.Module.Rotate;
 using Pendopo.TraningGame.Module.WarningCheck;
 using Pendopo.TraningGame.Module.TimeAttack;
 using Pendopo.TraningGame.Module.ObjectPool;
-
+using Pendopo.TraningGame.Global.CaseDataCollection;
 
 namespace Pendopo.TraningGame.Scene.Gameplay
 {
@@ -33,12 +33,14 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         GUI_WarningCheckController warningCheckController;
         GUI_MissionController missionController;
         ObjectPoolerController poolerController;
+        CaseDataCollectionController caseDataController;
 
         public override string SceneName { get { return GameScene.GamePlay; } }
 
         protected override IConnector[] GetSceneConnectors()
         {
             return new IConnector[] {
+                new CaseDataCollectionConnector(),
                 new ObjectPoolerConnector(),
                 new GUI_MassCheckConnector(),
                 new CheckSystemConnector(),
@@ -56,6 +58,7 @@ namespace Pendopo.TraningGame.Scene.Gameplay
         protected override IController[] GetSceneDependencies()
         {
             return new IController[] {
+                  new CaseDataCollectionController(),
                  new ObjectPoolerController(),
                new GUI_MassCheckController(),
                 new ApproveDenyController(),
@@ -68,11 +71,13 @@ namespace Pendopo.TraningGame.Scene.Gameplay
                 new GUI_ProductionCodeController(),
                 new GUI_WarningCheckController(),
                  new RotateSystemController()
+               
             };
         }
 
         protected override IEnumerator InitSceneObject()
         {
+            caseDataController.SetView(_view.caseDataView);
             dateController.SetView(_view.dateView);
             poolerController.SetView(_view.objectPoolerview);
             warningCheckController.SetView(_view.warningCheckView);

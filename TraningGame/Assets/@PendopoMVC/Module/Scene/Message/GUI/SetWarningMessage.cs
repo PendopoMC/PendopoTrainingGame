@@ -5,6 +5,7 @@ namespace Pendopo.TraningGame.Message
     {
 
         public string data { get; set; }
+        public bool isCorrect { get; set; }
     }
     public struct SetActivetWarningMessage : ISetActiveMessage
     {

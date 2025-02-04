@@ -14,8 +14,8 @@ namespace Pendopo.TraningGame.Boot
             return new IConnector[]
             {
             new ProgressionDataConnector(),
-            new TextureDataCollectionConnector(),
-            new CaseDataCollectionConnector()
+            new TextureDataCollectionConnector()
+            //new CaseDataCollectionConnector()
             };
         }
 
@@ -24,8 +24,8 @@ namespace Pendopo.TraningGame.Boot
             return new IController[]
             {
             new ProgressionDataController(),
-            new TextureDataCollectionController(),
-            new CaseDataCollectionController()
+            new TextureDataCollectionController()
+            //new CaseDataCollectionController()
             };
         }
 
